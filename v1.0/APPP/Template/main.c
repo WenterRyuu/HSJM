@@ -1,0 +1,23 @@
+#include "gd32a50x.h"
+int main(void)
+{
+	nvic_vector_table_set(NVIC_VECTTAB_FLASH, 0x5000);
+	
+	RCU_REG_VAL(RCU_GPIOA) |= BIT(RCU_BIT_POS(RCU_GPIOA));
+	gpio_mode_set(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_8);
+	GPIO_BOP(GPIOA) = (uint32_t)(GPIO_PIN_8);
+
+	RCU_REG_VAL(RCU_GPIOC) |= BIT(RCU_BIT_POS(RCU_GPIOC));
+	gpio_mode_set(GPIOC, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_11);
+	GPIO_BOP(GPIOC) = (uint32_t)(GPIO_PIN_11);
+
+	RCU_REG_VAL(RCU_GPIOB) |= BIT(RCU_BIT_POS(RCU_GPIOB));
+	gpio_mode_set(GPIOB, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_3);
+	GPIO_BOP(GPIOB) = (uint32_t)(GPIO_PIN_3);	
+
+	while(1);
+	return 0;
+}
+
+
+

@@ -1,0 +1,205 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: lll sunlord lll Flex license: MDK Plus 5.36 (Flex): 3 user(s) (mdk_plus) Support: Dec 2022
+ 
+Tool Versions:
+Toolchain:       MDK Plus 5.36 (Flex): 3 user(s)  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.16
+Assembler:       Armasm.exe V6.16
+Linker/Locator:  ArmLink.exe V6.16
+Library Manager: ArmAr.exe V6.16
+Hex Converter:   FromElf.exe V6.16
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      Segger\JL2CM3.dll V2.99.40.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+C:\Users\sunlord\Desktop\1210\1113NJ_1212\HSJM_1110\Template\Keil_project\Project.uvprojx
+Project File Date:  01/03/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'GD32A50x'
+compiling systick.c...
+compiling External_detection.c...
+compiling Control.c...
+compiling fmc_App.c...
+compiling Backlight.c...
+../../User/Update.c(51): warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned int)' [-Wimplicit-function-declaration]
+    memcpy(Update_tI2cSlave.Send_Buff, source, sizeof(Std_Receive_Arr.RequestBootloaderAccess));
+    ^
+../../User/Update.c(51): note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+../../User/Update.c(63): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.RequestBootloaderAccess, sizeof(Std_Receive_Arr.RequestBootloaderAccess)) == true)
+                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.h(91): note: passing argument to parameter 'arr2' here
+bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
+                                           ^
+../../User/Update.c(67): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                                Notice_master_to_read(Std_Replay_Arr.RequestBootloaderAccess);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.c(49): note: passing argument to parameter 'source' here
+void Notice_master_to_read(uint8_t *source) 
+                                    ^
+../../User/Update.c(72): warning: passing 'uint8_t const[9]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.InputAccessKey1, sizeof(Std_Receive_Arr.InputAccessKey2)) == true)
+                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.h(91): note: passing argument to parameter 'arr2' here
+bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
+                                           ^
+../../User/Update.c(74): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                                Notice_master_to_read(Std_Replay_Arr.InputAccessKey1);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.c(49): note: passing argument to parameter 'source' here
+void Notice_master_to_read(uint8_t *source) 
+                                    ^
+../../User/Update.c(79): warning: passing 'uint8_t const[9]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.InputAccessKey2, sizeof(Std_Receive_Arr.InputAccessKey2)) == true)
+                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.h(91): note: passing argument to parameter 'arr2' here
+bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
+                                           ^
+../../User/Update.c(81): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                                Notice_master_to_read(Std_Replay_Arr.InputAccessKey2);
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.c(49): note: passing argument to parameter 'source' here
+void Notice_master_to_read(uint8_t *source) 
+                                    ^
+../../User/Update.c(103): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        Notice_master_to_read(Std_Replay_Arr.RequestBootloaderAccess);
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.c(49): note: passing argument to parameter 'source' here
+void Notice_master_to_read(uint8_t *source) 
+                                    ^
+../../User/Update.c(143): warning: passing 'uint8_t const[11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.QueryBootloaderStatus, sizeof(Std_Receive_Arr.QueryBootloaderStatus)) == true)
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.h(91): note: passing argument to parameter 'arr2' here
+bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
+                                           ^
+../../User/Update.c(221): warning: implicitly declaring library function 'memset' with type 'void *(void *, int, unsigned int)' [-Wimplicit-function-declaration]
+        memset(S19_Fire.Bin_Data_Array, 0xFF, sizeof(S19_Fire.Bin_Data_Array));
+        ^
+../../User/Update.c(221): note: include the header <string.h> or explicitly provide a declaration for 'memset'
+10 warnings generated.
+compiling Update.c...
+compiling gd32a50x_it.c...
+../main.c(57): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.RequestBootloaderAccess, sizeof(Std_Receive_Arr.RequestBootloaderAccess)) == true)
+                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../User/Update.h(91): note: passing argument to parameter 'arr2' here
+bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
+                                           ^
+1 warning generated.
+compiling main.c...
+compiling Initialization.c...
+compiling MAX96752.c...
+compiling NTC.c...
+compiling Power.c...
+compiling Tcon.c...
+compiling adc_App.c...
+compiling dma_App.c...
+compiling rcu_App.c...
+compiling spi_App.c...
+compiling gpio_App.c...
+compiling i2c_App.c...
+compiling timer_App.c...
+compiling ReadDataFrame.c...
+../../Lib/Src/WriteDataFrame.c(358): warning: incompatible pointer types passing 'uint8_t (*)[255]' to parameter of type 'uint8_t *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
+            if(ChecksumCheck(&MasterTransmitData) == 1)
+                             ^~~~~~~~~~~~~~~~~~~
+../../Lib/Src/WriteDataFrame.c(105): note: passing argument to parameter 'CheckArr' here
+uint8_t ChecksumCheck(uint8_t * CheckArr)
+                                ^
+../../Lib/Src/WriteDataFrame.c(369): warning: incompatible pointer types passing 'uint8_t (*)[255]' to parameter of type 'uint8_t *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
+                StdWriteFrameDataWrite(&Std_WriteDataFrame,&MasterTransmitData);
+                                                           ^~~~~~~~~~~~~~~~~~~
+../../Lib/Src/WriteDataFrame.c(125): note: passing argument to parameter 'ReceiveDataArr' here
+void StdWriteFrameDataWrite(Std_WriteDataFrameStr *DataFrameStr, uint8_t *ReceiveDataArr)
+                                                                          ^
+../../Lib/Src/WriteDataFrame.c(375): warning: incompatible pointer types passing 'uint8_t (*)[255]' to parameter of type 'uint8_t *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
+            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F1.VaildDataArrLenght);
+                                                       ^~~~~~~~~~~~~~~~~~~
+../../Lib/Src/WriteDataFrame.c(140): note: passing argument to parameter 'ReceiveDataArr' here
+void ExtWriteFrameDataWrite(Ext_WriteDataFrameStr *DataFrameStr, uint8_t *ReceiveDataArr,uint8_t Vaildlength)
+                                                                          ^
+../../Lib/Src/WriteDataFrame.c(379): warning: incompatible pointer types passing 'uint8_t (*)[255]' to parameter of type 'uint8_t *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
+            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F2.VaildDataArrLenght);
+                                                       ^~~~~~~~~~~~~~~~~~~
+../../Lib/Src/WriteDataFrame.c(140): note: passing argument to parameter 'ReceiveDataArr' here
+void ExtWriteFrameDataWrite(Ext_WriteDataFrameStr *DataFrameStr, uint8_t *ReceiveDataArr,uint8_t Vaildlength)
+                                                                          ^
+../../Lib/Src/WriteDataFrame.c(383): warning: incompatible pointer types passing 'uint8_t (*)[255]' to parameter of type 'uint8_t *' (aka 'unsigned char *') [-Wincompatible-pointer-types]
+            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F3.VaildDataArrLenght);
+                                                       ^~~~~~~~~~~~~~~~~~~
+../../Lib/Src/WriteDataFrame.c(140): note: passing argument to parameter 'ReceiveDataArr' here
+void ExtWriteFrameDataWrite(Ext_WriteDataFrameStr *DataFrameStr, uint8_t *ReceiveDataArr,uint8_t Vaildlength)
+                                                                          ^
+../../Lib/Src/WriteDataFrame.c(444): warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+6 warnings generated.
+compiling WriteDataFrame.c...
+compiling system_gd32a50x.c...
+compiling gd32a50x_adc.c...
+compiling gd32a50x_cmp.c...
+compiling gd32a50x_crc.c...
+compiling gd32a50x_bkp.c...
+compiling gd32a50x_can.c...
+compiling gd32a50x_dac.c...
+compiling gd32a50x_fwdgt.c...
+compiling gd32a50x_exti.c...
+compiling gd32a50x_dbg.c...
+compiling gd32a50x_gpio.c...
+compiling gd32a50x_dma.c...
+compiling gd32a50x_fmc.c...
+compiling gd32a50x_i2c.c...
+compiling gd32a50x_mfcom.c...
+compiling gd32a50x_misc.c...
+compiling gd32a50x_rtc.c...
+compiling gd32a50x_syscfg.c...
+compiling gd32a50x_rcu.c...
+compiling gd32a50x_pmu.c...
+compiling gd32a50x_spi.c...
+compiling gd32a50x_timer.c...
+assembling startup_gd32a50x.s...
+compiling gd32a50x_trigsel.c...
+compiling gd32a50x_usart.c...
+compiling gd32a50x_wwdgt.c...
+compiling gd32a503v_eval.c...
+linking...
+Program Size: Code=27216 RO-data=1156 RW-data=16 ZI-data=4032  
+After Build - User command #1: fromelf.exe --bin --bincombined --bincombined_padding=1,0xff --output ../../outfile.bin  .\Objects\Project.axf
+".\Objects\Project.axf" - 0 Error(s), 17 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: GigaDevice
+                http://gd32mcu.21ic.com/data/documents/yingyongruanjian/GigaDevice.GD32A50x_DFP.1.1.0.pack
+                GigaDevice.GD32A50x_DFP.1.1.0
+                GigaDevice GD32A50x Series Device Support and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_GD32A50x
+  C:\Users\sunlord\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+Build Time Elapsed:  00:00:07
+</pre>
+</body>
+</html>
