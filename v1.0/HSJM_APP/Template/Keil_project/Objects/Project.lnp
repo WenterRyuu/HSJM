@@ -47,7 +47,6 @@
 ".\objects\gd32a50x_usart.o"
 ".\objects\gd32a50x_wwdgt.o"
 ".\objects\startup_gd32a50x.o"
-".\objects\gd32a503v_eval.o"
 --library_type=microlib --strict --scatter ".\Objects\Project.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

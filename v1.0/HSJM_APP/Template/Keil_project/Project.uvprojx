@@ -717,16 +717,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Utilities</GroupName>
-          <Files>
-            <File>
-              <FileName>gd32a503v_eval.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Utilities\gd32a503v_eval.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Doc</GroupName>
           <Files>
             <File>

@@ -43,8 +43,11 @@ Section Cross References
     main.o(.text.main) refers to fmc_app.o(.text.fmc_uint64_program) for fmc_uint64_program
     main.o(.text.main) refers to max96752.o(.text.MAX96752_REG_Config) for MAX96752_REG_Config
     main.o(.text.main) refers to i2c_app.o(.text.I2C_Slave_Config) for I2C_Slave_Config
+    main.o(.text.main) refers to systick.o(.text.delay_1ms) for delay_1ms
     main.o(.text.main) refers to readdataframe.o(.text.ReadCmdIdStrInit) for ReadCmdIdStrInit
     main.o(.text.main) refers to external_detection.o(.text.handshake) for handshake
+    main.o(.text.main) refers to timer_app.o(.text.Timer5_Generate_2s_Interrupt) for Timer5_Generate_2s_Interrupt
+    main.o(.text.main) refers to timer_app.o(.text.Timer6_Generate_2s_Interrupt) for Timer6_Generate_2s_Interrupt
     main.o(.text.main) refers to writedataframe.o(.text.WriteFrameTransmit) for WriteFrameTransmit
     main.o(.text.main) refers to gd32a50x_it.o(.bss.Counter_1ms) for Counter_1ms
     main.o(.text.main) refers to ntc.o(.text.adc_mean_filter) for adc_mean_filter
@@ -174,14 +177,18 @@ Section Cross References
     external_detection.o(.ARM.exidx.text.Update_level_Detection) refers to external_detection.o(.text.Update_level_Detection) for [Anonymous Symbol]
     external_detection.o(.text.IRQ_HIGH_level_Detection) refers to external_detection.o(.text.PIN_level_Detection) for PIN_level_Detection
     external_detection.o(.ARM.exidx.text.IRQ_HIGH_level_Detection) refers to external_detection.o(.text.IRQ_HIGH_level_Detection) for [Anonymous Symbol]
+    external_detection.o(.text.IRQ_LOOW_DOWN) refers to gd32a50x_gpio.o(.text.gpio_input_bit_get) for gpio_input_bit_get
+    external_detection.o(.text.IRQ_LOOW_DOWN) refers to gd32a50x_gpio.o(.text.gpio_bit_reset) for gpio_bit_reset
+    external_detection.o(.text.IRQ_LOOW_DOWN) refers to gd32a50x_it.o(.bss.IRQ_100ms) for IRQ_100ms
+    external_detection.o(.ARM.exidx.text.IRQ_LOOW_DOWN) refers to external_detection.o(.text.IRQ_LOOW_DOWN) for [Anonymous Symbol]
     external_detection.o(.text.handshake_process) refers to external_detection.o(.bss.index) for index
     external_detection.o(.text.handshake_process) refers to readdataframe.o(.text.ReadFrameTransmit) for ReadFrameTransmit
-    external_detection.o(.text.handshake_process) refers to gd32a50x_gpio.o(.text.gpio_bit_reset) for gpio_bit_reset
-    external_detection.o(.text.handshake_process) refers to systick.o(.text.delay_1ms) for delay_1ms
-    external_detection.o(.text.handshake_process) refers to gd32a50x_it.o(.bss.IRQ_100ms) for IRQ_100ms
     external_detection.o(.text.handshake_process) refers to gd32a50x_gpio.o(.text.gpio_input_bit_get) for gpio_input_bit_get
-    external_detection.o(.text.handshake_process) refers to writedataframe.o(.text.WriteFrameTransmit) for WriteFrameTransmit
-    external_detection.o(.text.handshake_process) refers to external_detection.o(.bss.handshake_is_ok) for handshake_is_ok
+    external_detection.o(.text.handshake_process) refers to gd32a50x_gpio.o(.text.gpio_bit_reset) for gpio_bit_reset
+    external_detection.o(.text.handshake_process) refers to gd32a50x_it.o(.bss.IRQ_100ms) for IRQ_100ms
+    external_detection.o(.text.handshake_process) refers to systick.o(.text.delay_1ms) for delay_1ms
+    external_detection.o(.text.handshake_process) refers to update.o(.bss.Update_tI2cSlave) for Update_tI2cSlave
+    external_detection.o(.text.handshake_process) refers to gd32a50x_gpio.o(.text.gpio_bit_set) for gpio_bit_set
     external_detection.o(.ARM.exidx.text.handshake_process) refers to external_detection.o(.text.handshake_process) for [Anonymous Symbol]
     external_detection.o(.text.handshake) refers to external_detection.o(.text.handshake_process) for handshake_process
     external_detection.o(.text.handshake) refers to external_detection.o(.bss.index) for index
@@ -437,9 +444,6 @@ Section Cross References
     timer_app.o(.text.Timer19_Generate_PWM_config) refers to gd32a50x_timer.o(.text.timer_enable) for timer_enable
     timer_app.o(.ARM.exidx.text.Timer19_Generate_PWM_config) refers to timer_app.o(.text.Timer19_Generate_PWM_config) for [Anonymous Symbol]
     timer_app.o(.text.McuTimerInitialization) refers to timer_app.o(.text.Timer1_Generate_1ms_Interrupt) for Timer1_Generate_1ms_Interrupt
-    timer_app.o(.text.McuTimerInitialization) refers to timer_app.o(.text.Timer5_Generate_2s_Interrupt) for Timer5_Generate_2s_Interrupt
-    timer_app.o(.text.McuTimerInitialization) refers to systick.o(.text.delay_1ms) for delay_1ms
-    timer_app.o(.text.McuTimerInitialization) refers to timer_app.o(.text.Timer6_Generate_2s_Interrupt) for Timer6_Generate_2s_Interrupt
     timer_app.o(.text.McuTimerInitialization) refers to timer_app.o(.text.Timer19_Generate_PWM_config) for Timer19_Generate_PWM_config
     timer_app.o(.ARM.exidx.text.McuTimerInitialization) refers to timer_app.o(.text.McuTimerInitialization) for [Anonymous Symbol]
     readdataframe.o(.text.ReadDataFrameInit) refers to readdataframe.o(.bss.Std_ReadDataFrame_ID10) for Std_ReadDataFrame_ID10
@@ -564,12 +568,13 @@ Section Cross References
     writedataframe.o(.text.WriteFrameTransmit) refers to readdataframe.o(.bss.RequestLcdStatusCmdStr) for RequestLcdStatusCmdStr
     writedataframe.o(.text.WriteFrameTransmit) refers to backlight.o(.text.Update_Brightness) for Update_Brightness
     writedataframe.o(.text.WriteFrameTransmit) refers to readdataframe.o(.bss.LcdDiagnosisCmdStr) for LcdDiagnosisCmdStr
+    writedataframe.o(.text.WriteFrameTransmit) refers to gd32a50x_misc.o(.text.nvic_irq_disable) for nvic_irq_disable
     writedataframe.o(.text.WriteFrameTransmit) refers to writedataframe.o(.text.TouchChipResetCmdFun) for TouchChipResetCmdFun
     writedataframe.o(.text.WriteFrameTransmit) refers to writedataframe.o(.text.TimeStampFun) for TimeStampFun
-    writedataframe.o(.text.WriteFrameTransmit) refers to external_detection.o(.bss.handshake_is_ok) for handshake_is_ok
     writedataframe.o(.text.WriteFrameTransmit) refers to readdataframe.o(.text.ReadFrameTransmit) for ReadFrameTransmit
     writedataframe.o(.text.WriteFrameTransmit) refers to gd32a50x_gpio.o(.text.gpio_bit_reset) for gpio_bit_reset
     writedataframe.o(.text.WriteFrameTransmit) refers to gd32a50x_it.o(.bss.IRQ_100ms) for IRQ_100ms
+    writedataframe.o(.text.WriteFrameTransmit) refers to external_detection.o(.bss.handshake_is_ok) for handshake_is_ok
     writedataframe.o(.text.WriteFrameTransmit) refers to writedataframe.o(.text.OpenCloseLcdFun) for OpenCloseLcdFun
     writedataframe.o(.text.WriteFrameTransmit) refers to writedataframe.o(.text.BackLightSwitchCmdFun) for BackLightSwitchCmdFun
     writedataframe.o(.text.WriteFrameTransmit) refers to writedataframe.o(.text.UpdateCmdFun) for UpdateCmdFun
@@ -1461,54 +1466,6 @@ Section Cross References
     startup_gd32a50x.o(RESET) refers to gd32a50x_it.o(.text.TIMER6_IRQHandler) for TIMER6_IRQHandler
     startup_gd32a50x.o(.text) refers to system_gd32a50x.o(.text.SystemInit) for SystemInit
     startup_gd32a50x.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
-    gd32a503v_eval.o(.text.gd_eval_led_init) refers to gd32a503v_eval.o(.data.GPIO_CLK) for GPIO_CLK
-    gd32a503v_eval.o(.text.gd_eval_led_init) refers to gd32a50x_rcu.o(.text.rcu_periph_clock_enable) for rcu_periph_clock_enable
-    gd32a503v_eval.o(.text.gd_eval_led_init) refers to gd32a503v_eval.o(.data.GPIO_PORT) for GPIO_PORT
-    gd32a503v_eval.o(.text.gd_eval_led_init) refers to gd32a503v_eval.o(.data.GPIO_PIN) for GPIO_PIN
-    gd32a503v_eval.o(.text.gd_eval_led_init) refers to gd32a50x_gpio.o(.text.gpio_mode_set) for gpio_mode_set
-    gd32a503v_eval.o(.text.gd_eval_led_init) refers to gd32a50x_gpio.o(.text.gpio_output_options_set) for gpio_output_options_set
-    gd32a503v_eval.o(.ARM.exidx.text.gd_eval_led_init) refers to gd32a503v_eval.o(.text.gd_eval_led_init) for [Anonymous Symbol]
-    gd32a503v_eval.o(.text.gd_eval_led_on) refers to gd32a503v_eval.o(.data.GPIO_PIN) for GPIO_PIN
-    gd32a503v_eval.o(.text.gd_eval_led_on) refers to gd32a503v_eval.o(.data.GPIO_PORT) for GPIO_PORT
-    gd32a503v_eval.o(.ARM.exidx.text.gd_eval_led_on) refers to gd32a503v_eval.o(.text.gd_eval_led_on) for [Anonymous Symbol]
-    gd32a503v_eval.o(.text.gd_eval_led_off) refers to gd32a503v_eval.o(.data.GPIO_PIN) for GPIO_PIN
-    gd32a503v_eval.o(.text.gd_eval_led_off) refers to gd32a503v_eval.o(.data.GPIO_PORT) for GPIO_PORT
-    gd32a503v_eval.o(.ARM.exidx.text.gd_eval_led_off) refers to gd32a503v_eval.o(.text.gd_eval_led_off) for [Anonymous Symbol]
-    gd32a503v_eval.o(.text.gd_eval_led_toggle) refers to gd32a503v_eval.o(.data.GPIO_PIN) for GPIO_PIN
-    gd32a503v_eval.o(.text.gd_eval_led_toggle) refers to gd32a503v_eval.o(.data.GPIO_PORT) for GPIO_PORT
-    gd32a503v_eval.o(.ARM.exidx.text.gd_eval_led_toggle) refers to gd32a503v_eval.o(.text.gd_eval_led_toggle) for [Anonymous Symbol]
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a503v_eval.o(.data.KEY_CLK) for KEY_CLK
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a50x_rcu.o(.text.rcu_periph_clock_enable) for rcu_periph_clock_enable
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a503v_eval.o(.data.KEY_PORT) for KEY_PORT
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a503v_eval.o(.data.KEY_PIN) for KEY_PIN
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a50x_gpio.o(.text.gpio_mode_set) for gpio_mode_set
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a503v_eval.o(.data.KEY_IRQn) for KEY_IRQn
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a50x_misc.o(.text.nvic_irq_enable) for nvic_irq_enable
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a503v_eval.o(.data.KEY_PORT_SOURCE) for KEY_PORT_SOURCE
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a503v_eval.o(.data.KEY_PIN_SOURCE) for KEY_PIN_SOURCE
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a50x_syscfg.o(.text.syscfg_exti_line_config) for syscfg_exti_line_config
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a503v_eval.o(.data.KEY_EXTI_LINE) for KEY_EXTI_LINE
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a50x_exti.o(.text.exti_init) for exti_init
-    gd32a503v_eval.o(.text.gd_eval_key_init) refers to gd32a50x_exti.o(.text.exti_interrupt_flag_clear) for exti_interrupt_flag_clear
-    gd32a503v_eval.o(.ARM.exidx.text.gd_eval_key_init) refers to gd32a503v_eval.o(.text.gd_eval_key_init) for [Anonymous Symbol]
-    gd32a503v_eval.o(.text.gd_eval_key_state_get) refers to gd32a503v_eval.o(.data.KEY_PORT) for KEY_PORT
-    gd32a503v_eval.o(.text.gd_eval_key_state_get) refers to gd32a503v_eval.o(.data.KEY_PIN) for KEY_PIN
-    gd32a503v_eval.o(.text.gd_eval_key_state_get) refers to gd32a50x_gpio.o(.text.gpio_input_bit_get) for gpio_input_bit_get
-    gd32a503v_eval.o(.ARM.exidx.text.gd_eval_key_state_get) refers to gd32a503v_eval.o(.text.gd_eval_key_state_get) for [Anonymous Symbol]
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_rcu.o(.text.rcu_periph_clock_enable) for rcu_periph_clock_enable
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a503v_eval.o(.data.COM_CLK) for COM_CLK
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_rcu.o(.text.rcu_usart_clock_config) for rcu_usart_clock_config
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a503v_eval.o(.data.COM_TX_PIN) for COM_TX_PIN
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_gpio.o(.text.gpio_af_set) for gpio_af_set
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a503v_eval.o(.data.COM_RX_PIN) for COM_RX_PIN
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_gpio.o(.text.gpio_mode_set) for gpio_mode_set
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_gpio.o(.text.gpio_output_options_set) for gpio_output_options_set
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_usart.o(.text.usart_deinit) for usart_deinit
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_usart.o(.text.usart_baudrate_set) for usart_baudrate_set
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_usart.o(.text.usart_receive_config) for usart_receive_config
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_usart.o(.text.usart_transmit_config) for usart_transmit_config
-    gd32a503v_eval.o(.text.gd_eval_com_init) refers to gd32a50x_usart.o(.text.usart_enable) for usart_enable
-    gd32a503v_eval.o(.ARM.exidx.text.gd_eval_com_init) refers to gd32a503v_eval.o(.text.gd_eval_com_init) for [Anonymous Symbol]
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -1669,6 +1626,8 @@ Removing Unused input sections from the image.
     Removing external_detection.o(.text.Update_level_Detection), (18 bytes).
     Removing external_detection.o(.ARM.exidx.text.Update_level_Detection), (8 bytes).
     Removing external_detection.o(.ARM.exidx.text.IRQ_HIGH_level_Detection), (8 bytes).
+    Removing external_detection.o(.text.IRQ_LOOW_DOWN), (148 bytes).
+    Removing external_detection.o(.ARM.exidx.text.IRQ_LOOW_DOWN), (8 bytes).
     Removing external_detection.o(.ARM.exidx.text.handshake_process), (8 bytes).
     Removing external_detection.o(.ARM.exidx.text.handshake), (8 bytes).
     Removing external_detection.o(.text.cmd_process), (154 bytes).
@@ -2605,9 +2564,7 @@ Removing Unused input sections from the image.
     Removing gd32a50x_misc.o(.text), (0 bytes).
     Removing gd32a50x_misc.o(.ARM.exidx.text.nvic_priority_group_set), (8 bytes).
     Removing gd32a50x_misc.o(.ARM.exidx.text.nvic_irq_enable), (8 bytes).
-    Removing gd32a50x_misc.o(.text.nvic_irq_disable), (20 bytes).
     Removing gd32a50x_misc.o(.ARM.exidx.text.nvic_irq_disable), (8 bytes).
-    Removing gd32a50x_misc.o(.text.__NVIC_DisableIRQ), (56 bytes).
     Removing gd32a50x_misc.o(.ARM.exidx.text.__NVIC_DisableIRQ), (8 bytes).
     Removing gd32a50x_misc.o(.text.nvic_system_reset), (4 bytes).
     Removing gd32a50x_misc.o(.ARM.exidx.text.nvic_system_reset), (8 bytes).
@@ -3229,36 +3186,8 @@ Removing Unused input sections from the image.
     Removing gd32a50x_wwdgt.o(.text.wwdgt_interrupt_enable), (18 bytes).
     Removing gd32a50x_wwdgt.o(.ARM.exidx.text.wwdgt_interrupt_enable), (8 bytes).
     Removing startup_gd32a50x.o(HEAP), (1024 bytes).
-    Removing gd32a503v_eval.o(.text), (0 bytes).
-    Removing gd32a503v_eval.o(.text.gd_eval_led_init), (116 bytes).
-    Removing gd32a503v_eval.o(.ARM.exidx.text.gd_eval_led_init), (8 bytes).
-    Removing gd32a503v_eval.o(.text.gd_eval_led_on), (40 bytes).
-    Removing gd32a503v_eval.o(.ARM.exidx.text.gd_eval_led_on), (8 bytes).
-    Removing gd32a503v_eval.o(.text.gd_eval_led_off), (40 bytes).
-    Removing gd32a503v_eval.o(.ARM.exidx.text.gd_eval_led_off), (8 bytes).
-    Removing gd32a503v_eval.o(.text.gd_eval_led_toggle), (40 bytes).
-    Removing gd32a503v_eval.o(.ARM.exidx.text.gd_eval_led_toggle), (8 bytes).
-    Removing gd32a503v_eval.o(.text.gd_eval_key_init), (184 bytes).
-    Removing gd32a503v_eval.o(.ARM.exidx.text.gd_eval_key_init), (8 bytes).
-    Removing gd32a503v_eval.o(.text.gd_eval_key_state_get), (44 bytes).
-    Removing gd32a503v_eval.o(.ARM.exidx.text.gd_eval_key_state_get), (8 bytes).
-    Removing gd32a503v_eval.o(.text.gd_eval_com_init), (256 bytes).
-    Removing gd32a503v_eval.o(.ARM.exidx.text.gd_eval_com_init), (8 bytes).
-    Removing gd32a503v_eval.o(.data.GPIO_CLK), (4 bytes).
-    Removing gd32a503v_eval.o(.data.GPIO_PORT), (8 bytes).
-    Removing gd32a503v_eval.o(.data.GPIO_PIN), (8 bytes).
-    Removing gd32a503v_eval.o(.data.KEY_CLK), (4 bytes).
-    Removing gd32a503v_eval.o(.data.KEY_PORT), (8 bytes).
-    Removing gd32a503v_eval.o(.data.KEY_PIN), (8 bytes).
-    Removing gd32a503v_eval.o(.data.KEY_IRQn), (2 bytes).
-    Removing gd32a503v_eval.o(.data.KEY_PORT_SOURCE), (2 bytes).
-    Removing gd32a503v_eval.o(.data.KEY_PIN_SOURCE), (2 bytes).
-    Removing gd32a503v_eval.o(.data.KEY_EXTI_LINE), (8 bytes).
-    Removing gd32a503v_eval.o(.data.COM_CLK), (2 bytes).
-    Removing gd32a503v_eval.o(.data.COM_TX_PIN), (4 bytes).
-    Removing gd32a503v_eval.o(.data.COM_RX_PIN), (4 bytes).
 
-1663 unused section(s) (total 55895 bytes) removed from the image.
+1635 unused section(s) (total 55135 bytes) removed from the image.
 
 ==============================================================================
 
@@ -3320,7 +3249,6 @@ Image Symbol Table
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     dma_App.c                                0x00000000   Number         0  dma_app.o ABSOLUTE
     fmc_App.c                                0x00000000   Number         0  fmc_app.o ABSOLUTE
-    gd32a503v_eval.c                         0x00000000   Number         0  gd32a503v_eval.o ABSOLUTE
     gd32a50x_adc.c                           0x00000000   Number         0  gd32a50x_adc.o ABSOLUTE
     gd32a50x_bkp.c                           0x00000000   Number         0  gd32a50x_bkp.o ABSOLUTE
     gd32a50x_can.c                           0x00000000   Number         0  gd32a50x_can.o ABSOLUTE
@@ -3425,173 +3353,176 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08006ef4   Section        0  rcu_app.o(.text.McuRcuInitialization)
     [Anonymous Symbol]                       0x08006f80   Section        0  spi_app.o(.text.McuSpiInitialize)
     [Anonymous Symbol]                       0x08006f88   Section        0  timer_app.o(.text.McuTimerInitialization)
-    [Anonymous Symbol]                       0x08006fa4   Section        0  gd32a50x_it.o(.text.MemManage_Handler)
-    [Anonymous Symbol]                       0x08006fa8   Section        0  backlight.o(.text.Modify_PWM_Directly)
-    [Anonymous Symbol]                       0x08006fcc   Section        0  gd32a50x_it.o(.text.NMI_Handler)
-    [Anonymous Symbol]                       0x08006fd0   Section        0  update.o(.text.Notice_master_to_read)
-    [Anonymous Symbol]                       0x08007014   Section        0  writedataframe.o(.text.OpenCloseLcdFun)
-    [Anonymous Symbol]                       0x0800702c   Section        0  external_detection.o(.text.PIN_level_Detection)
-    [Anonymous Symbol]                       0x08007120   Section        0  gd32a50x_it.o(.text.PendSV_Handler)
-    [Anonymous Symbol]                       0x08007124   Section        0  power.o(.text.PowerOn_Order)
-    [Anonymous Symbol]                       0x08007260   Section        0  power.o(.text.PowerOn_Sequence)
-    [Anonymous Symbol]                       0x0800727c   Section        0  readdataframe.o(.text.ReadCmdIdStrInit)
-    [Anonymous Symbol]                       0x080073e0   Section        0  readdataframe.o(.text.ReadFrameChecksumBuff)
-    [Anonymous Symbol]                       0x08007430   Section        0  readdataframe.o(.text.ReadFrameChecksumCount)
-    [Anonymous Symbol]                       0x0800748c   Section        0  readdataframe.o(.text.ReadFrameTransmit)
-    [Anonymous Symbol]                       0x080077b8   Section        0  readdataframe.o(.text.ReadFrameWriteData)
-    [Anonymous Symbol]                       0x08007a9c   Section        0  spi_app.o(.text.SPI_Master_Init)
-    [Anonymous Symbol]                       0x08007afc   Section        0  gd32a50x_it.o(.text.SVC_Handler)
-    [Anonymous Symbol]                       0x08007b00   Section        0  writedataframe.o(.text.SetFrameTimeoutValueFun)
-    [Anonymous Symbol]                       0x08007b1c   Section        0  backlight.o(.text.SetTargetDutyCycle)
-    [Anonymous Symbol]                       0x08007d14   Section        0  writedataframe.o(.text.StdWriteFrameDataWrite)
-    SysTick_Config                           0x08007d79   Thumb Code    82  systick.o(.text.SysTick_Config)
-    [Anonymous Symbol]                       0x08007d78   Section        0  systick.o(.text.SysTick_Config)
-    [Anonymous Symbol]                       0x08007dcc   Section        0  gd32a50x_it.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x08007e04   Section        0  system_gd32a50x.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08007f50   Section        0  gd32a50x_it.o(.text.TIMER1_IRQHandler)
-    [Anonymous Symbol]                       0x080080a8   Section        0  gd32a50x_it.o(.text.TIMER5_DAC_IRQHandler)
-    [Anonymous Symbol]                       0x08008104   Section        0  gd32a50x_it.o(.text.TIMER6_IRQHandler)
-    [Anonymous Symbol]                       0x08008150   Section        0  writedataframe.o(.text.TimeStampFun)
-    [Anonymous Symbol]                       0x08008178   Section        0  timer_app.o(.text.Timer19_Generate_PWM_config)
-    [Anonymous Symbol]                       0x08008220   Section        0  timer_app.o(.text.Timer1_Generate_1ms_Interrupt)
-    [Anonymous Symbol]                       0x08008280   Section        0  timer_app.o(.text.Timer5_Generate_2s_Interrupt)
-    [Anonymous Symbol]                       0x080082dc   Section        0  timer_app.o(.text.Timer6_Generate_2s_Interrupt)
-    [Anonymous Symbol]                       0x08008338   Section        0  writedataframe.o(.text.TouchChipResetCmdFun)
-    [Anonymous Symbol]                       0x08008350   Section        0  backlight.o(.text.UpdateBacklightController)
-    [Anonymous Symbol]                       0x08008454   Section        0  writedataframe.o(.text.UpdateCmdFun)
-    [Anonymous Symbol]                       0x080084cc   Section        0  backlight.o(.text.Update_Brightness)
-    [Anonymous Symbol]                       0x08008510   Section        0  update.o(.text.Update_Process)
-    [Anonymous Symbol]                       0x08008644   Section        0  update.o(.text.Updating)
-    [Anonymous Symbol]                       0x08008780   Section        0  gd32a50x_it.o(.text.UsageFault_Handler)
-    [Anonymous Symbol]                       0x08008784   Section        0  writedataframe.o(.text.WriteFrameTransmit)
-    __NVIC_SetPriority                       0x08008ae5   Thumb Code    66  systick.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08008ae4   Section        0  systick.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08008b28   Section        0  adc_app.o(.text.adc_NTC_config)
-    [Anonymous Symbol]                       0x08008bb0   Section        0  gd32a50x_adc.o(.text.adc_calibration_enable)
-    [Anonymous Symbol]                       0x08008bec   Section        0  gd32a50x_adc.o(.text.adc_channel_length_config)
-    [Anonymous Symbol]                       0x08008c5c   Section        0  gd32a50x_adc.o(.text.adc_data_alignment_config)
-    [Anonymous Symbol]                       0x08008c84   Section        0  gd32a50x_adc.o(.text.adc_deinit)
-    [Anonymous Symbol]                       0x08008cd8   Section        0  gd32a50x_adc.o(.text.adc_enable)
-    [Anonymous Symbol]                       0x08008cf8   Section        0  gd32a50x_adc.o(.text.adc_external_trigger_config)
-    [Anonymous Symbol]                       0x08008d70   Section        0  gd32a50x_adc.o(.text.adc_external_trigger_source_config)
-    [Anonymous Symbol]                       0x08008dc4   Section        0  gd32a50x_adc.o(.text.adc_flag_clear)
-    [Anonymous Symbol]                       0x08008dd8   Section        0  gd32a50x_adc.o(.text.adc_flag_get)
-    [Anonymous Symbol]                       0x08008e00   Section        0  ntc.o(.text.adc_mean_filter)
-    [Anonymous Symbol]                       0x08008e6c   Section        0  gd32a50x_adc.o(.text.adc_mode_config)
-    [Anonymous Symbol]                       0x08008e8c   Section        0  gd32a50x_adc.o(.text.adc_oversample_mode_config)
-    [Anonymous Symbol]                       0x08008ef0   Section        0  gd32a50x_adc.o(.text.adc_oversample_mode_enable)
-    [Anonymous Symbol]                       0x08008f08   Section        0  gd32a50x_adc.o(.text.adc_regular_channel_config)
-    [Anonymous Symbol]                       0x0800907c   Section        0  gd32a50x_adc.o(.text.adc_software_trigger_enable)
-    [Anonymous Symbol]                       0x080090b8   Section        0  gd32a50x_adc.o(.text.adc_special_function_config)
-    [Anonymous Symbol]                       0x08009160   Section        0  update.o(.text.compareArrays)
-    [Anonymous Symbol]                       0x080091b0   Section        0  update.o(.text.cx)
-    [Anonymous Symbol]                       0x08009238   Section        0  systick.o(.text.delay_1ms)
-    [Anonymous Symbol]                       0x08009260   Section        0  systick.o(.text.delay_decrement)
-    fmc_bank0_ready_wait                     0x08009281   Thumb Code    92  gd32a50x_fmc.o(.text.fmc_bank0_ready_wait)
-    [Anonymous Symbol]                       0x08009280   Section        0  gd32a50x_fmc.o(.text.fmc_bank0_ready_wait)
-    fmc_bank0_state_get                      0x080092dd   Thumb Code   210  gd32a50x_fmc.o(.text.fmc_bank0_state_get)
-    [Anonymous Symbol]                       0x080092dc   Section        0  gd32a50x_fmc.o(.text.fmc_bank0_state_get)
-    fmc_bank1_ready_wait                     0x080093b1   Thumb Code    92  gd32a50x_fmc.o(.text.fmc_bank1_ready_wait)
-    [Anonymous Symbol]                       0x080093b0   Section        0  gd32a50x_fmc.o(.text.fmc_bank1_ready_wait)
-    fmc_bank1_state_get                      0x0800940d   Thumb Code   210  gd32a50x_fmc.o(.text.fmc_bank1_state_get)
-    [Anonymous Symbol]                       0x0800940c   Section        0  gd32a50x_fmc.o(.text.fmc_bank1_state_get)
-    [Anonymous Symbol]                       0x080094e0   Section        0  gd32a50x_fmc.o(.text.fmc_doubleword_program)
-    [Anonymous Symbol]                       0x080095b4   Section        0  fmc_app.o(.text.fmc_erase_pages)
-    [Anonymous Symbol]                       0x08009600   Section        0  gd32a50x_fmc.o(.text.fmc_flag_clear)
-    [Anonymous Symbol]                       0x08009670   Section        0  fmc_app.o(.text.fmc_flags_clear)
-    [Anonymous Symbol]                       0x080096ac   Section        0  gd32a50x_fmc.o(.text.fmc_lock)
-    [Anonymous Symbol]                       0x080096d0   Section        0  gd32a50x_fmc.o(.text.fmc_page_erase)
-    [Anonymous Symbol]                       0x080097a8   Section        0  fmc_app.o(.text.fmc_uint64_program)
-    [Anonymous Symbol]                       0x080097d4   Section        0  gd32a50x_fmc.o(.text.fmc_unlock)
-    [Anonymous Symbol]                       0x08009838   Section        0  ntc.o(.text.get_adc_value)
-    [Anonymous Symbol]                       0x08009894   Section        0  gd32a50x_gpio.o(.text.gpio_af_set)
-    [Anonymous Symbol]                       0x08009968   Section        0  gd32a50x_gpio.o(.text.gpio_bit_reset)
-    [Anonymous Symbol]                       0x08009978   Section        0  gd32a50x_gpio.o(.text.gpio_bit_set)
-    [Anonymous Symbol]                       0x08009988   Section        0  gd32a50x_gpio.o(.text.gpio_deinit)
-    [Anonymous Symbol]                       0x08009a5c   Section        0  gd32a50x_gpio.o(.text.gpio_input_bit_get)
-    [Anonymous Symbol]                       0x08009a88   Section        0  gd32a50x_gpio.o(.text.gpio_mode_set)
-    [Anonymous Symbol]                       0x08009b24   Section        0  gd32a50x_gpio.o(.text.gpio_output_options_set)
-    [Anonymous Symbol]                       0x08009bb8   Section        0  external_detection.o(.text.handshake)
-    [Anonymous Symbol]                       0x08009bd8   Section        0  external_detection.o(.text.handshake_process)
-    [Anonymous Symbol]                       0x08009c88   Section        0  gd32a50x_i2c.o(.text.i2c_address_config)
-    [Anonymous Symbol]                       0x08009cb0   Section        0  gd32a50x_i2c.o(.text.i2c_automatic_end_enable)
-    [Anonymous Symbol]                       0x08009cc4   Section        0  gd32a50x_i2c.o(.text.i2c_data_receive)
-    [Anonymous Symbol]                       0x08009cd4   Section        0  gd32a50x_i2c.o(.text.i2c_data_transmit)
-    [Anonymous Symbol]                       0x08009ce8   Section        0  gd32a50x_i2c.o(.text.i2c_deinit)
-    [Anonymous Symbol]                       0x08009d3c   Section        0  gd32a50x_i2c.o(.text.i2c_enable)
-    [Anonymous Symbol]                       0x08009d50   Section        0  gd32a50x_i2c.o(.text.i2c_flag_clear)
-    [Anonymous Symbol]                       0x08009d64   Section        0  gd32a50x_i2c.o(.text.i2c_flag_get)
-    [Anonymous Symbol]                       0x08009d90   Section        0  gd32a50x_i2c.o(.text.i2c_interrupt_enable)
-    [Anonymous Symbol]                       0x08009da4   Section        0  gd32a50x_i2c.o(.text.i2c_interrupt_flag_clear)
-    [Anonymous Symbol]                       0x08009dc4   Section        0  gd32a50x_i2c.o(.text.i2c_interrupt_flag_get)
-    [Anonymous Symbol]                       0x08009e24   Section        0  gd32a50x_i2c.o(.text.i2c_master_addressing)
-    [Anonymous Symbol]                       0x08009e5c   Section        0  gd32a50x_i2c.o(.text.i2c_master_clock_config)
-    [Anonymous Symbol]                       0x08009e9c   Section        0  gd32a50x_i2c.o(.text.i2c_start_on_bus)
-    [Anonymous Symbol]                       0x08009eb0   Section        0  gd32a50x_i2c.o(.text.i2c_timing_config)
-    [Anonymous Symbol]                       0x08009f0c   Section        0  gd32a50x_i2c.o(.text.i2c_transfer_byte_number_config)
-    [Anonymous Symbol]                       0x08009f2c   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x0800a018   Section        0  gd32a50x_misc.o(.text.nvic_irq_enable)
-    [Anonymous Symbol]                       0x0800a144   Section        0  gd32a50x_misc.o(.text.nvic_priority_group_set)
-    [Anonymous Symbol]                       0x0800a160   Section        0  gd32a50x_misc.o(.text.nvic_vector_table_set)
-    [Anonymous Symbol]                       0x0800a188   Section        0  control.o(.text.process_0x81)
-    [Anonymous Symbol]                       0x0800a1f4   Section        0  gd32a50x_rcu.o(.text.rcu_adc_clock_config)
-    [Anonymous Symbol]                       0x0800a220   Section        0  gd32a50x_rcu.o(.text.rcu_deinit)
-    [Anonymous Symbol]                       0x0800a2b8   Section        0  gd32a50x_rcu.o(.text.rcu_flag_get)
-    [Anonymous Symbol]                       0x0800a2f8   Section        0  gd32a50x_rcu.o(.text.rcu_osci_stab_wait)
-    [Anonymous Symbol]                       0x0800a4d4   Section        0  gd32a50x_rcu.o(.text.rcu_periph_clock_disable)
-    [Anonymous Symbol]                       0x0800a4fc   Section        0  gd32a50x_rcu.o(.text.rcu_periph_clock_enable)
-    [Anonymous Symbol]                       0x0800a524   Section        0  gd32a50x_rcu.o(.text.rcu_periph_reset_disable)
-    [Anonymous Symbol]                       0x0800a54c   Section        0  gd32a50x_rcu.o(.text.rcu_periph_reset_enable)
-    [Anonymous Symbol]                       0x0800a574   Section        0  ntc.o(.text.readTemper)
-    search_data                              0x0800a5dd   Thumb Code   114  ntc.o(.text.search_data)
-    [Anonymous Symbol]                       0x0800a5dc   Section        0  ntc.o(.text.search_data)
-    [Anonymous Symbol]                       0x0800a650   Section        0  gd32a50x_spi.o(.text.spi_enable)
-    [Anonymous Symbol]                       0x0800a664   Section        0  gd32a50x_spi.o(.text.spi_i2s_deinit)
-    [Anonymous Symbol]                       0x0800a6b8   Section        0  gd32a50x_spi.o(.text.spi_init)
-    [Anonymous Symbol]                       0x0800a72c   Section        0  gd32a50x_spi.o(.text.spi_nss_output_enable)
-    [Anonymous Symbol]                       0x0800a740   Section        0  gd32a50x_spi.o(.text.spi_struct_para_init)
-    system_clock_100m_pll_irc8m              0x0800a769   Thumb Code   278  system_gd32a50x.o(.text.system_clock_100m_pll_irc8m)
-    [Anonymous Symbol]                       0x0800a768   Section        0  system_gd32a50x.o(.text.system_clock_100m_pll_irc8m)
-    system_clock_config                      0x0800a881   Thumb Code     8  system_gd32a50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x0800a880   Section        0  system_gd32a50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x0800a888   Section        0  systick.o(.text.systick_config)
-    temper_calc                              0x0800a8bd   Thumb Code   156  ntc.o(.text.temper_calc)
-    [Anonymous Symbol]                       0x0800a8bc   Section        0  ntc.o(.text.temper_calc)
-    [Anonymous Symbol]                       0x0800a958   Section        0  gd32a50x_timer.o(.text.timer_auto_reload_shadow_enable)
-    [Anonymous Symbol]                       0x0800a96c   Section        0  gd32a50x_timer.o(.text.timer_channel_output_config)
-    [Anonymous Symbol]                       0x0800ad1c   Section        0  gd32a50x_timer.o(.text.timer_channel_output_mode_config)
-    [Anonymous Symbol]                       0x0800ae20   Section        0  gd32a50x_timer.o(.text.timer_channel_output_pulse_value_config)
-    [Anonymous Symbol]                       0x0800ae98   Section        0  gd32a50x_timer.o(.text.timer_channel_output_shadow_config)
-    [Anonymous Symbol]                       0x0800af9c   Section        0  gd32a50x_timer.o(.text.timer_channel_output_struct_para_init)
-    [Anonymous Symbol]                       0x0800afc0   Section        0  gd32a50x_timer.o(.text.timer_deinit)
-    [Anonymous Symbol]                       0x0800b0b8   Section        0  gd32a50x_timer.o(.text.timer_enable)
-    [Anonymous Symbol]                       0x0800b0cc   Section        0  gd32a50x_timer.o(.text.timer_init)
-    [Anonymous Symbol]                       0x0800b1ec   Section        0  gd32a50x_timer.o(.text.timer_interrupt_enable)
-    [Anonymous Symbol]                       0x0800b200   Section        0  gd32a50x_timer.o(.text.timer_interrupt_flag_clear)
-    [Anonymous Symbol]                       0x0800b214   Section        0  gd32a50x_timer.o(.text.timer_interrupt_flag_get)
-    [Anonymous Symbol]                       0x0800b250   Section        0  gd32a50x_timer.o(.text.timer_primary_output_config)
-    [Anonymous Symbol]                       0x0800b280   Section        0  gd32a50x_timer.o(.text.timer_struct_para_init)
-    i.__0printf                              0x0800b2a8   Section        0  printfa.o(i.__0printf)
-    i.__scatterload_copy                     0x0800b2c8   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800b2d6   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800b2d8   Section       14  handlers.o(i.__scatterload_zeroinit)
-    _fp_digits                               0x0800b2e9   Thumb Code   366  printfa.o(i._fp_digits)
-    i._fp_digits                             0x0800b2e8   Section        0  printfa.o(i._fp_digits)
-    _printf_core                             0x0800b46d   Thumb Code  1744  printfa.o(i._printf_core)
-    i._printf_core                           0x0800b46c   Section        0  printfa.o(i._printf_core)
-    _printf_post_padding                     0x0800bb49   Thumb Code    36  printfa.o(i._printf_post_padding)
-    i._printf_post_padding                   0x0800bb48   Section        0  printfa.o(i._printf_post_padding)
-    _printf_pre_padding                      0x0800bb6d   Thumb Code    46  printfa.o(i._printf_pre_padding)
-    i._printf_pre_padding                    0x0800bb6c   Section        0  printfa.o(i._printf_pre_padding)
-    i.fputc                                  0x0800bb9a   Section        0  fputc.o(i.fputc)
-    ntc_adc                                  0x0800bc54   Data         382  ntc.o(.rodata.ntc_adc)
-    [Anonymous Symbol]                       0x0800bc54   Section        0  ntc.o(.rodata.ntc_adc)
-    .L.str.4                                 0x0800bdd2   Data          46  max96752.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x0800bdd2   Section        0  max96752.o(.rodata.str1.1)
-    .L.str.2                                 0x0800be00   Data          46  max96752.o(.rodata.str1.1)
-    .L.str.3                                 0x0800be2e   Data          53  max96752.o(.rodata.str1.1)
-    .L.str.1                                 0x0800be63   Data          49  max96752.o(.rodata.str1.1)
-    .L.str                                   0x0800be94   Data          32  max96752.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08006f94   Section        0  gd32a50x_it.o(.text.MemManage_Handler)
+    [Anonymous Symbol]                       0x08006f98   Section        0  backlight.o(.text.Modify_PWM_Directly)
+    [Anonymous Symbol]                       0x08006fbc   Section        0  gd32a50x_it.o(.text.NMI_Handler)
+    [Anonymous Symbol]                       0x08006fc0   Section        0  update.o(.text.Notice_master_to_read)
+    [Anonymous Symbol]                       0x08007004   Section        0  writedataframe.o(.text.OpenCloseLcdFun)
+    [Anonymous Symbol]                       0x0800701c   Section        0  external_detection.o(.text.PIN_level_Detection)
+    [Anonymous Symbol]                       0x08007110   Section        0  gd32a50x_it.o(.text.PendSV_Handler)
+    [Anonymous Symbol]                       0x08007114   Section        0  power.o(.text.PowerOn_Order)
+    [Anonymous Symbol]                       0x08007250   Section        0  power.o(.text.PowerOn_Sequence)
+    [Anonymous Symbol]                       0x0800726c   Section        0  readdataframe.o(.text.ReadCmdIdStrInit)
+    [Anonymous Symbol]                       0x080073d0   Section        0  readdataframe.o(.text.ReadFrameChecksumBuff)
+    [Anonymous Symbol]                       0x08007420   Section        0  readdataframe.o(.text.ReadFrameChecksumCount)
+    [Anonymous Symbol]                       0x0800747c   Section        0  readdataframe.o(.text.ReadFrameTransmit)
+    [Anonymous Symbol]                       0x080077a8   Section        0  readdataframe.o(.text.ReadFrameWriteData)
+    [Anonymous Symbol]                       0x08007a8c   Section        0  spi_app.o(.text.SPI_Master_Init)
+    [Anonymous Symbol]                       0x08007aec   Section        0  gd32a50x_it.o(.text.SVC_Handler)
+    [Anonymous Symbol]                       0x08007af0   Section        0  writedataframe.o(.text.SetFrameTimeoutValueFun)
+    [Anonymous Symbol]                       0x08007b0c   Section        0  backlight.o(.text.SetTargetDutyCycle)
+    [Anonymous Symbol]                       0x08007d04   Section        0  writedataframe.o(.text.StdWriteFrameDataWrite)
+    SysTick_Config                           0x08007d69   Thumb Code    82  systick.o(.text.SysTick_Config)
+    [Anonymous Symbol]                       0x08007d68   Section        0  systick.o(.text.SysTick_Config)
+    [Anonymous Symbol]                       0x08007dbc   Section        0  gd32a50x_it.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x08007df4   Section        0  system_gd32a50x.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x08007f40   Section        0  gd32a50x_it.o(.text.TIMER1_IRQHandler)
+    [Anonymous Symbol]                       0x08008098   Section        0  gd32a50x_it.o(.text.TIMER5_DAC_IRQHandler)
+    [Anonymous Symbol]                       0x080080f4   Section        0  gd32a50x_it.o(.text.TIMER6_IRQHandler)
+    [Anonymous Symbol]                       0x08008140   Section        0  writedataframe.o(.text.TimeStampFun)
+    [Anonymous Symbol]                       0x08008168   Section        0  timer_app.o(.text.Timer19_Generate_PWM_config)
+    [Anonymous Symbol]                       0x08008210   Section        0  timer_app.o(.text.Timer1_Generate_1ms_Interrupt)
+    [Anonymous Symbol]                       0x08008270   Section        0  timer_app.o(.text.Timer5_Generate_2s_Interrupt)
+    [Anonymous Symbol]                       0x080082cc   Section        0  timer_app.o(.text.Timer6_Generate_2s_Interrupt)
+    [Anonymous Symbol]                       0x08008328   Section        0  writedataframe.o(.text.TouchChipResetCmdFun)
+    [Anonymous Symbol]                       0x08008340   Section        0  backlight.o(.text.UpdateBacklightController)
+    [Anonymous Symbol]                       0x08008444   Section        0  writedataframe.o(.text.UpdateCmdFun)
+    [Anonymous Symbol]                       0x080084bc   Section        0  backlight.o(.text.Update_Brightness)
+    [Anonymous Symbol]                       0x08008500   Section        0  update.o(.text.Update_Process)
+    [Anonymous Symbol]                       0x08008634   Section        0  update.o(.text.Updating)
+    [Anonymous Symbol]                       0x08008770   Section        0  gd32a50x_it.o(.text.UsageFault_Handler)
+    [Anonymous Symbol]                       0x08008774   Section        0  writedataframe.o(.text.WriteFrameTransmit)
+    __NVIC_DisableIRQ                        0x08008ac9   Thumb Code    56  gd32a50x_misc.o(.text.__NVIC_DisableIRQ)
+    [Anonymous Symbol]                       0x08008ac8   Section        0  gd32a50x_misc.o(.text.__NVIC_DisableIRQ)
+    __NVIC_SetPriority                       0x08008b01   Thumb Code    66  systick.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08008b00   Section        0  systick.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08008b44   Section        0  adc_app.o(.text.adc_NTC_config)
+    [Anonymous Symbol]                       0x08008bcc   Section        0  gd32a50x_adc.o(.text.adc_calibration_enable)
+    [Anonymous Symbol]                       0x08008c08   Section        0  gd32a50x_adc.o(.text.adc_channel_length_config)
+    [Anonymous Symbol]                       0x08008c78   Section        0  gd32a50x_adc.o(.text.adc_data_alignment_config)
+    [Anonymous Symbol]                       0x08008ca0   Section        0  gd32a50x_adc.o(.text.adc_deinit)
+    [Anonymous Symbol]                       0x08008cf4   Section        0  gd32a50x_adc.o(.text.adc_enable)
+    [Anonymous Symbol]                       0x08008d14   Section        0  gd32a50x_adc.o(.text.adc_external_trigger_config)
+    [Anonymous Symbol]                       0x08008d8c   Section        0  gd32a50x_adc.o(.text.adc_external_trigger_source_config)
+    [Anonymous Symbol]                       0x08008de0   Section        0  gd32a50x_adc.o(.text.adc_flag_clear)
+    [Anonymous Symbol]                       0x08008df4   Section        0  gd32a50x_adc.o(.text.adc_flag_get)
+    [Anonymous Symbol]                       0x08008e1c   Section        0  ntc.o(.text.adc_mean_filter)
+    [Anonymous Symbol]                       0x08008e88   Section        0  gd32a50x_adc.o(.text.adc_mode_config)
+    [Anonymous Symbol]                       0x08008ea8   Section        0  gd32a50x_adc.o(.text.adc_oversample_mode_config)
+    [Anonymous Symbol]                       0x08008f0c   Section        0  gd32a50x_adc.o(.text.adc_oversample_mode_enable)
+    [Anonymous Symbol]                       0x08008f24   Section        0  gd32a50x_adc.o(.text.adc_regular_channel_config)
+    [Anonymous Symbol]                       0x08009098   Section        0  gd32a50x_adc.o(.text.adc_software_trigger_enable)
+    [Anonymous Symbol]                       0x080090d4   Section        0  gd32a50x_adc.o(.text.adc_special_function_config)
+    [Anonymous Symbol]                       0x0800917c   Section        0  update.o(.text.compareArrays)
+    [Anonymous Symbol]                       0x080091cc   Section        0  update.o(.text.cx)
+    [Anonymous Symbol]                       0x08009254   Section        0  systick.o(.text.delay_1ms)
+    [Anonymous Symbol]                       0x0800927c   Section        0  systick.o(.text.delay_decrement)
+    fmc_bank0_ready_wait                     0x0800929d   Thumb Code    92  gd32a50x_fmc.o(.text.fmc_bank0_ready_wait)
+    [Anonymous Symbol]                       0x0800929c   Section        0  gd32a50x_fmc.o(.text.fmc_bank0_ready_wait)
+    fmc_bank0_state_get                      0x080092f9   Thumb Code   210  gd32a50x_fmc.o(.text.fmc_bank0_state_get)
+    [Anonymous Symbol]                       0x080092f8   Section        0  gd32a50x_fmc.o(.text.fmc_bank0_state_get)
+    fmc_bank1_ready_wait                     0x080093cd   Thumb Code    92  gd32a50x_fmc.o(.text.fmc_bank1_ready_wait)
+    [Anonymous Symbol]                       0x080093cc   Section        0  gd32a50x_fmc.o(.text.fmc_bank1_ready_wait)
+    fmc_bank1_state_get                      0x08009429   Thumb Code   210  gd32a50x_fmc.o(.text.fmc_bank1_state_get)
+    [Anonymous Symbol]                       0x08009428   Section        0  gd32a50x_fmc.o(.text.fmc_bank1_state_get)
+    [Anonymous Symbol]                       0x080094fc   Section        0  gd32a50x_fmc.o(.text.fmc_doubleword_program)
+    [Anonymous Symbol]                       0x080095d0   Section        0  fmc_app.o(.text.fmc_erase_pages)
+    [Anonymous Symbol]                       0x0800961c   Section        0  gd32a50x_fmc.o(.text.fmc_flag_clear)
+    [Anonymous Symbol]                       0x0800968c   Section        0  fmc_app.o(.text.fmc_flags_clear)
+    [Anonymous Symbol]                       0x080096c8   Section        0  gd32a50x_fmc.o(.text.fmc_lock)
+    [Anonymous Symbol]                       0x080096ec   Section        0  gd32a50x_fmc.o(.text.fmc_page_erase)
+    [Anonymous Symbol]                       0x080097c4   Section        0  fmc_app.o(.text.fmc_uint64_program)
+    [Anonymous Symbol]                       0x080097f0   Section        0  gd32a50x_fmc.o(.text.fmc_unlock)
+    [Anonymous Symbol]                       0x08009854   Section        0  ntc.o(.text.get_adc_value)
+    [Anonymous Symbol]                       0x080098b0   Section        0  gd32a50x_gpio.o(.text.gpio_af_set)
+    [Anonymous Symbol]                       0x08009984   Section        0  gd32a50x_gpio.o(.text.gpio_bit_reset)
+    [Anonymous Symbol]                       0x08009994   Section        0  gd32a50x_gpio.o(.text.gpio_bit_set)
+    [Anonymous Symbol]                       0x080099a4   Section        0  gd32a50x_gpio.o(.text.gpio_deinit)
+    [Anonymous Symbol]                       0x08009a78   Section        0  gd32a50x_gpio.o(.text.gpio_input_bit_get)
+    [Anonymous Symbol]                       0x08009aa4   Section        0  gd32a50x_gpio.o(.text.gpio_mode_set)
+    [Anonymous Symbol]                       0x08009b40   Section        0  gd32a50x_gpio.o(.text.gpio_output_options_set)
+    [Anonymous Symbol]                       0x08009bd4   Section        0  external_detection.o(.text.handshake)
+    [Anonymous Symbol]                       0x08009bf4   Section        0  external_detection.o(.text.handshake_process)
+    [Anonymous Symbol]                       0x08009d3c   Section        0  gd32a50x_i2c.o(.text.i2c_address_config)
+    [Anonymous Symbol]                       0x08009d64   Section        0  gd32a50x_i2c.o(.text.i2c_automatic_end_enable)
+    [Anonymous Symbol]                       0x08009d78   Section        0  gd32a50x_i2c.o(.text.i2c_data_receive)
+    [Anonymous Symbol]                       0x08009d88   Section        0  gd32a50x_i2c.o(.text.i2c_data_transmit)
+    [Anonymous Symbol]                       0x08009d9c   Section        0  gd32a50x_i2c.o(.text.i2c_deinit)
+    [Anonymous Symbol]                       0x08009df0   Section        0  gd32a50x_i2c.o(.text.i2c_enable)
+    [Anonymous Symbol]                       0x08009e04   Section        0  gd32a50x_i2c.o(.text.i2c_flag_clear)
+    [Anonymous Symbol]                       0x08009e18   Section        0  gd32a50x_i2c.o(.text.i2c_flag_get)
+    [Anonymous Symbol]                       0x08009e44   Section        0  gd32a50x_i2c.o(.text.i2c_interrupt_enable)
+    [Anonymous Symbol]                       0x08009e58   Section        0  gd32a50x_i2c.o(.text.i2c_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x08009e78   Section        0  gd32a50x_i2c.o(.text.i2c_interrupt_flag_get)
+    [Anonymous Symbol]                       0x08009ed8   Section        0  gd32a50x_i2c.o(.text.i2c_master_addressing)
+    [Anonymous Symbol]                       0x08009f10   Section        0  gd32a50x_i2c.o(.text.i2c_master_clock_config)
+    [Anonymous Symbol]                       0x08009f50   Section        0  gd32a50x_i2c.o(.text.i2c_start_on_bus)
+    [Anonymous Symbol]                       0x08009f64   Section        0  gd32a50x_i2c.o(.text.i2c_timing_config)
+    [Anonymous Symbol]                       0x08009fc0   Section        0  gd32a50x_i2c.o(.text.i2c_transfer_byte_number_config)
+    [Anonymous Symbol]                       0x08009fe0   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x0800a0ec   Section        0  gd32a50x_misc.o(.text.nvic_irq_disable)
+    [Anonymous Symbol]                       0x0800a100   Section        0  gd32a50x_misc.o(.text.nvic_irq_enable)
+    [Anonymous Symbol]                       0x0800a22c   Section        0  gd32a50x_misc.o(.text.nvic_priority_group_set)
+    [Anonymous Symbol]                       0x0800a248   Section        0  gd32a50x_misc.o(.text.nvic_vector_table_set)
+    [Anonymous Symbol]                       0x0800a270   Section        0  control.o(.text.process_0x81)
+    [Anonymous Symbol]                       0x0800a2dc   Section        0  gd32a50x_rcu.o(.text.rcu_adc_clock_config)
+    [Anonymous Symbol]                       0x0800a308   Section        0  gd32a50x_rcu.o(.text.rcu_deinit)
+    [Anonymous Symbol]                       0x0800a3a0   Section        0  gd32a50x_rcu.o(.text.rcu_flag_get)
+    [Anonymous Symbol]                       0x0800a3e0   Section        0  gd32a50x_rcu.o(.text.rcu_osci_stab_wait)
+    [Anonymous Symbol]                       0x0800a5bc   Section        0  gd32a50x_rcu.o(.text.rcu_periph_clock_disable)
+    [Anonymous Symbol]                       0x0800a5e4   Section        0  gd32a50x_rcu.o(.text.rcu_periph_clock_enable)
+    [Anonymous Symbol]                       0x0800a60c   Section        0  gd32a50x_rcu.o(.text.rcu_periph_reset_disable)
+    [Anonymous Symbol]                       0x0800a634   Section        0  gd32a50x_rcu.o(.text.rcu_periph_reset_enable)
+    [Anonymous Symbol]                       0x0800a65c   Section        0  ntc.o(.text.readTemper)
+    search_data                              0x0800a6c5   Thumb Code   114  ntc.o(.text.search_data)
+    [Anonymous Symbol]                       0x0800a6c4   Section        0  ntc.o(.text.search_data)
+    [Anonymous Symbol]                       0x0800a738   Section        0  gd32a50x_spi.o(.text.spi_enable)
+    [Anonymous Symbol]                       0x0800a74c   Section        0  gd32a50x_spi.o(.text.spi_i2s_deinit)
+    [Anonymous Symbol]                       0x0800a7a0   Section        0  gd32a50x_spi.o(.text.spi_init)
+    [Anonymous Symbol]                       0x0800a814   Section        0  gd32a50x_spi.o(.text.spi_nss_output_enable)
+    [Anonymous Symbol]                       0x0800a828   Section        0  gd32a50x_spi.o(.text.spi_struct_para_init)
+    system_clock_100m_pll_irc8m              0x0800a851   Thumb Code   278  system_gd32a50x.o(.text.system_clock_100m_pll_irc8m)
+    [Anonymous Symbol]                       0x0800a850   Section        0  system_gd32a50x.o(.text.system_clock_100m_pll_irc8m)
+    system_clock_config                      0x0800a969   Thumb Code     8  system_gd32a50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x0800a968   Section        0  system_gd32a50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x0800a970   Section        0  systick.o(.text.systick_config)
+    temper_calc                              0x0800a9a5   Thumb Code   156  ntc.o(.text.temper_calc)
+    [Anonymous Symbol]                       0x0800a9a4   Section        0  ntc.o(.text.temper_calc)
+    [Anonymous Symbol]                       0x0800aa40   Section        0  gd32a50x_timer.o(.text.timer_auto_reload_shadow_enable)
+    [Anonymous Symbol]                       0x0800aa54   Section        0  gd32a50x_timer.o(.text.timer_channel_output_config)
+    [Anonymous Symbol]                       0x0800ae04   Section        0  gd32a50x_timer.o(.text.timer_channel_output_mode_config)
+    [Anonymous Symbol]                       0x0800af08   Section        0  gd32a50x_timer.o(.text.timer_channel_output_pulse_value_config)
+    [Anonymous Symbol]                       0x0800af80   Section        0  gd32a50x_timer.o(.text.timer_channel_output_shadow_config)
+    [Anonymous Symbol]                       0x0800b084   Section        0  gd32a50x_timer.o(.text.timer_channel_output_struct_para_init)
+    [Anonymous Symbol]                       0x0800b0a8   Section        0  gd32a50x_timer.o(.text.timer_deinit)
+    [Anonymous Symbol]                       0x0800b1a0   Section        0  gd32a50x_timer.o(.text.timer_enable)
+    [Anonymous Symbol]                       0x0800b1b4   Section        0  gd32a50x_timer.o(.text.timer_init)
+    [Anonymous Symbol]                       0x0800b2d4   Section        0  gd32a50x_timer.o(.text.timer_interrupt_enable)
+    [Anonymous Symbol]                       0x0800b2e8   Section        0  gd32a50x_timer.o(.text.timer_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x0800b2fc   Section        0  gd32a50x_timer.o(.text.timer_interrupt_flag_get)
+    [Anonymous Symbol]                       0x0800b338   Section        0  gd32a50x_timer.o(.text.timer_primary_output_config)
+    [Anonymous Symbol]                       0x0800b368   Section        0  gd32a50x_timer.o(.text.timer_struct_para_init)
+    i.__0printf                              0x0800b390   Section        0  printfa.o(i.__0printf)
+    i.__scatterload_copy                     0x0800b3b0   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800b3be   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0800b3c0   Section       14  handlers.o(i.__scatterload_zeroinit)
+    _fp_digits                               0x0800b3d1   Thumb Code   366  printfa.o(i._fp_digits)
+    i._fp_digits                             0x0800b3d0   Section        0  printfa.o(i._fp_digits)
+    _printf_core                             0x0800b555   Thumb Code  1744  printfa.o(i._printf_core)
+    i._printf_core                           0x0800b554   Section        0  printfa.o(i._printf_core)
+    _printf_post_padding                     0x0800bc31   Thumb Code    36  printfa.o(i._printf_post_padding)
+    i._printf_post_padding                   0x0800bc30   Section        0  printfa.o(i._printf_post_padding)
+    _printf_pre_padding                      0x0800bc55   Thumb Code    46  printfa.o(i._printf_pre_padding)
+    i._printf_pre_padding                    0x0800bc54   Section        0  printfa.o(i._printf_pre_padding)
+    i.fputc                                  0x0800bc82   Section        0  fputc.o(i.fputc)
+    ntc_adc                                  0x0800bd3c   Data         382  ntc.o(.rodata.ntc_adc)
+    [Anonymous Symbol]                       0x0800bd3c   Section        0  ntc.o(.rodata.ntc_adc)
+    .L.str.4                                 0x0800beba   Data          46  max96752.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x0800beba   Section        0  max96752.o(.rodata.str1.1)
+    .L.str.2                                 0x0800bee8   Data          46  max96752.o(.rodata.str1.1)
+    .L.str.3                                 0x0800bf16   Data          53  max96752.o(.rodata.str1.1)
+    .L.str.1                                 0x0800bf4b   Data          49  max96752.o(.rodata.str1.1)
+    .L.str                                   0x0800bf7c   Data          32  max96752.o(.rodata.str1.1)
     .data                                    0x20000000   Section        4  stdout.o(.data)
     delay                                    0x20000688   Data           4  systick.o(.bss.delay)
     [Anonymous Symbol]                       0x20000688   Section        0  systick.o(.bss.delay)
@@ -3740,146 +3671,147 @@ Image Symbol Table
     McuRcuDeinit                             0x08006e69   Thumb Code   140  rcu_app.o(.text.McuRcuDeinit)
     McuRcuInitialization                     0x08006ef5   Thumb Code   140  rcu_app.o(.text.McuRcuInitialization)
     McuSpiInitialize                         0x08006f81   Thumb Code     8  spi_app.o(.text.McuSpiInitialize)
-    McuTimerInitialization                   0x08006f89   Thumb Code    28  timer_app.o(.text.McuTimerInitialization)
-    MemManage_Handler                        0x08006fa5   Thumb Code     4  gd32a50x_it.o(.text.MemManage_Handler)
-    Modify_PWM_Directly                      0x08006fa9   Thumb Code    34  backlight.o(.text.Modify_PWM_Directly)
-    NMI_Handler                              0x08006fcd   Thumb Code     2  gd32a50x_it.o(.text.NMI_Handler)
-    Notice_master_to_read                    0x08006fd1   Thumb Code    68  update.o(.text.Notice_master_to_read)
-    OpenCloseLcdFun                          0x08007015   Thumb Code    22  writedataframe.o(.text.OpenCloseLcdFun)
-    PIN_level_Detection                      0x0800702d   Thumb Code   242  external_detection.o(.text.PIN_level_Detection)
-    PendSV_Handler                           0x08007121   Thumb Code     2  gd32a50x_it.o(.text.PendSV_Handler)
-    PowerOn_Order                            0x08007125   Thumb Code   316  power.o(.text.PowerOn_Order)
-    PowerOn_Sequence                         0x08007261   Thumb Code    28  power.o(.text.PowerOn_Sequence)
-    ReadCmdIdStrInit                         0x0800727d   Thumb Code   356  readdataframe.o(.text.ReadCmdIdStrInit)
-    ReadFrameChecksumBuff                    0x080073e1   Thumb Code    78  readdataframe.o(.text.ReadFrameChecksumBuff)
-    ReadFrameChecksumCount                   0x08007431   Thumb Code    90  readdataframe.o(.text.ReadFrameChecksumCount)
-    ReadFrameTransmit                        0x0800748d   Thumb Code   812  readdataframe.o(.text.ReadFrameTransmit)
-    ReadFrameWriteData                       0x080077b9   Thumb Code   738  readdataframe.o(.text.ReadFrameWriteData)
-    SPI_Master_Init                          0x08007a9d   Thumb Code    94  spi_app.o(.text.SPI_Master_Init)
-    SVC_Handler                              0x08007afd   Thumb Code     2  gd32a50x_it.o(.text.SVC_Handler)
-    SetFrameTimeoutValueFun                  0x08007b01   Thumb Code    28  writedataframe.o(.text.SetFrameTimeoutValueFun)
-    SetTargetDutyCycle                       0x08007b1d   Thumb Code   504  backlight.o(.text.SetTargetDutyCycle)
-    StdWriteFrameDataWrite                   0x08007d15   Thumb Code    98  writedataframe.o(.text.StdWriteFrameDataWrite)
-    SysTick_Handler                          0x08007dcd   Thumb Code    56  gd32a50x_it.o(.text.SysTick_Handler)
-    SystemInit                               0x08007e05   Thumb Code   330  system_gd32a50x.o(.text.SystemInit)
-    TIMER1_IRQHandler                        0x08007f51   Thumb Code   344  gd32a50x_it.o(.text.TIMER1_IRQHandler)
-    TIMER5_DAC_IRQHandler                    0x080080a9   Thumb Code    92  gd32a50x_it.o(.text.TIMER5_DAC_IRQHandler)
-    TIMER6_IRQHandler                        0x08008105   Thumb Code    74  gd32a50x_it.o(.text.TIMER6_IRQHandler)
-    TimeStampFun                             0x08008151   Thumb Code    40  writedataframe.o(.text.TimeStampFun)
-    Timer19_Generate_PWM_config              0x08008179   Thumb Code   166  timer_app.o(.text.Timer19_Generate_PWM_config)
-    Timer1_Generate_1ms_Interrupt            0x08008221   Thumb Code    94  timer_app.o(.text.Timer1_Generate_1ms_Interrupt)
-    Timer5_Generate_2s_Interrupt             0x08008281   Thumb Code    92  timer_app.o(.text.Timer5_Generate_2s_Interrupt)
-    Timer6_Generate_2s_Interrupt             0x080082dd   Thumb Code    92  timer_app.o(.text.Timer6_Generate_2s_Interrupt)
-    TouchChipResetCmdFun                     0x08008339   Thumb Code    22  writedataframe.o(.text.TouchChipResetCmdFun)
-    UpdateBacklightController                0x08008351   Thumb Code   258  backlight.o(.text.UpdateBacklightController)
-    UpdateCmdFun                             0x08008455   Thumb Code   120  writedataframe.o(.text.UpdateCmdFun)
-    Update_Brightness                        0x080084cd   Thumb Code    68  backlight.o(.text.Update_Brightness)
-    Update_Process                           0x08008511   Thumb Code   306  update.o(.text.Update_Process)
-    Updating                                 0x08008645   Thumb Code   314  update.o(.text.Updating)
-    UsageFault_Handler                       0x08008781   Thumb Code     4  gd32a50x_it.o(.text.UsageFault_Handler)
-    WriteFrameTransmit                       0x08008785   Thumb Code   862  writedataframe.o(.text.WriteFrameTransmit)
-    adc_NTC_config                           0x08008b29   Thumb Code   136  adc_app.o(.text.adc_NTC_config)
-    adc_calibration_enable                   0x08008bb1   Thumb Code    60  gd32a50x_adc.o(.text.adc_calibration_enable)
-    adc_channel_length_config                0x08008bed   Thumb Code   110  gd32a50x_adc.o(.text.adc_channel_length_config)
-    adc_data_alignment_config                0x08008c5d   Thumb Code    40  gd32a50x_adc.o(.text.adc_data_alignment_config)
-    adc_deinit                               0x08008c85   Thumb Code    82  gd32a50x_adc.o(.text.adc_deinit)
-    adc_enable                               0x08008cd9   Thumb Code    30  gd32a50x_adc.o(.text.adc_enable)
-    adc_external_trigger_config              0x08008cf9   Thumb Code   120  gd32a50x_adc.o(.text.adc_external_trigger_config)
-    adc_external_trigger_source_config       0x08008d71   Thumb Code    82  gd32a50x_adc.o(.text.adc_external_trigger_source_config)
-    adc_flag_clear                           0x08008dc5   Thumb Code    18  gd32a50x_adc.o(.text.adc_flag_clear)
-    adc_flag_get                             0x08008dd9   Thumb Code    40  gd32a50x_adc.o(.text.adc_flag_get)
-    adc_mean_filter                          0x08008e01   Thumb Code   108  ntc.o(.text.adc_mean_filter)
-    adc_mode_config                          0x08008e6d   Thumb Code    32  gd32a50x_adc.o(.text.adc_mode_config)
-    adc_oversample_mode_config               0x08008e8d   Thumb Code    98  gd32a50x_adc.o(.text.adc_oversample_mode_config)
-    adc_oversample_mode_enable               0x08008ef1   Thumb Code    22  gd32a50x_adc.o(.text.adc_oversample_mode_enable)
-    adc_regular_channel_config               0x08008f09   Thumb Code   372  gd32a50x_adc.o(.text.adc_regular_channel_config)
-    adc_software_trigger_enable              0x0800907d   Thumb Code    58  gd32a50x_adc.o(.text.adc_software_trigger_enable)
-    adc_special_function_config              0x080090b9   Thumb Code   166  gd32a50x_adc.o(.text.adc_special_function_config)
-    compareArrays                            0x08009161   Thumb Code    78  update.o(.text.compareArrays)
-    cx                                       0x080091b1   Thumb Code   134  update.o(.text.cx)
-    delay_1ms                                0x08009239   Thumb Code    38  systick.o(.text.delay_1ms)
-    delay_decrement                          0x08009261   Thumb Code    32  systick.o(.text.delay_decrement)
-    fmc_doubleword_program                   0x080094e1   Thumb Code   212  gd32a50x_fmc.o(.text.fmc_doubleword_program)
-    fmc_erase_pages                          0x080095b5   Thumb Code    76  fmc_app.o(.text.fmc_erase_pages)
-    fmc_flag_clear                           0x08009601   Thumb Code   110  gd32a50x_fmc.o(.text.fmc_flag_clear)
-    fmc_flags_clear                          0x08009671   Thumb Code    60  fmc_app.o(.text.fmc_flags_clear)
-    fmc_lock                                 0x080096ad   Thumb Code    34  gd32a50x_fmc.o(.text.fmc_lock)
-    fmc_page_erase                           0x080096d1   Thumb Code   214  gd32a50x_fmc.o(.text.fmc_page_erase)
-    fmc_uint64_program                       0x080097a9   Thumb Code    44  fmc_app.o(.text.fmc_uint64_program)
-    fmc_unlock                               0x080097d5   Thumb Code    98  gd32a50x_fmc.o(.text.fmc_unlock)
-    get_adc_value                            0x08009839   Thumb Code    92  ntc.o(.text.get_adc_value)
-    gpio_af_set                              0x08009895   Thumb Code   212  gd32a50x_gpio.o(.text.gpio_af_set)
-    gpio_bit_reset                           0x08009969   Thumb Code    16  gd32a50x_gpio.o(.text.gpio_bit_reset)
-    gpio_bit_set                             0x08009979   Thumb Code    16  gd32a50x_gpio.o(.text.gpio_bit_set)
-    gpio_deinit                              0x08009989   Thumb Code   212  gd32a50x_gpio.o(.text.gpio_deinit)
-    gpio_input_bit_get                       0x08009a5d   Thumb Code    42  gd32a50x_gpio.o(.text.gpio_input_bit_get)
-    gpio_mode_set                            0x08009a89   Thumb Code   156  gd32a50x_gpio.o(.text.gpio_mode_set)
-    gpio_output_options_set                  0x08009b25   Thumb Code   146  gd32a50x_gpio.o(.text.gpio_output_options_set)
-    handshake                                0x08009bb9   Thumb Code    30  external_detection.o(.text.handshake)
-    handshake_process                        0x08009bd9   Thumb Code   174  external_detection.o(.text.handshake_process)
-    i2c_address_config                       0x08009c89   Thumb Code    40  gd32a50x_i2c.o(.text.i2c_address_config)
-    i2c_automatic_end_enable                 0x08009cb1   Thumb Code    18  gd32a50x_i2c.o(.text.i2c_automatic_end_enable)
-    i2c_data_receive                         0x08009cc5   Thumb Code    14  gd32a50x_i2c.o(.text.i2c_data_receive)
-    i2c_data_transmit                        0x08009cd5   Thumb Code    18  gd32a50x_i2c.o(.text.i2c_data_transmit)
-    i2c_deinit                               0x08009ce9   Thumb Code    82  gd32a50x_i2c.o(.text.i2c_deinit)
-    i2c_enable                               0x08009d3d   Thumb Code    18  gd32a50x_i2c.o(.text.i2c_enable)
-    i2c_flag_clear                           0x08009d51   Thumb Code    20  gd32a50x_i2c.o(.text.i2c_flag_clear)
-    i2c_flag_get                             0x08009d65   Thumb Code    42  gd32a50x_i2c.o(.text.i2c_flag_get)
-    i2c_interrupt_enable                     0x08009d91   Thumb Code    20  gd32a50x_i2c.o(.text.i2c_interrupt_enable)
-    i2c_interrupt_flag_clear                 0x08009da5   Thumb Code    30  gd32a50x_i2c.o(.text.i2c_interrupt_flag_clear)
-    i2c_interrupt_flag_get                   0x08009dc5   Thumb Code    94  gd32a50x_i2c.o(.text.i2c_interrupt_flag_get)
-    i2c_master_addressing                    0x08009e25   Thumb Code    54  gd32a50x_i2c.o(.text.i2c_master_addressing)
-    i2c_master_clock_config                  0x08009e5d   Thumb Code    62  gd32a50x_i2c.o(.text.i2c_master_clock_config)
-    i2c_start_on_bus                         0x08009e9d   Thumb Code    18  gd32a50x_i2c.o(.text.i2c_start_on_bus)
-    i2c_timing_config                        0x08009eb1   Thumb Code    92  gd32a50x_i2c.o(.text.i2c_timing_config)
-    i2c_transfer_byte_number_config          0x08009f0d   Thumb Code    32  gd32a50x_i2c.o(.text.i2c_transfer_byte_number_config)
-    main                                     0x08009f2d   Thumb Code   234  main.o(.text.main)
-    nvic_irq_enable                          0x0800a019   Thumb Code   298  gd32a50x_misc.o(.text.nvic_irq_enable)
-    nvic_priority_group_set                  0x0800a145   Thumb Code    28  gd32a50x_misc.o(.text.nvic_priority_group_set)
-    nvic_vector_table_set                    0x0800a161   Thumb Code    40  gd32a50x_misc.o(.text.nvic_vector_table_set)
-    process_0x81                             0x0800a189   Thumb Code   106  control.o(.text.process_0x81)
-    rcu_adc_clock_config                     0x0800a1f5   Thumb Code    44  gd32a50x_rcu.o(.text.rcu_adc_clock_config)
-    rcu_deinit                               0x0800a221   Thumb Code   152  gd32a50x_rcu.o(.text.rcu_deinit)
-    rcu_flag_get                             0x0800a2b9   Thumb Code    62  gd32a50x_rcu.o(.text.rcu_flag_get)
-    rcu_osci_stab_wait                       0x0800a2f9   Thumb Code   476  gd32a50x_rcu.o(.text.rcu_osci_stab_wait)
-    rcu_periph_clock_disable                 0x0800a4d5   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_clock_disable)
-    rcu_periph_clock_enable                  0x0800a4fd   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_clock_enable)
-    rcu_periph_reset_disable                 0x0800a525   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_reset_disable)
-    rcu_periph_reset_enable                  0x0800a54d   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_reset_enable)
-    readTemper                               0x0800a575   Thumb Code   104  ntc.o(.text.readTemper)
-    spi_enable                               0x0800a651   Thumb Code    18  gd32a50x_spi.o(.text.spi_enable)
-    spi_i2s_deinit                           0x0800a665   Thumb Code    82  gd32a50x_spi.o(.text.spi_i2s_deinit)
-    spi_init                                 0x0800a6b9   Thumb Code   114  gd32a50x_spi.o(.text.spi_init)
-    spi_nss_output_enable                    0x0800a72d   Thumb Code    18  gd32a50x_spi.o(.text.spi_nss_output_enable)
-    spi_struct_para_init                     0x0800a741   Thumb Code    38  gd32a50x_spi.o(.text.spi_struct_para_init)
-    systick_config                           0x0800a889   Thumb Code    50  systick.o(.text.systick_config)
-    timer_auto_reload_shadow_enable          0x0800a959   Thumb Code    18  gd32a50x_timer.o(.text.timer_auto_reload_shadow_enable)
-    timer_channel_output_config              0x0800a96d   Thumb Code   944  gd32a50x_timer.o(.text.timer_channel_output_config)
-    timer_channel_output_mode_config         0x0800ad1d   Thumb Code   258  gd32a50x_timer.o(.text.timer_channel_output_mode_config)
-    timer_channel_output_pulse_value_config  0x0800ae21   Thumb Code   118  gd32a50x_timer.o(.text.timer_channel_output_pulse_value_config)
-    timer_channel_output_shadow_config       0x0800ae99   Thumb Code   258  gd32a50x_timer.o(.text.timer_channel_output_shadow_config)
-    timer_channel_output_struct_para_init    0x0800af9d   Thumb Code    34  gd32a50x_timer.o(.text.timer_channel_output_struct_para_init)
-    timer_deinit                             0x0800afc1   Thumb Code   246  gd32a50x_timer.o(.text.timer_deinit)
-    timer_enable                             0x0800b0b9   Thumb Code    18  gd32a50x_timer.o(.text.timer_enable)
-    timer_init                               0x0800b0cd   Thumb Code   288  gd32a50x_timer.o(.text.timer_init)
-    timer_interrupt_enable                   0x0800b1ed   Thumb Code    20  gd32a50x_timer.o(.text.timer_interrupt_enable)
-    timer_interrupt_flag_clear               0x0800b201   Thumb Code    20  gd32a50x_timer.o(.text.timer_interrupt_flag_clear)
-    timer_interrupt_flag_get                 0x0800b215   Thumb Code    58  gd32a50x_timer.o(.text.timer_interrupt_flag_get)
-    timer_primary_output_config              0x0800b251   Thumb Code    46  gd32a50x_timer.o(.text.timer_primary_output_config)
-    timer_struct_para_init                   0x0800b281   Thumb Code    38  gd32a50x_timer.o(.text.timer_struct_para_init)
-    __0printf                                0x0800b2a9   Thumb Code    22  printfa.o(i.__0printf)
-    __1printf                                0x0800b2a9   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x0800b2a9   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x0800b2a9   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x0800b2a9   Thumb Code     0  printfa.o(i.__0printf)
-    __scatterload_copy                       0x0800b2c9   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800b2d7   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800b2d9   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    fputc                                    0x0800bb9b   Thumb Code    18  fputc.o(i.fputc)
-    Std_Receive_Arr                          0x0800bbac   Data          69  update.o(.rodata.Std_Receive_Arr)
-    Std_Replay_Arr                           0x0800bbf1   Data          98  update.o(.rodata.Std_Replay_Arr)
-    Region$$Table$$Base                      0x0800beb4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0800bed4   Number         0  anon$$obj.o(Region$$Table)
+    McuTimerInitialization                   0x08006f89   Thumb Code    12  timer_app.o(.text.McuTimerInitialization)
+    MemManage_Handler                        0x08006f95   Thumb Code     4  gd32a50x_it.o(.text.MemManage_Handler)
+    Modify_PWM_Directly                      0x08006f99   Thumb Code    34  backlight.o(.text.Modify_PWM_Directly)
+    NMI_Handler                              0x08006fbd   Thumb Code     2  gd32a50x_it.o(.text.NMI_Handler)
+    Notice_master_to_read                    0x08006fc1   Thumb Code    68  update.o(.text.Notice_master_to_read)
+    OpenCloseLcdFun                          0x08007005   Thumb Code    22  writedataframe.o(.text.OpenCloseLcdFun)
+    PIN_level_Detection                      0x0800701d   Thumb Code   242  external_detection.o(.text.PIN_level_Detection)
+    PendSV_Handler                           0x08007111   Thumb Code     2  gd32a50x_it.o(.text.PendSV_Handler)
+    PowerOn_Order                            0x08007115   Thumb Code   316  power.o(.text.PowerOn_Order)
+    PowerOn_Sequence                         0x08007251   Thumb Code    28  power.o(.text.PowerOn_Sequence)
+    ReadCmdIdStrInit                         0x0800726d   Thumb Code   356  readdataframe.o(.text.ReadCmdIdStrInit)
+    ReadFrameChecksumBuff                    0x080073d1   Thumb Code    78  readdataframe.o(.text.ReadFrameChecksumBuff)
+    ReadFrameChecksumCount                   0x08007421   Thumb Code    90  readdataframe.o(.text.ReadFrameChecksumCount)
+    ReadFrameTransmit                        0x0800747d   Thumb Code   812  readdataframe.o(.text.ReadFrameTransmit)
+    ReadFrameWriteData                       0x080077a9   Thumb Code   738  readdataframe.o(.text.ReadFrameWriteData)
+    SPI_Master_Init                          0x08007a8d   Thumb Code    94  spi_app.o(.text.SPI_Master_Init)
+    SVC_Handler                              0x08007aed   Thumb Code     2  gd32a50x_it.o(.text.SVC_Handler)
+    SetFrameTimeoutValueFun                  0x08007af1   Thumb Code    28  writedataframe.o(.text.SetFrameTimeoutValueFun)
+    SetTargetDutyCycle                       0x08007b0d   Thumb Code   504  backlight.o(.text.SetTargetDutyCycle)
+    StdWriteFrameDataWrite                   0x08007d05   Thumb Code    98  writedataframe.o(.text.StdWriteFrameDataWrite)
+    SysTick_Handler                          0x08007dbd   Thumb Code    56  gd32a50x_it.o(.text.SysTick_Handler)
+    SystemInit                               0x08007df5   Thumb Code   330  system_gd32a50x.o(.text.SystemInit)
+    TIMER1_IRQHandler                        0x08007f41   Thumb Code   344  gd32a50x_it.o(.text.TIMER1_IRQHandler)
+    TIMER5_DAC_IRQHandler                    0x08008099   Thumb Code    92  gd32a50x_it.o(.text.TIMER5_DAC_IRQHandler)
+    TIMER6_IRQHandler                        0x080080f5   Thumb Code    74  gd32a50x_it.o(.text.TIMER6_IRQHandler)
+    TimeStampFun                             0x08008141   Thumb Code    40  writedataframe.o(.text.TimeStampFun)
+    Timer19_Generate_PWM_config              0x08008169   Thumb Code   166  timer_app.o(.text.Timer19_Generate_PWM_config)
+    Timer1_Generate_1ms_Interrupt            0x08008211   Thumb Code    94  timer_app.o(.text.Timer1_Generate_1ms_Interrupt)
+    Timer5_Generate_2s_Interrupt             0x08008271   Thumb Code    92  timer_app.o(.text.Timer5_Generate_2s_Interrupt)
+    Timer6_Generate_2s_Interrupt             0x080082cd   Thumb Code    92  timer_app.o(.text.Timer6_Generate_2s_Interrupt)
+    TouchChipResetCmdFun                     0x08008329   Thumb Code    22  writedataframe.o(.text.TouchChipResetCmdFun)
+    UpdateBacklightController                0x08008341   Thumb Code   258  backlight.o(.text.UpdateBacklightController)
+    UpdateCmdFun                             0x08008445   Thumb Code   120  writedataframe.o(.text.UpdateCmdFun)
+    Update_Brightness                        0x080084bd   Thumb Code    68  backlight.o(.text.Update_Brightness)
+    Update_Process                           0x08008501   Thumb Code   306  update.o(.text.Update_Process)
+    Updating                                 0x08008635   Thumb Code   314  update.o(.text.Updating)
+    UsageFault_Handler                       0x08008771   Thumb Code     4  gd32a50x_it.o(.text.UsageFault_Handler)
+    WriteFrameTransmit                       0x08008775   Thumb Code   850  writedataframe.o(.text.WriteFrameTransmit)
+    adc_NTC_config                           0x08008b45   Thumb Code   136  adc_app.o(.text.adc_NTC_config)
+    adc_calibration_enable                   0x08008bcd   Thumb Code    60  gd32a50x_adc.o(.text.adc_calibration_enable)
+    adc_channel_length_config                0x08008c09   Thumb Code   110  gd32a50x_adc.o(.text.adc_channel_length_config)
+    adc_data_alignment_config                0x08008c79   Thumb Code    40  gd32a50x_adc.o(.text.adc_data_alignment_config)
+    adc_deinit                               0x08008ca1   Thumb Code    82  gd32a50x_adc.o(.text.adc_deinit)
+    adc_enable                               0x08008cf5   Thumb Code    30  gd32a50x_adc.o(.text.adc_enable)
+    adc_external_trigger_config              0x08008d15   Thumb Code   120  gd32a50x_adc.o(.text.adc_external_trigger_config)
+    adc_external_trigger_source_config       0x08008d8d   Thumb Code    82  gd32a50x_adc.o(.text.adc_external_trigger_source_config)
+    adc_flag_clear                           0x08008de1   Thumb Code    18  gd32a50x_adc.o(.text.adc_flag_clear)
+    adc_flag_get                             0x08008df5   Thumb Code    40  gd32a50x_adc.o(.text.adc_flag_get)
+    adc_mean_filter                          0x08008e1d   Thumb Code   108  ntc.o(.text.adc_mean_filter)
+    adc_mode_config                          0x08008e89   Thumb Code    32  gd32a50x_adc.o(.text.adc_mode_config)
+    adc_oversample_mode_config               0x08008ea9   Thumb Code    98  gd32a50x_adc.o(.text.adc_oversample_mode_config)
+    adc_oversample_mode_enable               0x08008f0d   Thumb Code    22  gd32a50x_adc.o(.text.adc_oversample_mode_enable)
+    adc_regular_channel_config               0x08008f25   Thumb Code   372  gd32a50x_adc.o(.text.adc_regular_channel_config)
+    adc_software_trigger_enable              0x08009099   Thumb Code    58  gd32a50x_adc.o(.text.adc_software_trigger_enable)
+    adc_special_function_config              0x080090d5   Thumb Code   166  gd32a50x_adc.o(.text.adc_special_function_config)
+    compareArrays                            0x0800917d   Thumb Code    78  update.o(.text.compareArrays)
+    cx                                       0x080091cd   Thumb Code   134  update.o(.text.cx)
+    delay_1ms                                0x08009255   Thumb Code    38  systick.o(.text.delay_1ms)
+    delay_decrement                          0x0800927d   Thumb Code    32  systick.o(.text.delay_decrement)
+    fmc_doubleword_program                   0x080094fd   Thumb Code   212  gd32a50x_fmc.o(.text.fmc_doubleword_program)
+    fmc_erase_pages                          0x080095d1   Thumb Code    76  fmc_app.o(.text.fmc_erase_pages)
+    fmc_flag_clear                           0x0800961d   Thumb Code   110  gd32a50x_fmc.o(.text.fmc_flag_clear)
+    fmc_flags_clear                          0x0800968d   Thumb Code    60  fmc_app.o(.text.fmc_flags_clear)
+    fmc_lock                                 0x080096c9   Thumb Code    34  gd32a50x_fmc.o(.text.fmc_lock)
+    fmc_page_erase                           0x080096ed   Thumb Code   214  gd32a50x_fmc.o(.text.fmc_page_erase)
+    fmc_uint64_program                       0x080097c5   Thumb Code    44  fmc_app.o(.text.fmc_uint64_program)
+    fmc_unlock                               0x080097f1   Thumb Code    98  gd32a50x_fmc.o(.text.fmc_unlock)
+    get_adc_value                            0x08009855   Thumb Code    92  ntc.o(.text.get_adc_value)
+    gpio_af_set                              0x080098b1   Thumb Code   212  gd32a50x_gpio.o(.text.gpio_af_set)
+    gpio_bit_reset                           0x08009985   Thumb Code    16  gd32a50x_gpio.o(.text.gpio_bit_reset)
+    gpio_bit_set                             0x08009995   Thumb Code    16  gd32a50x_gpio.o(.text.gpio_bit_set)
+    gpio_deinit                              0x080099a5   Thumb Code   212  gd32a50x_gpio.o(.text.gpio_deinit)
+    gpio_input_bit_get                       0x08009a79   Thumb Code    42  gd32a50x_gpio.o(.text.gpio_input_bit_get)
+    gpio_mode_set                            0x08009aa5   Thumb Code   156  gd32a50x_gpio.o(.text.gpio_mode_set)
+    gpio_output_options_set                  0x08009b41   Thumb Code   146  gd32a50x_gpio.o(.text.gpio_output_options_set)
+    handshake                                0x08009bd5   Thumb Code    30  external_detection.o(.text.handshake)
+    handshake_process                        0x08009bf5   Thumb Code   328  external_detection.o(.text.handshake_process)
+    i2c_address_config                       0x08009d3d   Thumb Code    40  gd32a50x_i2c.o(.text.i2c_address_config)
+    i2c_automatic_end_enable                 0x08009d65   Thumb Code    18  gd32a50x_i2c.o(.text.i2c_automatic_end_enable)
+    i2c_data_receive                         0x08009d79   Thumb Code    14  gd32a50x_i2c.o(.text.i2c_data_receive)
+    i2c_data_transmit                        0x08009d89   Thumb Code    18  gd32a50x_i2c.o(.text.i2c_data_transmit)
+    i2c_deinit                               0x08009d9d   Thumb Code    82  gd32a50x_i2c.o(.text.i2c_deinit)
+    i2c_enable                               0x08009df1   Thumb Code    18  gd32a50x_i2c.o(.text.i2c_enable)
+    i2c_flag_clear                           0x08009e05   Thumb Code    20  gd32a50x_i2c.o(.text.i2c_flag_clear)
+    i2c_flag_get                             0x08009e19   Thumb Code    42  gd32a50x_i2c.o(.text.i2c_flag_get)
+    i2c_interrupt_enable                     0x08009e45   Thumb Code    20  gd32a50x_i2c.o(.text.i2c_interrupt_enable)
+    i2c_interrupt_flag_clear                 0x08009e59   Thumb Code    30  gd32a50x_i2c.o(.text.i2c_interrupt_flag_clear)
+    i2c_interrupt_flag_get                   0x08009e79   Thumb Code    94  gd32a50x_i2c.o(.text.i2c_interrupt_flag_get)
+    i2c_master_addressing                    0x08009ed9   Thumb Code    54  gd32a50x_i2c.o(.text.i2c_master_addressing)
+    i2c_master_clock_config                  0x08009f11   Thumb Code    62  gd32a50x_i2c.o(.text.i2c_master_clock_config)
+    i2c_start_on_bus                         0x08009f51   Thumb Code    18  gd32a50x_i2c.o(.text.i2c_start_on_bus)
+    i2c_timing_config                        0x08009f65   Thumb Code    92  gd32a50x_i2c.o(.text.i2c_timing_config)
+    i2c_transfer_byte_number_config          0x08009fc1   Thumb Code    32  gd32a50x_i2c.o(.text.i2c_transfer_byte_number_config)
+    main                                     0x08009fe1   Thumb Code   266  main.o(.text.main)
+    nvic_irq_disable                         0x0800a0ed   Thumb Code    20  gd32a50x_misc.o(.text.nvic_irq_disable)
+    nvic_irq_enable                          0x0800a101   Thumb Code   298  gd32a50x_misc.o(.text.nvic_irq_enable)
+    nvic_priority_group_set                  0x0800a22d   Thumb Code    28  gd32a50x_misc.o(.text.nvic_priority_group_set)
+    nvic_vector_table_set                    0x0800a249   Thumb Code    40  gd32a50x_misc.o(.text.nvic_vector_table_set)
+    process_0x81                             0x0800a271   Thumb Code   106  control.o(.text.process_0x81)
+    rcu_adc_clock_config                     0x0800a2dd   Thumb Code    44  gd32a50x_rcu.o(.text.rcu_adc_clock_config)
+    rcu_deinit                               0x0800a309   Thumb Code   152  gd32a50x_rcu.o(.text.rcu_deinit)
+    rcu_flag_get                             0x0800a3a1   Thumb Code    62  gd32a50x_rcu.o(.text.rcu_flag_get)
+    rcu_osci_stab_wait                       0x0800a3e1   Thumb Code   476  gd32a50x_rcu.o(.text.rcu_osci_stab_wait)
+    rcu_periph_clock_disable                 0x0800a5bd   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_clock_disable)
+    rcu_periph_clock_enable                  0x0800a5e5   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_clock_enable)
+    rcu_periph_reset_disable                 0x0800a60d   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_reset_disable)
+    rcu_periph_reset_enable                  0x0800a635   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_reset_enable)
+    readTemper                               0x0800a65d   Thumb Code   104  ntc.o(.text.readTemper)
+    spi_enable                               0x0800a739   Thumb Code    18  gd32a50x_spi.o(.text.spi_enable)
+    spi_i2s_deinit                           0x0800a74d   Thumb Code    82  gd32a50x_spi.o(.text.spi_i2s_deinit)
+    spi_init                                 0x0800a7a1   Thumb Code   114  gd32a50x_spi.o(.text.spi_init)
+    spi_nss_output_enable                    0x0800a815   Thumb Code    18  gd32a50x_spi.o(.text.spi_nss_output_enable)
+    spi_struct_para_init                     0x0800a829   Thumb Code    38  gd32a50x_spi.o(.text.spi_struct_para_init)
+    systick_config                           0x0800a971   Thumb Code    50  systick.o(.text.systick_config)
+    timer_auto_reload_shadow_enable          0x0800aa41   Thumb Code    18  gd32a50x_timer.o(.text.timer_auto_reload_shadow_enable)
+    timer_channel_output_config              0x0800aa55   Thumb Code   944  gd32a50x_timer.o(.text.timer_channel_output_config)
+    timer_channel_output_mode_config         0x0800ae05   Thumb Code   258  gd32a50x_timer.o(.text.timer_channel_output_mode_config)
+    timer_channel_output_pulse_value_config  0x0800af09   Thumb Code   118  gd32a50x_timer.o(.text.timer_channel_output_pulse_value_config)
+    timer_channel_output_shadow_config       0x0800af81   Thumb Code   258  gd32a50x_timer.o(.text.timer_channel_output_shadow_config)
+    timer_channel_output_struct_para_init    0x0800b085   Thumb Code    34  gd32a50x_timer.o(.text.timer_channel_output_struct_para_init)
+    timer_deinit                             0x0800b0a9   Thumb Code   246  gd32a50x_timer.o(.text.timer_deinit)
+    timer_enable                             0x0800b1a1   Thumb Code    18  gd32a50x_timer.o(.text.timer_enable)
+    timer_init                               0x0800b1b5   Thumb Code   288  gd32a50x_timer.o(.text.timer_init)
+    timer_interrupt_enable                   0x0800b2d5   Thumb Code    20  gd32a50x_timer.o(.text.timer_interrupt_enable)
+    timer_interrupt_flag_clear               0x0800b2e9   Thumb Code    20  gd32a50x_timer.o(.text.timer_interrupt_flag_clear)
+    timer_interrupt_flag_get                 0x0800b2fd   Thumb Code    58  gd32a50x_timer.o(.text.timer_interrupt_flag_get)
+    timer_primary_output_config              0x0800b339   Thumb Code    46  gd32a50x_timer.o(.text.timer_primary_output_config)
+    timer_struct_para_init                   0x0800b369   Thumb Code    38  gd32a50x_timer.o(.text.timer_struct_para_init)
+    __0printf                                0x0800b391   Thumb Code    22  printfa.o(i.__0printf)
+    __1printf                                0x0800b391   Thumb Code     0  printfa.o(i.__0printf)
+    __2printf                                0x0800b391   Thumb Code     0  printfa.o(i.__0printf)
+    __c89printf                              0x0800b391   Thumb Code     0  printfa.o(i.__0printf)
+    printf                                   0x0800b391   Thumb Code     0  printfa.o(i.__0printf)
+    __scatterload_copy                       0x0800b3b1   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800b3bf   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0800b3c1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    fputc                                    0x0800bc83   Thumb Code    18  fputc.o(i.fputc)
+    Std_Receive_Arr                          0x0800bc94   Data          69  update.o(.rodata.Std_Receive_Arr)
+    Std_Replay_Arr                           0x0800bcd9   Data          98  update.o(.rodata.Std_Replay_Arr)
+    Region$$Table$$Base                      0x0800bf9c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800bfbc   Number         0  anon$$obj.o(Region$$Table)
     __stdout                                 0x20000000   Data           4  stdout.o(.data)
     BootloaderStatus                         0x20000004   Data           1  update.o(.data.BootloaderStatus)
     SystemCoreClock                          0x20000008   Data           4  system_gd32a50x.o(.data.SystemCoreClock)
@@ -3946,391 +3878,392 @@ Memory Map of the image
 
   Image Entry point : 0x0800515d
 
-  Load Region LR_IROM1 (Base: 0x08005000, Size: 0x00006ee8, Max: 0x00040000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08005000, Size: 0x00006fd0, Max: 0x00040000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08005000, Load base: 0x08005000, Size: 0x00006ed4, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08005000, Load base: 0x08005000, Size: 0x00006fbc, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08005000   0x08005000   0x0000015c   Data   RO         2144    RESET               startup_gd32a50x.o
-    0x0800515c   0x0800515c   0x00000000   Code   RO         2185  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x0800515c   0x0800515c   0x00000004   Code   RO         2224    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x08005160   0x08005160   0x00000004   Code   RO         2227    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08005164   0x08005164   0x00000000   Code   RO         2229    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08005164   0x08005164   0x00000000   Code   RO         2231    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08005164   0x08005164   0x00000008   Code   RO         2232    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x0800516c   0x0800516c   0x00000000   Code   RO         2234    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x0800516c   0x0800516c   0x00000000   Code   RO         2236    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x0800516c   0x0800516c   0x00000004   Code   RO         2225    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x08005170   0x08005170   0x00000050   Code   RO         2145    .text               startup_gd32a50x.o
-    0x080051c0   0x080051c0   0x00000008   Code   RO         2188    .text               mc_w.l(siabs.o)
-    0x080051c8   0x080051c8   0x00000024   Code   RO         2192    .text               mc_w.l(memcpya.o)
-    0x080051ec   0x080051ec   0x0000002c   Code   RO         2252    .text               mc_w.l(uidiv.o)
-    0x08005218   0x08005218   0x00000062   Code   RO         2254    .text               mc_w.l(uldiv.o)
-    0x0800527a   0x0800527a   0x00000000   Code   RO         2256    .text               mc_w.l(iusefp.o)
-    0x0800527a   0x0800527a   0x0000014e   Code   RO         2257    .text               mf_w.l(dadd.o)
-    0x080053c8   0x080053c8   0x000000e4   Code   RO         2259    .text               mf_w.l(dmul.o)
-    0x080054ac   0x080054ac   0x000000de   Code   RO         2261    .text               mf_w.l(ddiv.o)
-    0x0800558a   0x0800558a   0x00000030   Code   RO         2263    .text               mf_w.l(dfixul.o)
+    0x08005000   0x08005000   0x0000015c   Data   RO         2146    RESET               startup_gd32a50x.o
+    0x0800515c   0x0800515c   0x00000000   Code   RO         2153  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x0800515c   0x0800515c   0x00000004   Code   RO         2192    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x08005160   0x08005160   0x00000004   Code   RO         2195    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08005164   0x08005164   0x00000000   Code   RO         2197    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08005164   0x08005164   0x00000000   Code   RO         2199    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08005164   0x08005164   0x00000008   Code   RO         2200    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x0800516c   0x0800516c   0x00000000   Code   RO         2202    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x0800516c   0x0800516c   0x00000000   Code   RO         2204    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x0800516c   0x0800516c   0x00000004   Code   RO         2193    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08005170   0x08005170   0x00000050   Code   RO         2147    .text               startup_gd32a50x.o
+    0x080051c0   0x080051c0   0x00000008   Code   RO         2156    .text               mc_w.l(siabs.o)
+    0x080051c8   0x080051c8   0x00000024   Code   RO         2160    .text               mc_w.l(memcpya.o)
+    0x080051ec   0x080051ec   0x0000002c   Code   RO         2220    .text               mc_w.l(uidiv.o)
+    0x08005218   0x08005218   0x00000062   Code   RO         2222    .text               mc_w.l(uldiv.o)
+    0x0800527a   0x0800527a   0x00000000   Code   RO         2224    .text               mc_w.l(iusefp.o)
+    0x0800527a   0x0800527a   0x0000014e   Code   RO         2225    .text               mf_w.l(dadd.o)
+    0x080053c8   0x080053c8   0x000000e4   Code   RO         2227    .text               mf_w.l(dmul.o)
+    0x080054ac   0x080054ac   0x000000de   Code   RO         2229    .text               mf_w.l(ddiv.o)
+    0x0800558a   0x0800558a   0x00000030   Code   RO         2231    .text               mf_w.l(dfixul.o)
     0x080055ba   0x080055ba   0x00000002   PAD
-    0x080055bc   0x080055bc   0x00000030   Code   RO         2265    .text               mf_w.l(cdrcmple.o)
-    0x080055ec   0x080055ec   0x00000024   Code   RO         2267    .text               mc_w.l(init.o)
-    0x08005610   0x08005610   0x00000000   Code   RO         2269    .text               mc_w.l(semi.o)
-    0x08005610   0x08005610   0x0000001e   Code   RO         2270    .text               mc_w.l(llshl.o)
-    0x0800562e   0x0800562e   0x00000020   Code   RO         2272    .text               mc_w.l(llushr.o)
-    0x0800564e   0x0800564e   0x00000024   Code   RO         2274    .text               mc_w.l(llsshr.o)
-    0x08005672   0x08005672   0x00000000   Code   RO         2276    .text               mc_w.l(iusesemip.o)
-    0x08005672   0x08005672   0x000000ba   Code   RO         2277    .text               mf_w.l(depilogue.o)
-    0x0800572c   0x0800572c   0x000000fa   Code   RO          308    .text.Afio_Config   gpio_app.o
+    0x080055bc   0x080055bc   0x00000030   Code   RO         2233    .text               mf_w.l(cdrcmple.o)
+    0x080055ec   0x080055ec   0x00000024   Code   RO         2235    .text               mc_w.l(init.o)
+    0x08005610   0x08005610   0x00000000   Code   RO         2237    .text               mc_w.l(semi.o)
+    0x08005610   0x08005610   0x0000001e   Code   RO         2238    .text               mc_w.l(llshl.o)
+    0x0800562e   0x0800562e   0x00000020   Code   RO         2240    .text               mc_w.l(llushr.o)
+    0x0800564e   0x0800564e   0x00000024   Code   RO         2242    .text               mc_w.l(llsshr.o)
+    0x08005672   0x08005672   0x00000000   Code   RO         2244    .text               mc_w.l(iusesemip.o)
+    0x08005672   0x08005672   0x000000ba   Code   RO         2245    .text               mf_w.l(depilogue.o)
+    0x0800572c   0x0800572c   0x000000fa   Code   RO          310    .text.Afio_Config   gpio_app.o
     0x08005826   0x08005826   0x00000002   PAD
-    0x08005828   0x08005828   0x00000028   Code   RO          184    .text.AppInitialization  initialization.o
-    0x08005850   0x08005850   0x00000022   Code   RO          426    .text.BackLightModeConfigureFun  writedataframe.o
+    0x08005828   0x08005828   0x00000028   Code   RO          186    .text.AppInitialization  initialization.o
+    0x08005850   0x08005850   0x00000022   Code   RO          428    .text.BackLightModeConfigureFun  writedataframe.o
     0x08005872   0x08005872   0x00000002   PAD
-    0x08005874   0x08005874   0x00000016   Code   RO          434    .text.BackLightSwitchCmdFun  writedataframe.o
+    0x08005874   0x08005874   0x00000016   Code   RO          436    .text.BackLightSwitchCmdFun  writedataframe.o
     0x0800588a   0x0800588a   0x00000002   PAD
     0x0800588c   0x0800588c   0x00000030   Code   RO          122    .text.Backlight_Brightness_Init  backlight.o
     0x080058bc   0x080058bc   0x00000004   Code   RO            8    .text.BusFault_Handler  gd32a50x_it.o
-    0x080058c0   0x080058c0   0x00000068   Code   RO          416    .text.ChecksumCheck  writedataframe.o
+    0x080058c0   0x080058c0   0x00000068   Code   RO          418    .text.ChecksumCheck  writedataframe.o
     0x08005928   0x08005928   0x00000002   Code   RO           14    .text.DebugMon_Handler  gd32a50x_it.o
     0x0800592a   0x0800592a   0x00000002   PAD
-    0x0800592c   0x0800592c   0x000000a0   Code   RO          438    .text.ExtUpdateCmd1Fun  writedataframe.o
-    0x080059cc   0x080059cc   0x000000a0   Code   RO          440    .text.ExtUpdateCmd2Fun  writedataframe.o
-    0x08005a6c   0x08005a6c   0x0000006c   Code   RO          442    .text.ExtUpdateCmd3Fun  writedataframe.o
-    0x08005ad8   0x08005ad8   0x0000006e   Code   RO          420    .text.ExtWriteFrameDataWrite  writedataframe.o
+    0x0800592c   0x0800592c   0x000000a0   Code   RO          440    .text.ExtUpdateCmd1Fun  writedataframe.o
+    0x080059cc   0x080059cc   0x000000a0   Code   RO          442    .text.ExtUpdateCmd2Fun  writedataframe.o
+    0x08005a6c   0x08005a6c   0x0000006c   Code   RO          444    .text.ExtUpdateCmd3Fun  writedataframe.o
+    0x08005ad8   0x08005ad8   0x0000006e   Code   RO          422    .text.ExtWriteFrameDataWrite  writedataframe.o
     0x08005b46   0x08005b46   0x00000002   PAD
-    0x08005b48   0x08005b48   0x0000016e   Code   RO          306    .text.Gpio_Config   gpio_app.o
+    0x08005b48   0x08005b48   0x0000016e   Code   RO          308    .text.Gpio_Config   gpio_app.o
     0x08005cb6   0x08005cb6   0x00000002   PAD
     0x08005cb8   0x08005cb8   0x00000004   Code   RO            4    .text.HardFault_Handler  gd32a50x_it.o
-    0x08005cbc   0x08005cbc   0x00000196   Code   RO          278    .text.I2C0_ER_IRQHandler  i2c_app.o
+    0x08005cbc   0x08005cbc   0x00000196   Code   RO          280    .text.I2C0_ER_IRQHandler  i2c_app.o
     0x08005e52   0x08005e52   0x00000002   PAD
-    0x08005e54   0x08005e54   0x000003c0   Code   RO          276    .text.I2C0_EV_IRQHandler  i2c_app.o
-    0x08006214   0x08006214   0x00000196   Code   RO          282    .text.I2C1_ER_IRQHandler  i2c_app.o
+    0x08005e54   0x08005e54   0x000003c0   Code   RO          278    .text.I2C0_EV_IRQHandler  i2c_app.o
+    0x08006214   0x08006214   0x00000196   Code   RO          284    .text.I2C1_ER_IRQHandler  i2c_app.o
     0x080063aa   0x080063aa   0x00000002   PAD
-    0x080063ac   0x080063ac   0x000003c0   Code   RO          280    .text.I2C1_EV_IRQHandler  i2c_app.o
-    0x0800676c   0x0800676c   0x00000094   Code   RO          272    .text.I2C_BUS_Reset  i2c_app.o
-    0x08006800   0x08006800   0x00000008   Code   RO          264    .text.I2C_Config    i2c_app.o
-    0x08006808   0x08006808   0x0000004c   Code   RO          274    .text.I2C_GPIO_Reset  i2c_app.o
-    0x08006854   0x08006854   0x00000038   Code   RO          262    .text.I2C_Gpio_Config  i2c_app.o
-    0x0800688c   0x0800688c   0x00000030   Code   RO          266    .text.I2C_Master_Config  i2c_app.o
-    0x080068bc   0x080068bc   0x0000006a   Code   RO          270    .text.I2C_Slave_Config  i2c_app.o
+    0x080063ac   0x080063ac   0x000003c0   Code   RO          282    .text.I2C1_EV_IRQHandler  i2c_app.o
+    0x0800676c   0x0800676c   0x00000094   Code   RO          274    .text.I2C_BUS_Reset  i2c_app.o
+    0x08006800   0x08006800   0x00000008   Code   RO          266    .text.I2C_Config    i2c_app.o
+    0x08006808   0x08006808   0x0000004c   Code   RO          276    .text.I2C_GPIO_Reset  i2c_app.o
+    0x08006854   0x08006854   0x00000038   Code   RO          264    .text.I2C_Gpio_Config  i2c_app.o
+    0x0800688c   0x0800688c   0x00000030   Code   RO          268    .text.I2C_Master_Config  i2c_app.o
+    0x080068bc   0x080068bc   0x0000006a   Code   RO          272    .text.I2C_Slave_Config  i2c_app.o
     0x08006926   0x08006926   0x00000002   PAD
-    0x08006928   0x08006928   0x0000038c   Code   RO          195    .text.I2c1_MasterWriteMulBytes  max96752.o
+    0x08006928   0x08006928   0x0000038c   Code   RO          197    .text.I2c1_MasterWriteMulBytes  max96752.o
     0x08006cb4   0x08006cb4   0x00000016   Code   RO          163    .text.IRQ_HIGH_level_Detection  external_detection.o
     0x08006cca   0x08006cca   0x00000002   PAD
-    0x08006ccc   0x08006ccc   0x00000012   Code   RO          186    .text.Initialization  initialization.o
+    0x08006ccc   0x08006ccc   0x00000012   Code   RO          188    .text.Initialization  initialization.o
     0x08006cde   0x08006cde   0x00000002   PAD
-    0x08006ce0   0x08006ce0   0x00000016   Code   RO          422    .text.LcdInformationCheckFun  writedataframe.o
+    0x08006ce0   0x08006ce0   0x00000016   Code   RO          424    .text.LcdInformationCheckFun  writedataframe.o
     0x08006cf6   0x08006cf6   0x00000002   PAD
-    0x08006cf8   0x08006cf8   0x00000120   Code   RO          197    .text.MAX96752_REG_Config  max96752.o
-    0x08006e18   0x08006e18   0x00000016   Code   RO          294    .text.McuAdcInitialization  adc_app.o
+    0x08006cf8   0x08006cf8   0x00000120   Code   RO          199    .text.MAX96752_REG_Config  max96752.o
+    0x08006e18   0x08006e18   0x00000016   Code   RO          296    .text.McuAdcInitialization  adc_app.o
     0x08006e2e   0x08006e2e   0x00000002   PAD
-    0x08006e30   0x08006e30   0x0000000c   Code   RO          304    .text.McuGpioInitialization  gpio_app.o
-    0x08006e3c   0x08006e3c   0x0000000c   Code   RO          260    .text.McuI2cInitialization  i2c_app.o
-    0x08006e48   0x08006e48   0x00000020   Code   RO          182    .text.McuInitialization  initialization.o
-    0x08006e68   0x08006e68   0x0000008c   Code   RO          319    .text.McuRcuDeinit  rcu_app.o
-    0x08006ef4   0x08006ef4   0x0000008c   Code   RO          317    .text.McuRcuInitialization  rcu_app.o
-    0x08006f80   0x08006f80   0x00000008   Code   RO          338    .text.McuSpiInitialize  spi_app.o
-    0x08006f88   0x08006f88   0x0000001c   Code   RO          360    .text.McuTimerInitialization  timer_app.o
-    0x08006fa4   0x08006fa4   0x00000004   Code   RO            6    .text.MemManage_Handler  gd32a50x_it.o
-    0x08006fa8   0x08006fa8   0x00000022   Code   RO          124    .text.Modify_PWM_Directly  backlight.o
-    0x08006fca   0x08006fca   0x00000002   PAD
-    0x08006fcc   0x08006fcc   0x00000002   Code   RO            2    .text.NMI_Handler   gd32a50x_it.o
-    0x08006fce   0x08006fce   0x00000002   PAD
-    0x08006fd0   0x08006fd0   0x00000044   Code   RO           87    .text.Notice_master_to_read  update.o
-    0x08007014   0x08007014   0x00000016   Code   RO          432    .text.OpenCloseLcdFun  writedataframe.o
-    0x0800702a   0x0800702a   0x00000002   PAD
-    0x0800702c   0x0800702c   0x000000f2   Code   RO          151    .text.PIN_level_Detection  external_detection.o
-    0x0800711e   0x0800711e   0x00000002   PAD
-    0x08007120   0x08007120   0x00000002   Code   RO           16    .text.PendSV_Handler  gd32a50x_it.o
-    0x08007122   0x08007122   0x00000002   PAD
-    0x08007124   0x08007124   0x0000013c   Code   RO          227    .text.PowerOn_Order  power.o
-    0x08007260   0x08007260   0x0000001c   Code   RO          231    .text.PowerOn_Sequence  power.o
-    0x0800727c   0x0800727c   0x00000164   Code   RO          371    .text.ReadCmdIdStrInit  readdataframe.o
-    0x080073e0   0x080073e0   0x0000004e   Code   RO          375    .text.ReadFrameChecksumBuff  readdataframe.o
-    0x0800742e   0x0800742e   0x00000002   PAD
-    0x08007430   0x08007430   0x0000005a   Code   RO          373    .text.ReadFrameChecksumCount  readdataframe.o
-    0x0800748a   0x0800748a   0x00000002   PAD
-    0x0800748c   0x0800748c   0x0000032c   Code   RO          379    .text.ReadFrameTransmit  readdataframe.o
-    0x080077b8   0x080077b8   0x000002e2   Code   RO          377    .text.ReadFrameWriteData  readdataframe.o
-    0x08007a9a   0x08007a9a   0x00000002   PAD
-    0x08007a9c   0x08007a9c   0x0000005e   Code   RO          328    .text.SPI_Master_Init  spi_app.o
-    0x08007afa   0x08007afa   0x00000002   PAD
-    0x08007afc   0x08007afc   0x00000002   Code   RO           12    .text.SVC_Handler   gd32a50x_it.o
-    0x08007afe   0x08007afe   0x00000002   PAD
-    0x08007b00   0x08007b00   0x0000001c   Code   RO          424    .text.SetFrameTimeoutValueFun  writedataframe.o
-    0x08007b1c   0x08007b1c   0x000001f8   Code   RO          126    .text.SetTargetDutyCycle  backlight.o
-    0x08007d14   0x08007d14   0x00000062   Code   RO          418    .text.StdWriteFrameDataWrite  writedataframe.o
-    0x08007d76   0x08007d76   0x00000002   PAD
-    0x08007d78   0x08007d78   0x00000052   Code   RO           50    .text.SysTick_Config  systick.o
-    0x08007dca   0x08007dca   0x00000002   PAD
-    0x08007dcc   0x08007dcc   0x00000038   Code   RO           18    .text.SysTick_Handler  gd32a50x_it.o
-    0x08007e04   0x08007e04   0x0000014a   Code   RO          467    .text.SystemInit    system_gd32a50x.o
-    0x08007f4e   0x08007f4e   0x00000002   PAD
-    0x08007f50   0x08007f50   0x00000158   Code   RO           20    .text.TIMER1_IRQHandler  gd32a50x_it.o
-    0x080080a8   0x080080a8   0x0000005c   Code   RO           22    .text.TIMER5_DAC_IRQHandler  gd32a50x_it.o
-    0x08008104   0x08008104   0x0000004a   Code   RO           24    .text.TIMER6_IRQHandler  gd32a50x_it.o
-    0x0800814e   0x0800814e   0x00000002   PAD
-    0x08008150   0x08008150   0x00000028   Code   RO          430    .text.TimeStampFun  writedataframe.o
-    0x08008178   0x08008178   0x000000a6   Code   RO          358    .text.Timer19_Generate_PWM_config  timer_app.o
-    0x0800821e   0x0800821e   0x00000002   PAD
-    0x08008220   0x08008220   0x0000005e   Code   RO          352    .text.Timer1_Generate_1ms_Interrupt  timer_app.o
-    0x0800827e   0x0800827e   0x00000002   PAD
-    0x08008280   0x08008280   0x0000005c   Code   RO          354    .text.Timer5_Generate_2s_Interrupt  timer_app.o
-    0x080082dc   0x080082dc   0x0000005c   Code   RO          356    .text.Timer6_Generate_2s_Interrupt  timer_app.o
-    0x08008338   0x08008338   0x00000016   Code   RO          428    .text.TouchChipResetCmdFun  writedataframe.o
-    0x0800834e   0x0800834e   0x00000002   PAD
-    0x08008350   0x08008350   0x00000102   Code   RO          128    .text.UpdateBacklightController  backlight.o
-    0x08008452   0x08008452   0x00000002   PAD
-    0x08008454   0x08008454   0x00000078   Code   RO          436    .text.UpdateCmdFun  writedataframe.o
-    0x080084cc   0x080084cc   0x00000044   Code   RO          130    .text.Update_Brightness  backlight.o
-    0x08008510   0x08008510   0x00000132   Code   RO           89    .text.Update_Process  update.o
-    0x08008642   0x08008642   0x00000002   PAD
-    0x08008644   0x08008644   0x0000013a   Code   RO           93    .text.Updating      update.o
-    0x0800877e   0x0800877e   0x00000002   PAD
-    0x08008780   0x08008780   0x00000004   Code   RO           10    .text.UsageFault_Handler  gd32a50x_it.o
-    0x08008784   0x08008784   0x0000035e   Code   RO          444    .text.WriteFrameTransmit  writedataframe.o
-    0x08008ae2   0x08008ae2   0x00000002   PAD
-    0x08008ae4   0x08008ae4   0x00000042   Code   RO           52    .text.__NVIC_SetPriority  systick.o
-    0x08008b26   0x08008b26   0x00000002   PAD
-    0x08008b28   0x08008b28   0x00000088   Code   RO          292    .text.adc_NTC_config  adc_app.o
-    0x08008bb0   0x08008bb0   0x0000003c   Code   RO          490    .text.adc_calibration_enable  gd32a50x_adc.o
-    0x08008bec   0x08008bec   0x0000006e   Code   RO          512    .text.adc_channel_length_config  gd32a50x_adc.o
-    0x08008c5a   0x08008c5a   0x00000002   PAD
-    0x08008c5c   0x08008c5c   0x00000028   Code   RO          510    .text.adc_data_alignment_config  gd32a50x_adc.o
-    0x08008c84   0x08008c84   0x00000052   Code   RO          484    .text.adc_deinit    gd32a50x_adc.o
-    0x08008cd6   0x08008cd6   0x00000002   PAD
-    0x08008cd8   0x08008cd8   0x0000001e   Code   RO          486    .text.adc_enable    gd32a50x_adc.o
-    0x08008cf6   0x08008cf6   0x00000002   PAD
-    0x08008cf8   0x08008cf8   0x00000078   Code   RO          520    .text.adc_external_trigger_config  gd32a50x_adc.o
-    0x08008d70   0x08008d70   0x00000052   Code   RO          522    .text.adc_external_trigger_source_config  gd32a50x_adc.o
-    0x08008dc2   0x08008dc2   0x00000002   PAD
-    0x08008dc4   0x08008dc4   0x00000012   Code   RO          556    .text.adc_flag_clear  gd32a50x_adc.o
-    0x08008dd6   0x08008dd6   0x00000002   PAD
-    0x08008dd8   0x08008dd8   0x00000028   Code   RO          554    .text.adc_flag_get  gd32a50x_adc.o
-    0x08008e00   0x08008e00   0x0000006c   Code   RO          215    .text.adc_mean_filter  ntc.o
-    0x08008e6c   0x08008e6c   0x00000020   Code   RO          506    .text.adc_mode_config  gd32a50x_adc.o
-    0x08008e8c   0x08008e8c   0x00000062   Code   RO          548    .text.adc_oversample_mode_config  gd32a50x_adc.o
-    0x08008eee   0x08008eee   0x00000002   PAD
-    0x08008ef0   0x08008ef0   0x00000016   Code   RO          550    .text.adc_oversample_mode_enable  gd32a50x_adc.o
-    0x08008f06   0x08008f06   0x00000002   PAD
-    0x08008f08   0x08008f08   0x00000174   Code   RO          514    .text.adc_regular_channel_config  gd32a50x_adc.o
-    0x0800907c   0x0800907c   0x0000003a   Code   RO          524    .text.adc_software_trigger_enable  gd32a50x_adc.o
-    0x080090b6   0x080090b6   0x00000002   PAD
-    0x080090b8   0x080090b8   0x000000a6   Code   RO          508    .text.adc_special_function_config  gd32a50x_adc.o
-    0x0800915e   0x0800915e   0x00000002   PAD
-    0x08009160   0x08009160   0x0000004e   Code   RO           91    .text.compareArrays  update.o
-    0x080091ae   0x080091ae   0x00000002   PAD
-    0x080091b0   0x080091b0   0x00000086   Code   RO           95    .text.cx            update.o
-    0x08009236   0x08009236   0x00000002   PAD
-    0x08009238   0x08009238   0x00000026   Code   RO           54    .text.delay_1ms     systick.o
-    0x0800925e   0x0800925e   0x00000002   PAD
-    0x08009260   0x08009260   0x00000020   Code   RO           56    .text.delay_decrement  systick.o
-    0x08009280   0x08009280   0x0000005c   Code   RO         1066    .text.fmc_bank0_ready_wait  gd32a50x_fmc.o
-    0x080092dc   0x080092dc   0x000000d2   Code   RO         1144    .text.fmc_bank0_state_get  gd32a50x_fmc.o
-    0x080093ae   0x080093ae   0x00000002   PAD
-    0x080093b0   0x080093b0   0x0000005c   Code   RO         1068    .text.fmc_bank1_ready_wait  gd32a50x_fmc.o
-    0x0800940c   0x0800940c   0x000000d2   Code   RO         1146    .text.fmc_bank1_state_get  gd32a50x_fmc.o
-    0x080094de   0x080094de   0x00000002   PAD
-    0x080094e0   0x080094e0   0x000000d4   Code   RO         1080    .text.fmc_doubleword_program  gd32a50x_fmc.o
-    0x080095b4   0x080095b4   0x0000004c   Code   RO           70    .text.fmc_erase_pages  fmc_app.o
-    0x08009600   0x08009600   0x0000006e   Code   RO         1134    .text.fmc_flag_clear  gd32a50x_fmc.o
-    0x0800966e   0x0800966e   0x00000002   PAD
-    0x08009670   0x08009670   0x0000003c   Code   RO           68    .text.fmc_flags_clear  fmc_app.o
-    0x080096ac   0x080096ac   0x00000022   Code   RO         1034    .text.fmc_lock      gd32a50x_fmc.o
-    0x080096ce   0x080096ce   0x00000002   PAD
-    0x080096d0   0x080096d0   0x000000d6   Code   RO         1070    .text.fmc_page_erase  gd32a50x_fmc.o
-    0x080097a6   0x080097a6   0x00000002   PAD
-    0x080097a8   0x080097a8   0x0000002c   Code   RO           72    .text.fmc_uint64_program  fmc_app.o
-    0x080097d4   0x080097d4   0x00000062   Code   RO         1028    .text.fmc_unlock    gd32a50x_fmc.o
-    0x08009836   0x08009836   0x00000002   PAD
-    0x08009838   0x08009838   0x0000005c   Code   RO          213    .text.get_adc_value  ntc.o
-    0x08009894   0x08009894   0x000000d4   Code   RO         1202    .text.gpio_af_set   gd32a50x_gpio.o
-    0x08009968   0x08009968   0x00000010   Code   RO         1188    .text.gpio_bit_reset  gd32a50x_gpio.o
-    0x08009978   0x08009978   0x00000010   Code   RO         1186    .text.gpio_bit_set  gd32a50x_gpio.o
-    0x08009988   0x08009988   0x000000d4   Code   RO         1180    .text.gpio_deinit   gd32a50x_gpio.o
-    0x08009a5c   0x08009a5c   0x0000002a   Code   RO         1194    .text.gpio_input_bit_get  gd32a50x_gpio.o
-    0x08009a86   0x08009a86   0x00000002   PAD
-    0x08009a88   0x08009a88   0x0000009c   Code   RO         1182    .text.gpio_mode_set  gd32a50x_gpio.o
-    0x08009b24   0x08009b24   0x00000092   Code   RO         1184    .text.gpio_output_options_set  gd32a50x_gpio.o
-    0x08009bb6   0x08009bb6   0x00000002   PAD
-    0x08009bb8   0x08009bb8   0x0000001e   Code   RO          167    .text.handshake     external_detection.o
-    0x08009bd6   0x08009bd6   0x00000002   PAD
-    0x08009bd8   0x08009bd8   0x000000ae   Code   RO          165    .text.handshake_process  external_detection.o
-    0x08009c86   0x08009c86   0x00000002   PAD
-    0x08009c88   0x08009c88   0x00000028   Code   RO         1251    .text.i2c_address_config  gd32a50x_i2c.o
-    0x08009cb0   0x08009cb0   0x00000012   Code   RO         1239    .text.i2c_automatic_end_enable  gd32a50x_i2c.o
-    0x08009cc2   0x08009cc2   0x00000002   PAD
-    0x08009cc4   0x08009cc4   0x0000000e   Code   RO         1281    .text.i2c_data_receive  gd32a50x_i2c.o
-    0x08009cd2   0x08009cd2   0x00000002   PAD
-    0x08009cd4   0x08009cd4   0x00000012   Code   RO         1279    .text.i2c_data_transmit  gd32a50x_i2c.o
-    0x08009ce6   0x08009ce6   0x00000002   PAD
-    0x08009ce8   0x08009ce8   0x00000052   Code   RO         1217    .text.i2c_deinit    gd32a50x_i2c.o
-    0x08009d3a   0x08009d3a   0x00000002   PAD
-    0x08009d3c   0x08009d3c   0x00000012   Code   RO         1271    .text.i2c_enable    gd32a50x_i2c.o
-    0x08009d4e   0x08009d4e   0x00000002   PAD
-    0x08009d50   0x08009d50   0x00000014   Code   RO         1329    .text.i2c_flag_clear  gd32a50x_i2c.o
-    0x08009d64   0x08009d64   0x0000002a   Code   RO         1327    .text.i2c_flag_get  gd32a50x_i2c.o
-    0x08009d8e   0x08009d8e   0x00000002   PAD
-    0x08009d90   0x08009d90   0x00000014   Code   RO         1331    .text.i2c_interrupt_enable  gd32a50x_i2c.o
-    0x08009da4   0x08009da4   0x0000001e   Code   RO         1337    .text.i2c_interrupt_flag_clear  gd32a50x_i2c.o
-    0x08009dc2   0x08009dc2   0x00000002   PAD
-    0x08009dc4   0x08009dc4   0x0000005e   Code   RO         1335    .text.i2c_interrupt_flag_get  gd32a50x_i2c.o
-    0x08009e22   0x08009e22   0x00000002   PAD
-    0x08009e24   0x08009e24   0x00000036   Code   RO         1229    .text.i2c_master_addressing  gd32a50x_i2c.o
-    0x08009e5a   0x08009e5a   0x00000002   PAD
-    0x08009e5c   0x08009e5c   0x0000003e   Code   RO         1227    .text.i2c_master_clock_config  gd32a50x_i2c.o
-    0x08009e9a   0x08009e9a   0x00000002   PAD
-    0x08009e9c   0x08009e9c   0x00000012   Code   RO         1275    .text.i2c_start_on_bus  gd32a50x_i2c.o
-    0x08009eae   0x08009eae   0x00000002   PAD
-    0x08009eb0   0x08009eb0   0x0000005c   Code   RO         1219    .text.i2c_timing_config  gd32a50x_i2c.o
-    0x08009f0c   0x08009f0c   0x00000020   Code   RO         1287    .text.i2c_transfer_byte_number_config  gd32a50x_i2c.o
-    0x08009f2c   0x08009f2c   0x000000ea   Code   RO           37    .text.main          main.o
-    0x0800a016   0x0800a016   0x00000002   PAD
-    0x0800a018   0x0800a018   0x0000012a   Code   RO         1429    .text.nvic_irq_enable  gd32a50x_misc.o
-    0x0800a142   0x0800a142   0x00000002   PAD
-    0x0800a144   0x0800a144   0x0000001c   Code   RO         1427    .text.nvic_priority_group_set  gd32a50x_misc.o
-    0x0800a160   0x0800a160   0x00000028   Code   RO         1439    .text.nvic_vector_table_set  gd32a50x_misc.o
-    0x0800a188   0x0800a188   0x0000006a   Code   RO          140    .text.process_0x81  control.o
-    0x0800a1f2   0x0800a1f2   0x00000002   PAD
-    0x0800a1f4   0x0800a1f4   0x0000002c   Code   RO         1543    .text.rcu_adc_clock_config  gd32a50x_rcu.o
-    0x0800a220   0x0800a220   0x00000098   Code   RO         1501    .text.rcu_deinit    gd32a50x_rcu.o
-    0x0800a2b8   0x0800a2b8   0x0000003e   Code   RO         1553    .text.rcu_flag_get  gd32a50x_rcu.o
-    0x0800a2f6   0x0800a2f6   0x00000002   PAD
-    0x0800a2f8   0x0800a2f8   0x000001dc   Code   RO         1503    .text.rcu_osci_stab_wait  gd32a50x_rcu.o
-    0x0800a4d4   0x0800a4d4   0x00000028   Code   RO         1507    .text.rcu_periph_clock_disable  gd32a50x_rcu.o
-    0x0800a4fc   0x0800a4fc   0x00000028   Code   RO         1505    .text.rcu_periph_clock_enable  gd32a50x_rcu.o
-    0x0800a524   0x0800a524   0x00000028   Code   RO         1511    .text.rcu_periph_reset_disable  gd32a50x_rcu.o
-    0x0800a54c   0x0800a54c   0x00000028   Code   RO         1509    .text.rcu_periph_reset_enable  gd32a50x_rcu.o
-    0x0800a574   0x0800a574   0x00000068   Code   RO          207    .text.readTemper    ntc.o
-    0x0800a5dc   0x0800a5dc   0x00000072   Code   RO          209    .text.search_data   ntc.o
-    0x0800a64e   0x0800a64e   0x00000002   PAD
-    0x0800a650   0x0800a650   0x00000012   Code   RO         1649    .text.spi_enable    gd32a50x_spi.o
-    0x0800a662   0x0800a662   0x00000002   PAD
-    0x0800a664   0x0800a664   0x00000052   Code   RO         1643    .text.spi_i2s_deinit  gd32a50x_spi.o
-    0x0800a6b6   0x0800a6b6   0x00000002   PAD
-    0x0800a6b8   0x0800a6b8   0x00000072   Code   RO         1647    .text.spi_init      gd32a50x_spi.o
-    0x0800a72a   0x0800a72a   0x00000002   PAD
-    0x0800a72c   0x0800a72c   0x00000012   Code   RO         1661    .text.spi_nss_output_enable  gd32a50x_spi.o
-    0x0800a73e   0x0800a73e   0x00000002   PAD
-    0x0800a740   0x0800a740   0x00000026   Code   RO         1645    .text.spi_struct_para_init  gd32a50x_spi.o
-    0x0800a766   0x0800a766   0x00000002   PAD
-    0x0800a768   0x0800a768   0x00000116   Code   RO          473    .text.system_clock_100m_pll_irc8m  system_gd32a50x.o
-    0x0800a87e   0x0800a87e   0x00000002   PAD
-    0x0800a880   0x0800a880   0x00000008   Code   RO          469    .text.system_clock_config  system_gd32a50x.o
-    0x0800a888   0x0800a888   0x00000032   Code   RO           48    .text.systick_config  systick.o
-    0x0800a8ba   0x0800a8ba   0x00000002   PAD
-    0x0800a8bc   0x0800a8bc   0x0000009c   Code   RO          211    .text.temper_calc   ntc.o
-    0x0800a958   0x0800a958   0x00000012   Code   RO         1785    .text.timer_auto_reload_shadow_enable  gd32a50x_timer.o
-    0x0800a96a   0x0800a96a   0x00000002   PAD
-    0x0800a96c   0x0800a96c   0x000003b0   Code   RO         1845    .text.timer_channel_output_config  gd32a50x_timer.o
-    0x0800ad1c   0x0800ad1c   0x00000102   Code   RO         1847    .text.timer_channel_output_mode_config  gd32a50x_timer.o
-    0x0800ae1e   0x0800ae1e   0x00000002   PAD
-    0x0800ae20   0x0800ae20   0x00000076   Code   RO         1849    .text.timer_channel_output_pulse_value_config  gd32a50x_timer.o
-    0x0800ae96   0x0800ae96   0x00000002   PAD
-    0x0800ae98   0x0800ae98   0x00000102   Code   RO         1851    .text.timer_channel_output_shadow_config  gd32a50x_timer.o
-    0x0800af9a   0x0800af9a   0x00000002   PAD
-    0x0800af9c   0x0800af9c   0x00000022   Code   RO         1843    .text.timer_channel_output_struct_para_init  gd32a50x_timer.o
-    0x0800afbe   0x0800afbe   0x00000002   PAD
-    0x0800afc0   0x0800afc0   0x000000f6   Code   RO         1775    .text.timer_deinit  gd32a50x_timer.o
-    0x0800b0b6   0x0800b0b6   0x00000002   PAD
-    0x0800b0b8   0x0800b0b8   0x00000012   Code   RO         1781    .text.timer_enable  gd32a50x_timer.o
-    0x0800b0ca   0x0800b0ca   0x00000002   PAD
-    0x0800b0cc   0x0800b0cc   0x00000120   Code   RO         1779    .text.timer_init    gd32a50x_timer.o
-    0x0800b1ec   0x0800b1ec   0x00000014   Code   RO         1943    .text.timer_interrupt_enable  gd32a50x_timer.o
-    0x0800b200   0x0800b200   0x00000014   Code   RO         1949    .text.timer_interrupt_flag_clear  gd32a50x_timer.o
-    0x0800b214   0x0800b214   0x0000003a   Code   RO         1947    .text.timer_interrupt_flag_get  gd32a50x_timer.o
-    0x0800b24e   0x0800b24e   0x00000002   PAD
-    0x0800b250   0x0800b250   0x0000002e   Code   RO         1841    .text.timer_primary_output_config  gd32a50x_timer.o
-    0x0800b27e   0x0800b27e   0x00000002   PAD
-    0x0800b280   0x0800b280   0x00000026   Code   RO         1777    .text.timer_struct_para_init  gd32a50x_timer.o
-    0x0800b2a6   0x0800b2a6   0x00000002   PAD
-    0x0800b2a8   0x0800b2a8   0x00000020   Code   RO         2197    i.__0printf         mc_w.l(printfa.o)
-    0x0800b2c8   0x0800b2c8   0x0000000e   Code   RO         2281    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800b2d6   0x0800b2d6   0x00000002   Code   RO         2282    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800b2d8   0x0800b2d8   0x0000000e   Code   RO         2283    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800b2e6   0x0800b2e6   0x00000002   PAD
-    0x0800b2e8   0x0800b2e8   0x00000184   Code   RO         2204    i._fp_digits        mc_w.l(printfa.o)
-    0x0800b46c   0x0800b46c   0x000006dc   Code   RO         2205    i._printf_core      mc_w.l(printfa.o)
-    0x0800bb48   0x0800bb48   0x00000024   Code   RO         2206    i._printf_post_padding  mc_w.l(printfa.o)
-    0x0800bb6c   0x0800bb6c   0x0000002e   Code   RO         2207    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x0800bb9a   0x0800bb9a   0x00000012   Code   RO         2238    i.fputc             mc_w.l(fputc.o)
-    0x0800bbac   0x0800bbac   0x00000045   Data   RO          105    .rodata.Std_Receive_Arr  update.o
-    0x0800bbf1   0x0800bbf1   0x00000062   Data   RO          106    .rodata.Std_Replay_Arr  update.o
-    0x0800bc53   0x0800bc53   0x00000001   PAD
-    0x0800bc54   0x0800bc54   0x0000017e   Data   RO          219    .rodata.ntc_adc     ntc.o
-    0x0800bdd2   0x0800bdd2   0x000000e2   Data   RO          199    .rodata.str1.1      max96752.o
-    0x0800beb4   0x0800beb4   0x00000020   Data   RO         2280    Region$$Table       anon$$obj.o
+    0x08006e30   0x08006e30   0x0000000c   Code   RO          306    .text.McuGpioInitialization  gpio_app.o
+    0x08006e3c   0x08006e3c   0x0000000c   Code   RO          262    .text.McuI2cInitialization  i2c_app.o
+    0x08006e48   0x08006e48   0x00000020   Code   RO          184    .text.McuInitialization  initialization.o
+    0x08006e68   0x08006e68   0x0000008c   Code   RO          321    .text.McuRcuDeinit  rcu_app.o
+    0x08006ef4   0x08006ef4   0x0000008c   Code   RO          319    .text.McuRcuInitialization  rcu_app.o
+    0x08006f80   0x08006f80   0x00000008   Code   RO          340    .text.McuSpiInitialize  spi_app.o
+    0x08006f88   0x08006f88   0x0000000c   Code   RO          362    .text.McuTimerInitialization  timer_app.o
+    0x08006f94   0x08006f94   0x00000004   Code   RO            6    .text.MemManage_Handler  gd32a50x_it.o
+    0x08006f98   0x08006f98   0x00000022   Code   RO          124    .text.Modify_PWM_Directly  backlight.o
+    0x08006fba   0x08006fba   0x00000002   PAD
+    0x08006fbc   0x08006fbc   0x00000002   Code   RO            2    .text.NMI_Handler   gd32a50x_it.o
+    0x08006fbe   0x08006fbe   0x00000002   PAD
+    0x08006fc0   0x08006fc0   0x00000044   Code   RO           87    .text.Notice_master_to_read  update.o
+    0x08007004   0x08007004   0x00000016   Code   RO          434    .text.OpenCloseLcdFun  writedataframe.o
+    0x0800701a   0x0800701a   0x00000002   PAD
+    0x0800701c   0x0800701c   0x000000f2   Code   RO          151    .text.PIN_level_Detection  external_detection.o
+    0x0800710e   0x0800710e   0x00000002   PAD
+    0x08007110   0x08007110   0x00000002   Code   RO           16    .text.PendSV_Handler  gd32a50x_it.o
+    0x08007112   0x08007112   0x00000002   PAD
+    0x08007114   0x08007114   0x0000013c   Code   RO          229    .text.PowerOn_Order  power.o
+    0x08007250   0x08007250   0x0000001c   Code   RO          233    .text.PowerOn_Sequence  power.o
+    0x0800726c   0x0800726c   0x00000164   Code   RO          373    .text.ReadCmdIdStrInit  readdataframe.o
+    0x080073d0   0x080073d0   0x0000004e   Code   RO          377    .text.ReadFrameChecksumBuff  readdataframe.o
+    0x0800741e   0x0800741e   0x00000002   PAD
+    0x08007420   0x08007420   0x0000005a   Code   RO          375    .text.ReadFrameChecksumCount  readdataframe.o
+    0x0800747a   0x0800747a   0x00000002   PAD
+    0x0800747c   0x0800747c   0x0000032c   Code   RO          381    .text.ReadFrameTransmit  readdataframe.o
+    0x080077a8   0x080077a8   0x000002e2   Code   RO          379    .text.ReadFrameWriteData  readdataframe.o
+    0x08007a8a   0x08007a8a   0x00000002   PAD
+    0x08007a8c   0x08007a8c   0x0000005e   Code   RO          330    .text.SPI_Master_Init  spi_app.o
+    0x08007aea   0x08007aea   0x00000002   PAD
+    0x08007aec   0x08007aec   0x00000002   Code   RO           12    .text.SVC_Handler   gd32a50x_it.o
+    0x08007aee   0x08007aee   0x00000002   PAD
+    0x08007af0   0x08007af0   0x0000001c   Code   RO          426    .text.SetFrameTimeoutValueFun  writedataframe.o
+    0x08007b0c   0x08007b0c   0x000001f8   Code   RO          126    .text.SetTargetDutyCycle  backlight.o
+    0x08007d04   0x08007d04   0x00000062   Code   RO          420    .text.StdWriteFrameDataWrite  writedataframe.o
+    0x08007d66   0x08007d66   0x00000002   PAD
+    0x08007d68   0x08007d68   0x00000052   Code   RO           50    .text.SysTick_Config  systick.o
+    0x08007dba   0x08007dba   0x00000002   PAD
+    0x08007dbc   0x08007dbc   0x00000038   Code   RO           18    .text.SysTick_Handler  gd32a50x_it.o
+    0x08007df4   0x08007df4   0x0000014a   Code   RO          469    .text.SystemInit    system_gd32a50x.o
+    0x08007f3e   0x08007f3e   0x00000002   PAD
+    0x08007f40   0x08007f40   0x00000158   Code   RO           20    .text.TIMER1_IRQHandler  gd32a50x_it.o
+    0x08008098   0x08008098   0x0000005c   Code   RO           22    .text.TIMER5_DAC_IRQHandler  gd32a50x_it.o
+    0x080080f4   0x080080f4   0x0000004a   Code   RO           24    .text.TIMER6_IRQHandler  gd32a50x_it.o
+    0x0800813e   0x0800813e   0x00000002   PAD
+    0x08008140   0x08008140   0x00000028   Code   RO          432    .text.TimeStampFun  writedataframe.o
+    0x08008168   0x08008168   0x000000a6   Code   RO          360    .text.Timer19_Generate_PWM_config  timer_app.o
+    0x0800820e   0x0800820e   0x00000002   PAD
+    0x08008210   0x08008210   0x0000005e   Code   RO          354    .text.Timer1_Generate_1ms_Interrupt  timer_app.o
+    0x0800826e   0x0800826e   0x00000002   PAD
+    0x08008270   0x08008270   0x0000005c   Code   RO          356    .text.Timer5_Generate_2s_Interrupt  timer_app.o
+    0x080082cc   0x080082cc   0x0000005c   Code   RO          358    .text.Timer6_Generate_2s_Interrupt  timer_app.o
+    0x08008328   0x08008328   0x00000016   Code   RO          430    .text.TouchChipResetCmdFun  writedataframe.o
+    0x0800833e   0x0800833e   0x00000002   PAD
+    0x08008340   0x08008340   0x00000102   Code   RO          128    .text.UpdateBacklightController  backlight.o
+    0x08008442   0x08008442   0x00000002   PAD
+    0x08008444   0x08008444   0x00000078   Code   RO          438    .text.UpdateCmdFun  writedataframe.o
+    0x080084bc   0x080084bc   0x00000044   Code   RO          130    .text.Update_Brightness  backlight.o
+    0x08008500   0x08008500   0x00000132   Code   RO           89    .text.Update_Process  update.o
+    0x08008632   0x08008632   0x00000002   PAD
+    0x08008634   0x08008634   0x0000013a   Code   RO           93    .text.Updating      update.o
+    0x0800876e   0x0800876e   0x00000002   PAD
+    0x08008770   0x08008770   0x00000004   Code   RO           10    .text.UsageFault_Handler  gd32a50x_it.o
+    0x08008774   0x08008774   0x00000352   Code   RO          446    .text.WriteFrameTransmit  writedataframe.o
+    0x08008ac6   0x08008ac6   0x00000002   PAD
+    0x08008ac8   0x08008ac8   0x00000038   Code   RO         1435    .text.__NVIC_DisableIRQ  gd32a50x_misc.o
+    0x08008b00   0x08008b00   0x00000042   Code   RO           52    .text.__NVIC_SetPriority  systick.o
+    0x08008b42   0x08008b42   0x00000002   PAD
+    0x08008b44   0x08008b44   0x00000088   Code   RO          294    .text.adc_NTC_config  adc_app.o
+    0x08008bcc   0x08008bcc   0x0000003c   Code   RO          492    .text.adc_calibration_enable  gd32a50x_adc.o
+    0x08008c08   0x08008c08   0x0000006e   Code   RO          514    .text.adc_channel_length_config  gd32a50x_adc.o
+    0x08008c76   0x08008c76   0x00000002   PAD
+    0x08008c78   0x08008c78   0x00000028   Code   RO          512    .text.adc_data_alignment_config  gd32a50x_adc.o
+    0x08008ca0   0x08008ca0   0x00000052   Code   RO          486    .text.adc_deinit    gd32a50x_adc.o
+    0x08008cf2   0x08008cf2   0x00000002   PAD
+    0x08008cf4   0x08008cf4   0x0000001e   Code   RO          488    .text.adc_enable    gd32a50x_adc.o
+    0x08008d12   0x08008d12   0x00000002   PAD
+    0x08008d14   0x08008d14   0x00000078   Code   RO          522    .text.adc_external_trigger_config  gd32a50x_adc.o
+    0x08008d8c   0x08008d8c   0x00000052   Code   RO          524    .text.adc_external_trigger_source_config  gd32a50x_adc.o
+    0x08008dde   0x08008dde   0x00000002   PAD
+    0x08008de0   0x08008de0   0x00000012   Code   RO          558    .text.adc_flag_clear  gd32a50x_adc.o
+    0x08008df2   0x08008df2   0x00000002   PAD
+    0x08008df4   0x08008df4   0x00000028   Code   RO          556    .text.adc_flag_get  gd32a50x_adc.o
+    0x08008e1c   0x08008e1c   0x0000006c   Code   RO          217    .text.adc_mean_filter  ntc.o
+    0x08008e88   0x08008e88   0x00000020   Code   RO          508    .text.adc_mode_config  gd32a50x_adc.o
+    0x08008ea8   0x08008ea8   0x00000062   Code   RO          550    .text.adc_oversample_mode_config  gd32a50x_adc.o
+    0x08008f0a   0x08008f0a   0x00000002   PAD
+    0x08008f0c   0x08008f0c   0x00000016   Code   RO          552    .text.adc_oversample_mode_enable  gd32a50x_adc.o
+    0x08008f22   0x08008f22   0x00000002   PAD
+    0x08008f24   0x08008f24   0x00000174   Code   RO          516    .text.adc_regular_channel_config  gd32a50x_adc.o
+    0x08009098   0x08009098   0x0000003a   Code   RO          526    .text.adc_software_trigger_enable  gd32a50x_adc.o
+    0x080090d2   0x080090d2   0x00000002   PAD
+    0x080090d4   0x080090d4   0x000000a6   Code   RO          510    .text.adc_special_function_config  gd32a50x_adc.o
+    0x0800917a   0x0800917a   0x00000002   PAD
+    0x0800917c   0x0800917c   0x0000004e   Code   RO           91    .text.compareArrays  update.o
+    0x080091ca   0x080091ca   0x00000002   PAD
+    0x080091cc   0x080091cc   0x00000086   Code   RO           95    .text.cx            update.o
+    0x08009252   0x08009252   0x00000002   PAD
+    0x08009254   0x08009254   0x00000026   Code   RO           54    .text.delay_1ms     systick.o
+    0x0800927a   0x0800927a   0x00000002   PAD
+    0x0800927c   0x0800927c   0x00000020   Code   RO           56    .text.delay_decrement  systick.o
+    0x0800929c   0x0800929c   0x0000005c   Code   RO         1068    .text.fmc_bank0_ready_wait  gd32a50x_fmc.o
+    0x080092f8   0x080092f8   0x000000d2   Code   RO         1146    .text.fmc_bank0_state_get  gd32a50x_fmc.o
+    0x080093ca   0x080093ca   0x00000002   PAD
+    0x080093cc   0x080093cc   0x0000005c   Code   RO         1070    .text.fmc_bank1_ready_wait  gd32a50x_fmc.o
+    0x08009428   0x08009428   0x000000d2   Code   RO         1148    .text.fmc_bank1_state_get  gd32a50x_fmc.o
+    0x080094fa   0x080094fa   0x00000002   PAD
+    0x080094fc   0x080094fc   0x000000d4   Code   RO         1082    .text.fmc_doubleword_program  gd32a50x_fmc.o
+    0x080095d0   0x080095d0   0x0000004c   Code   RO           70    .text.fmc_erase_pages  fmc_app.o
+    0x0800961c   0x0800961c   0x0000006e   Code   RO         1136    .text.fmc_flag_clear  gd32a50x_fmc.o
+    0x0800968a   0x0800968a   0x00000002   PAD
+    0x0800968c   0x0800968c   0x0000003c   Code   RO           68    .text.fmc_flags_clear  fmc_app.o
+    0x080096c8   0x080096c8   0x00000022   Code   RO         1036    .text.fmc_lock      gd32a50x_fmc.o
+    0x080096ea   0x080096ea   0x00000002   PAD
+    0x080096ec   0x080096ec   0x000000d6   Code   RO         1072    .text.fmc_page_erase  gd32a50x_fmc.o
+    0x080097c2   0x080097c2   0x00000002   PAD
+    0x080097c4   0x080097c4   0x0000002c   Code   RO           72    .text.fmc_uint64_program  fmc_app.o
+    0x080097f0   0x080097f0   0x00000062   Code   RO         1030    .text.fmc_unlock    gd32a50x_fmc.o
+    0x08009852   0x08009852   0x00000002   PAD
+    0x08009854   0x08009854   0x0000005c   Code   RO          215    .text.get_adc_value  ntc.o
+    0x080098b0   0x080098b0   0x000000d4   Code   RO         1204    .text.gpio_af_set   gd32a50x_gpio.o
+    0x08009984   0x08009984   0x00000010   Code   RO         1190    .text.gpio_bit_reset  gd32a50x_gpio.o
+    0x08009994   0x08009994   0x00000010   Code   RO         1188    .text.gpio_bit_set  gd32a50x_gpio.o
+    0x080099a4   0x080099a4   0x000000d4   Code   RO         1182    .text.gpio_deinit   gd32a50x_gpio.o
+    0x08009a78   0x08009a78   0x0000002a   Code   RO         1196    .text.gpio_input_bit_get  gd32a50x_gpio.o
+    0x08009aa2   0x08009aa2   0x00000002   PAD
+    0x08009aa4   0x08009aa4   0x0000009c   Code   RO         1184    .text.gpio_mode_set  gd32a50x_gpio.o
+    0x08009b40   0x08009b40   0x00000092   Code   RO         1186    .text.gpio_output_options_set  gd32a50x_gpio.o
+    0x08009bd2   0x08009bd2   0x00000002   PAD
+    0x08009bd4   0x08009bd4   0x0000001e   Code   RO          169    .text.handshake     external_detection.o
+    0x08009bf2   0x08009bf2   0x00000002   PAD
+    0x08009bf4   0x08009bf4   0x00000148   Code   RO          167    .text.handshake_process  external_detection.o
+    0x08009d3c   0x08009d3c   0x00000028   Code   RO         1253    .text.i2c_address_config  gd32a50x_i2c.o
+    0x08009d64   0x08009d64   0x00000012   Code   RO         1241    .text.i2c_automatic_end_enable  gd32a50x_i2c.o
+    0x08009d76   0x08009d76   0x00000002   PAD
+    0x08009d78   0x08009d78   0x0000000e   Code   RO         1283    .text.i2c_data_receive  gd32a50x_i2c.o
+    0x08009d86   0x08009d86   0x00000002   PAD
+    0x08009d88   0x08009d88   0x00000012   Code   RO         1281    .text.i2c_data_transmit  gd32a50x_i2c.o
+    0x08009d9a   0x08009d9a   0x00000002   PAD
+    0x08009d9c   0x08009d9c   0x00000052   Code   RO         1219    .text.i2c_deinit    gd32a50x_i2c.o
+    0x08009dee   0x08009dee   0x00000002   PAD
+    0x08009df0   0x08009df0   0x00000012   Code   RO         1273    .text.i2c_enable    gd32a50x_i2c.o
+    0x08009e02   0x08009e02   0x00000002   PAD
+    0x08009e04   0x08009e04   0x00000014   Code   RO         1331    .text.i2c_flag_clear  gd32a50x_i2c.o
+    0x08009e18   0x08009e18   0x0000002a   Code   RO         1329    .text.i2c_flag_get  gd32a50x_i2c.o
+    0x08009e42   0x08009e42   0x00000002   PAD
+    0x08009e44   0x08009e44   0x00000014   Code   RO         1333    .text.i2c_interrupt_enable  gd32a50x_i2c.o
+    0x08009e58   0x08009e58   0x0000001e   Code   RO         1339    .text.i2c_interrupt_flag_clear  gd32a50x_i2c.o
+    0x08009e76   0x08009e76   0x00000002   PAD
+    0x08009e78   0x08009e78   0x0000005e   Code   RO         1337    .text.i2c_interrupt_flag_get  gd32a50x_i2c.o
+    0x08009ed6   0x08009ed6   0x00000002   PAD
+    0x08009ed8   0x08009ed8   0x00000036   Code   RO         1231    .text.i2c_master_addressing  gd32a50x_i2c.o
+    0x08009f0e   0x08009f0e   0x00000002   PAD
+    0x08009f10   0x08009f10   0x0000003e   Code   RO         1229    .text.i2c_master_clock_config  gd32a50x_i2c.o
+    0x08009f4e   0x08009f4e   0x00000002   PAD
+    0x08009f50   0x08009f50   0x00000012   Code   RO         1277    .text.i2c_start_on_bus  gd32a50x_i2c.o
+    0x08009f62   0x08009f62   0x00000002   PAD
+    0x08009f64   0x08009f64   0x0000005c   Code   RO         1221    .text.i2c_timing_config  gd32a50x_i2c.o
+    0x08009fc0   0x08009fc0   0x00000020   Code   RO         1289    .text.i2c_transfer_byte_number_config  gd32a50x_i2c.o
+    0x08009fe0   0x08009fe0   0x0000010a   Code   RO           37    .text.main          main.o
+    0x0800a0ea   0x0800a0ea   0x00000002   PAD
+    0x0800a0ec   0x0800a0ec   0x00000014   Code   RO         1433    .text.nvic_irq_disable  gd32a50x_misc.o
+    0x0800a100   0x0800a100   0x0000012a   Code   RO         1431    .text.nvic_irq_enable  gd32a50x_misc.o
+    0x0800a22a   0x0800a22a   0x00000002   PAD
+    0x0800a22c   0x0800a22c   0x0000001c   Code   RO         1429    .text.nvic_priority_group_set  gd32a50x_misc.o
+    0x0800a248   0x0800a248   0x00000028   Code   RO         1441    .text.nvic_vector_table_set  gd32a50x_misc.o
+    0x0800a270   0x0800a270   0x0000006a   Code   RO          140    .text.process_0x81  control.o
+    0x0800a2da   0x0800a2da   0x00000002   PAD
+    0x0800a2dc   0x0800a2dc   0x0000002c   Code   RO         1545    .text.rcu_adc_clock_config  gd32a50x_rcu.o
+    0x0800a308   0x0800a308   0x00000098   Code   RO         1503    .text.rcu_deinit    gd32a50x_rcu.o
+    0x0800a3a0   0x0800a3a0   0x0000003e   Code   RO         1555    .text.rcu_flag_get  gd32a50x_rcu.o
+    0x0800a3de   0x0800a3de   0x00000002   PAD
+    0x0800a3e0   0x0800a3e0   0x000001dc   Code   RO         1505    .text.rcu_osci_stab_wait  gd32a50x_rcu.o
+    0x0800a5bc   0x0800a5bc   0x00000028   Code   RO         1509    .text.rcu_periph_clock_disable  gd32a50x_rcu.o
+    0x0800a5e4   0x0800a5e4   0x00000028   Code   RO         1507    .text.rcu_periph_clock_enable  gd32a50x_rcu.o
+    0x0800a60c   0x0800a60c   0x00000028   Code   RO         1513    .text.rcu_periph_reset_disable  gd32a50x_rcu.o
+    0x0800a634   0x0800a634   0x00000028   Code   RO         1511    .text.rcu_periph_reset_enable  gd32a50x_rcu.o
+    0x0800a65c   0x0800a65c   0x00000068   Code   RO          209    .text.readTemper    ntc.o
+    0x0800a6c4   0x0800a6c4   0x00000072   Code   RO          211    .text.search_data   ntc.o
+    0x0800a736   0x0800a736   0x00000002   PAD
+    0x0800a738   0x0800a738   0x00000012   Code   RO         1651    .text.spi_enable    gd32a50x_spi.o
+    0x0800a74a   0x0800a74a   0x00000002   PAD
+    0x0800a74c   0x0800a74c   0x00000052   Code   RO         1645    .text.spi_i2s_deinit  gd32a50x_spi.o
+    0x0800a79e   0x0800a79e   0x00000002   PAD
+    0x0800a7a0   0x0800a7a0   0x00000072   Code   RO         1649    .text.spi_init      gd32a50x_spi.o
+    0x0800a812   0x0800a812   0x00000002   PAD
+    0x0800a814   0x0800a814   0x00000012   Code   RO         1663    .text.spi_nss_output_enable  gd32a50x_spi.o
+    0x0800a826   0x0800a826   0x00000002   PAD
+    0x0800a828   0x0800a828   0x00000026   Code   RO         1647    .text.spi_struct_para_init  gd32a50x_spi.o
+    0x0800a84e   0x0800a84e   0x00000002   PAD
+    0x0800a850   0x0800a850   0x00000116   Code   RO          475    .text.system_clock_100m_pll_irc8m  system_gd32a50x.o
+    0x0800a966   0x0800a966   0x00000002   PAD
+    0x0800a968   0x0800a968   0x00000008   Code   RO          471    .text.system_clock_config  system_gd32a50x.o
+    0x0800a970   0x0800a970   0x00000032   Code   RO           48    .text.systick_config  systick.o
+    0x0800a9a2   0x0800a9a2   0x00000002   PAD
+    0x0800a9a4   0x0800a9a4   0x0000009c   Code   RO          213    .text.temper_calc   ntc.o
+    0x0800aa40   0x0800aa40   0x00000012   Code   RO         1787    .text.timer_auto_reload_shadow_enable  gd32a50x_timer.o
+    0x0800aa52   0x0800aa52   0x00000002   PAD
+    0x0800aa54   0x0800aa54   0x000003b0   Code   RO         1847    .text.timer_channel_output_config  gd32a50x_timer.o
+    0x0800ae04   0x0800ae04   0x00000102   Code   RO         1849    .text.timer_channel_output_mode_config  gd32a50x_timer.o
+    0x0800af06   0x0800af06   0x00000002   PAD
+    0x0800af08   0x0800af08   0x00000076   Code   RO         1851    .text.timer_channel_output_pulse_value_config  gd32a50x_timer.o
+    0x0800af7e   0x0800af7e   0x00000002   PAD
+    0x0800af80   0x0800af80   0x00000102   Code   RO         1853    .text.timer_channel_output_shadow_config  gd32a50x_timer.o
+    0x0800b082   0x0800b082   0x00000002   PAD
+    0x0800b084   0x0800b084   0x00000022   Code   RO         1845    .text.timer_channel_output_struct_para_init  gd32a50x_timer.o
+    0x0800b0a6   0x0800b0a6   0x00000002   PAD
+    0x0800b0a8   0x0800b0a8   0x000000f6   Code   RO         1777    .text.timer_deinit  gd32a50x_timer.o
+    0x0800b19e   0x0800b19e   0x00000002   PAD
+    0x0800b1a0   0x0800b1a0   0x00000012   Code   RO         1783    .text.timer_enable  gd32a50x_timer.o
+    0x0800b1b2   0x0800b1b2   0x00000002   PAD
+    0x0800b1b4   0x0800b1b4   0x00000120   Code   RO         1781    .text.timer_init    gd32a50x_timer.o
+    0x0800b2d4   0x0800b2d4   0x00000014   Code   RO         1945    .text.timer_interrupt_enable  gd32a50x_timer.o
+    0x0800b2e8   0x0800b2e8   0x00000014   Code   RO         1951    .text.timer_interrupt_flag_clear  gd32a50x_timer.o
+    0x0800b2fc   0x0800b2fc   0x0000003a   Code   RO         1949    .text.timer_interrupt_flag_get  gd32a50x_timer.o
+    0x0800b336   0x0800b336   0x00000002   PAD
+    0x0800b338   0x0800b338   0x0000002e   Code   RO         1843    .text.timer_primary_output_config  gd32a50x_timer.o
+    0x0800b366   0x0800b366   0x00000002   PAD
+    0x0800b368   0x0800b368   0x00000026   Code   RO         1779    .text.timer_struct_para_init  gd32a50x_timer.o
+    0x0800b38e   0x0800b38e   0x00000002   PAD
+    0x0800b390   0x0800b390   0x00000020   Code   RO         2165    i.__0printf         mc_w.l(printfa.o)
+    0x0800b3b0   0x0800b3b0   0x0000000e   Code   RO         2249    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800b3be   0x0800b3be   0x00000002   Code   RO         2250    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0800b3c0   0x0800b3c0   0x0000000e   Code   RO         2251    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800b3ce   0x0800b3ce   0x00000002   PAD
+    0x0800b3d0   0x0800b3d0   0x00000184   Code   RO         2172    i._fp_digits        mc_w.l(printfa.o)
+    0x0800b554   0x0800b554   0x000006dc   Code   RO         2173    i._printf_core      mc_w.l(printfa.o)
+    0x0800bc30   0x0800bc30   0x00000024   Code   RO         2174    i._printf_post_padding  mc_w.l(printfa.o)
+    0x0800bc54   0x0800bc54   0x0000002e   Code   RO         2175    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x0800bc82   0x0800bc82   0x00000012   Code   RO         2206    i.fputc             mc_w.l(fputc.o)
+    0x0800bc94   0x0800bc94   0x00000045   Data   RO          105    .rodata.Std_Receive_Arr  update.o
+    0x0800bcd9   0x0800bcd9   0x00000062   Data   RO          106    .rodata.Std_Replay_Arr  update.o
+    0x0800bd3b   0x0800bd3b   0x00000001   PAD
+    0x0800bd3c   0x0800bd3c   0x0000017e   Data   RO          221    .rodata.ntc_adc     ntc.o
+    0x0800beba   0x0800beba   0x000000e2   Data   RO          201    .rodata.str1.1      max96752.o
+    0x0800bf9c   0x0800bf9c   0x00000020   Data   RO         2248    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800bed8, Size: 0x00000fd0, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800bfc0, Size: 0x00000fd0, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0800bed8   0x00000004   Data   RW         2242    .data               mc_w.l(stdout.o)
-    0x20000004   0x0800bedc   0x00000001   Data   RW          108    .data.BootloaderStatus  update.o
-    0x20000005   0x0800bedd   0x00000003   PAD
-    0x20000008   0x0800bee0   0x00000004   Data   RW          475    .data.SystemCoreClock  system_gd32a50x.o
-    0x2000000c   0x0800bee4   0x00000004   Data   RW          111    .data.pBL_State     update.o
-    0x20000010        -       0x00000002   Zero   RW          218    .bss.Adc_Value      ntc.o
-    0x20000012        -       0x00000003   Zero   RW          449    .bss.BackLightModeConfigure  writedataframe.o
-    0x20000015        -       0x00000001   Zero   RW          395    .bss.BackLightRequestStr  readdataframe.o
-    0x20000016        -       0x00000001   Zero   RW          453    .bss.BackLightSwitchCmd  writedataframe.o
-    0x20000017   0x0800bee8   0x00000001   PAD
+    0x20000000   0x0800bfc0   0x00000004   Data   RW         2210    .data               mc_w.l(stdout.o)
+    0x20000004   0x0800bfc4   0x00000001   Data   RW          108    .data.BootloaderStatus  update.o
+    0x20000005   0x0800bfc5   0x00000003   PAD
+    0x20000008   0x0800bfc8   0x00000004   Data   RW          477    .data.SystemCoreClock  system_gd32a50x.o
+    0x2000000c   0x0800bfcc   0x00000004   Data   RW          111    .data.pBL_State     update.o
+    0x20000010        -       0x00000002   Zero   RW          220    .bss.Adc_Value      ntc.o
+    0x20000012        -       0x00000003   Zero   RW          451    .bss.BackLightModeConfigure  writedataframe.o
+    0x20000015        -       0x00000001   Zero   RW          397    .bss.BackLightRequestStr  readdataframe.o
+    0x20000016        -       0x00000001   Zero   RW          455    .bss.BackLightSwitchCmd  writedataframe.o
+    0x20000017   0x0800bfd0   0x00000001   PAD
     0x20000018        -       0x0000000a   Zero   RW          132    .bss.Backlight      backlight.o
-    0x20000022   0x0800bee8   0x00000006   PAD
+    0x20000022   0x0800bfd0   0x00000006   PAD
     0x20000028        -       0x00000008   Zero   RW          107    .bss.BootLoader_State  update.o
     0x20000030        -       0x0000000e   Zero   RW           29    .bss.Counter_1ms    gd32a50x_it.o
-    0x2000003e        -       0x000000fe   Zero   RW          455    .bss.ExtUpdateCmd_F1  writedataframe.o
-    0x2000013c        -       0x000000fe   Zero   RW          456    .bss.ExtUpdateCmd_F2  writedataframe.o
-    0x2000023a        -       0x000000fe   Zero   RW          457    .bss.ExtUpdateCmd_F3  writedataframe.o
-    0x20000338        -       0x00000001   Zero   RW          172    .bss.IO_Detection   external_detection.o
-    0x20000339   0x0800bee8   0x00000001   PAD
+    0x2000003e        -       0x000000fe   Zero   RW          457    .bss.ExtUpdateCmd_F1  writedataframe.o
+    0x2000013c        -       0x000000fe   Zero   RW          458    .bss.ExtUpdateCmd_F2  writedataframe.o
+    0x2000023a        -       0x000000fe   Zero   RW          459    .bss.ExtUpdateCmd_F3  writedataframe.o
+    0x20000338        -       0x00000001   Zero   RW          174    .bss.IO_Detection   external_detection.o
+    0x20000339   0x0800bfd0   0x00000001   PAD
     0x2000033a        -       0x00000002   Zero   RW           28    .bss.IRQ_100ms      gd32a50x_it.o
     0x2000033c        -       0x00000004   Zero   RW          109    .bss.JumpAddress    update.o
     0x20000340        -       0x00000004   Zero   RW          113    .bss.Jump_To_Bootloader  update.o
-    0x20000344        -       0x00000005   Zero   RW          403    .bss.KeyStatusCmdStr  readdataframe.o
-    0x20000349        -       0x00000001   Zero   RW          394    .bss.LCD_statusStr  readdataframe.o
-    0x2000034a        -       0x00000009   Zero   RW          400    .bss.LcdDiagnosisCmdStr  readdataframe.o
-    0x20000353        -       0x00000001   Zero   RW          447    .bss.LcdInformationCheck  writedataframe.o
-    0x20000354        -       0x00000002   Zero   RW          404    .bss.LightSeneorValueStr  readdataframe.o
-    0x20000356        -       0x000000ff   Zero   RW          446    .bss.MasterTransmitData  writedataframe.o
-    0x20000455        -       0x00000001   Zero   RW          452    .bss.OpenCloseLcd   writedataframe.o
-    0x20000456        -       0x00000004   Zero   RW          238    .bss.Power          power.o
-    0x2000045a        -       0x00000001   Zero   RW          236    .bss.PowerOn_IO_State  power.o
-    0x2000045b        -       0x00000005   Zero   RW          398    .bss.ProductIDStr   readdataframe.o
-    0x20000460        -       0x00000008   Zero   RW          397    .bss.RequestLcdStatusCmdStr  readdataframe.o
-    0x20000468        -       0x00000001   Zero   RW          402    .bss.RequestTimestampCmdStr  readdataframe.o
-    0x20000469        -       0x00000002   Zero   RW          396    .bss.Resp_timeoutCmdStr  readdataframe.o
+    0x20000344        -       0x00000005   Zero   RW          405    .bss.KeyStatusCmdStr  readdataframe.o
+    0x20000349        -       0x00000001   Zero   RW          396    .bss.LCD_statusStr  readdataframe.o
+    0x2000034a        -       0x00000009   Zero   RW          402    .bss.LcdDiagnosisCmdStr  readdataframe.o
+    0x20000353        -       0x00000001   Zero   RW          449    .bss.LcdInformationCheck  writedataframe.o
+    0x20000354        -       0x00000002   Zero   RW          406    .bss.LightSeneorValueStr  readdataframe.o
+    0x20000356        -       0x000000ff   Zero   RW          448    .bss.MasterTransmitData  writedataframe.o
+    0x20000455        -       0x00000001   Zero   RW          454    .bss.OpenCloseLcd   writedataframe.o
+    0x20000456        -       0x00000004   Zero   RW          240    .bss.Power          power.o
+    0x2000045a        -       0x00000001   Zero   RW          238    .bss.PowerOn_IO_State  power.o
+    0x2000045b        -       0x00000005   Zero   RW          400    .bss.ProductIDStr   readdataframe.o
+    0x20000460        -       0x00000008   Zero   RW          399    .bss.RequestLcdStatusCmdStr  readdataframe.o
+    0x20000468        -       0x00000001   Zero   RW          404    .bss.RequestTimestampCmdStr  readdataframe.o
+    0x20000469        -       0x00000002   Zero   RW          398    .bss.Resp_timeoutCmdStr  readdataframe.o
     0x2000046b        -       0x00000001   Zero   RW          144    .bss.ScreenLitAfterStartup  control.o
-    0x2000046c        -       0x00000002   Zero   RW          448    .bss.SetFrameTimeoutValue  writedataframe.o
-    0x2000046e        -       0x00000010   Zero   RW          381    .bss.Std_ReadDataFrame_ID10  readdataframe.o
-    0x2000047e        -       0x00000010   Zero   RW          382    .bss.Std_ReadDataFrame_ID11  readdataframe.o
-    0x2000048e        -       0x00000010   Zero   RW          383    .bss.Std_ReadDataFrame_ID12  readdataframe.o
-    0x2000049e        -       0x00000010   Zero   RW          384    .bss.Std_ReadDataFrame_ID13  readdataframe.o
-    0x200004ae        -       0x00000010   Zero   RW          385    .bss.Std_ReadDataFrame_ID14  readdataframe.o
-    0x200004be        -       0x00000010   Zero   RW          386    .bss.Std_ReadDataFrame_ID15  readdataframe.o
-    0x200004ce        -       0x00000010   Zero   RW          387    .bss.Std_ReadDataFrame_ID16  readdataframe.o
-    0x200004de        -       0x00000010   Zero   RW          388    .bss.Std_ReadDataFrame_ID17  readdataframe.o
-    0x200004ee        -       0x00000010   Zero   RW          389    .bss.Std_ReadDataFrame_ID18  readdataframe.o
-    0x200004fe        -       0x00000010   Zero   RW          390    .bss.Std_ReadDataFrame_ID1E  readdataframe.o
-    0x2000050e        -       0x00000010   Zero   RW          391    .bss.Std_ReadDataFrame_ID1F  readdataframe.o
+    0x2000046c        -       0x00000002   Zero   RW          450    .bss.SetFrameTimeoutValue  writedataframe.o
+    0x2000046e        -       0x00000010   Zero   RW          383    .bss.Std_ReadDataFrame_ID10  readdataframe.o
+    0x2000047e        -       0x00000010   Zero   RW          384    .bss.Std_ReadDataFrame_ID11  readdataframe.o
+    0x2000048e        -       0x00000010   Zero   RW          385    .bss.Std_ReadDataFrame_ID12  readdataframe.o
+    0x2000049e        -       0x00000010   Zero   RW          386    .bss.Std_ReadDataFrame_ID13  readdataframe.o
+    0x200004ae        -       0x00000010   Zero   RW          387    .bss.Std_ReadDataFrame_ID14  readdataframe.o
+    0x200004be        -       0x00000010   Zero   RW          388    .bss.Std_ReadDataFrame_ID15  readdataframe.o
+    0x200004ce        -       0x00000010   Zero   RW          389    .bss.Std_ReadDataFrame_ID16  readdataframe.o
+    0x200004de        -       0x00000010   Zero   RW          390    .bss.Std_ReadDataFrame_ID17  readdataframe.o
+    0x200004ee        -       0x00000010   Zero   RW          391    .bss.Std_ReadDataFrame_ID18  readdataframe.o
+    0x200004fe        -       0x00000010   Zero   RW          392    .bss.Std_ReadDataFrame_ID1E  readdataframe.o
+    0x2000050e        -       0x00000010   Zero   RW          393    .bss.Std_ReadDataFrame_ID1F  readdataframe.o
     0x2000051e        -       0x00000001   Zero   RW           27    .bss.Task100msflg   gd32a50x_it.o
-    0x2000051f        -       0x00000004   Zero   RW          451    .bss.TimeStamp      writedataframe.o
-    0x20000523        -       0x00000001   Zero   RW          450    .bss.TouchChipResetCmd  writedataframe.o
-    0x20000524        -       0x00000009   Zero   RW          454    .bss.UpdateCmd      writedataframe.o
-    0x2000052d        -       0x0000000d   Zero   RW          401    .bss.UpdateCmdStr   readdataframe.o
+    0x2000051f        -       0x00000004   Zero   RW          453    .bss.TimeStamp      writedataframe.o
+    0x20000523        -       0x00000001   Zero   RW          452    .bss.TouchChipResetCmd  writedataframe.o
+    0x20000524        -       0x00000009   Zero   RW          456    .bss.UpdateCmd      writedataframe.o
+    0x2000052d        -       0x0000000d   Zero   RW          403    .bss.UpdateCmdStr   readdataframe.o
     0x2000053a        -       0x0000013a   Zero   RW          110    .bss.Update_tI2cSlave  update.o
-    0x20000674        -       0x0000000f   Zero   RW          399    .bss.VersionStr     readdataframe.o
-    0x20000683   0x0800bee8   0x00000001   PAD
+    0x20000674        -       0x0000000f   Zero   RW          401    .bss.VersionStr     readdataframe.o
+    0x20000683   0x0800bfd0   0x00000001   PAD
     0x20000684        -       0x00000002   Zero   RW           26    .bss.count          gd32a50x_it.o
-    0x20000686   0x0800bee8   0x00000002   PAD
+    0x20000686   0x0800bfd0   0x00000002   PAD
     0x20000688        -       0x00000004   Zero   RW           58    .bss.delay          systick.o
-    0x2000068c        -       0x00000001   Zero   RW          174    .bss.handshake_is_ok  external_detection.o
-    0x2000068d        -       0x00000001   Zero   RW          173    .bss.index          external_detection.o
-    0x2000068e        -       0x0000013a   Zero   RW          284    .bss.tI2cSlave      i2c_app.o
-    0x200007c8        -       0x00000004   Zero   RW          217    .bss.timeout_counter  ntc.o
-    0x200007cc   0x0800bee8   0x00000004   PAD
-    0x200007d0        -       0x00000800   Zero   RW         2142    STACK               startup_gd32a50x.o
+    0x2000068c        -       0x00000001   Zero   RW          176    .bss.handshake_is_ok  external_detection.o
+    0x2000068d        -       0x00000001   Zero   RW          175    .bss.index          external_detection.o
+    0x2000068e        -       0x0000013a   Zero   RW          286    .bss.tI2cSlave      i2c_app.o
+    0x200007c8        -       0x00000004   Zero   RW          219    .bss.timeout_counter  ntc.o
+    0x200007cc   0x0800bfd0   0x00000004   PAD
+    0x200007d0        -       0x00000800   Zero   RW         2144    STACK               startup_gd32a50x.o
 
 
 ==============================================================================
@@ -4340,41 +4273,41 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       158          0          0          0          0        786   adc_app.o
-       912          4          0          0         10       2294   backlight.o
-       106          0          0          0          1       1047   control.o
-       468          6          0          0          3       2599   external_detection.o
-       180          0          0          0          0       2980   fmc_app.o
-      1330          0          0          0          0       8931   gd32a50x_adc.o
-      1272          0          0          0          0      15381   gd32a50x_fmc.o
-       800          0          0          0          0       4383   gd32a50x_gpio.o
-       654          0          0          0          0      10096   gd32a50x_i2c.o
-       590          0          0          0         19       2275   gd32a50x_it.o
-       366          0          0          0          0       5712   gd32a50x_misc.o
-       894          0          0          0          0      12193   gd32a50x_rcu.o
-       270          0          0          0          0       8175   gd32a50x_spi.o
-      2364         68          0          0          0      22299   gd32a50x_timer.o
-       628          0          0          0          0        830   gpio_app.o
-      3186          0          0          0        314       6026   i2c_app.o
-        90          0          0          0          0        619   initialization.o
-       234          0          0          0          0        710   main.o
-      1196         20        226          0          0       1999   max96752.o
-       574          0        382          0          6       2220   ntc.o
-       344          8          0          0          5       1890   power.o
-       280          0          0          0          0       1413   rcu_app.o
-      2074         62          0          0        238       7282   readdataframe.o
-       102          0          0          0          0       2658   spi_app.o
-        80         18        348          0       2048        944   startup_gd32a50x.o
-       616          0          0          4          0       2966   system_gd32a50x.o
-       268          0          0          0          4       4641   systick.o
-       472          0          0          0          0       4226   timer_app.o
-       900          0        167          5        330       5733   update.o
-      1912          0          0          0       1039       6577   writedataframe.o
+       158          0          0          0          0        796   adc_app.o
+       912          4          0          0         10       2304   backlight.o
+       106          0          0          0          1       1057   control.o
+       622          6          0          0          3       3214   external_detection.o
+       180          0          0          0          0       2990   fmc_app.o
+      1330          0          0          0          0       8941   gd32a50x_adc.o
+      1272          0          0          0          0      15391   gd32a50x_fmc.o
+       800          0          0          0          0       4393   gd32a50x_gpio.o
+       654          0          0          0          0      10106   gd32a50x_i2c.o
+       590          0          0          0         19       2285   gd32a50x_it.o
+       442          0          0          0          0       5722   gd32a50x_misc.o
+       894          0          0          0          0      12203   gd32a50x_rcu.o
+       270          0          0          0          0       8185   gd32a50x_spi.o
+      2364         68          0          0          0      22309   gd32a50x_timer.o
+       628          0          0          0          0        840   gpio_app.o
+      3186          0          0          0        314       6036   i2c_app.o
+        90          0          0          0          0        630   initialization.o
+       266          0          0          0          0        729   main.o
+      1196         20        226          0          0       2009   max96752.o
+       574          0        382          0          6       2230   ntc.o
+       344          8          0          0          5       1900   power.o
+       280          0          0          0          0       1423   rcu_app.o
+      2074         62          0          0        238       7292   readdataframe.o
+       102          0          0          0          0       2668   spi_app.o
+        80         18        348          0       2048        952   startup_gd32a50x.o
+       616          0          0          4          0       2976   system_gd32a50x.o
+       268          0          0          0          4       4651   systick.o
+       456          0          0          0          0       4233   timer_app.o
+       900          0        167          5        330       5743   update.o
+      1900          0          0          0       1039       8304   writedataframe.o
 
     ----------------------------------------------------------------------
-     23500        186       1156         12       4032     149885   Object Totals
+     23732        186       1156         12       4032     152512   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       180          0          1          3         15          0   (incl. Padding)
+       178          0          1          3         15          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -4431,15 +4364,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     27216        292       1156         16       4032     150413   Grand Totals
-     27216        292       1156         16       4032     150413   ELF Image Totals
-     27216        292       1156         16          0          0   ROM Totals
+     27448        292       1156         16       4032     153040   Grand Totals
+     27448        292       1156         16       4032     153040   ELF Image Totals
+     27448        292       1156         16          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                28372 (  27.71kB)
+    Total RO  Size (Code + RO Data)                28604 (  27.93kB)
     Total RW  Size (RW Data + ZI Data)              4048 (   3.95kB)
-    Total ROM Size (Code + RO Data + RW Data)      28388 (  27.72kB)
+    Total ROM Size (Code + RO Data + RW Data)      28620 (  27.95kB)
 
 ==============================================================================
 

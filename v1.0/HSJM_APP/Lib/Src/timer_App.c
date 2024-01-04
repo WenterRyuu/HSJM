@@ -174,9 +174,9 @@ void Timer19_Generate_PWM_config(void)
 void McuTimerInitialization(void) 
 {
 	Timer1_Generate_1ms_Interrupt();
-	Timer5_Generate_2s_Interrupt();
-	delay_1ms(1000);
-	Timer6_Generate_2s_Interrupt();//有两个需求，都要间隔2秒触发一次中断，为了不冲突，这两个定时器间隔1秒开启
+//	Timer5_Generate_2s_Interrupt();
+//	delay_1ms(1000);
+//	Timer6_Generate_2s_Interrupt();//有两个需求，都要间隔2秒触发一次中断，为了不冲突，这两个定时器间隔1秒开启
 	Timer19_Generate_PWM_config();
 }	
 

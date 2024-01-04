@@ -129,6 +129,25 @@ ErrStatus IRQ_HIGH_level_Detection(void)
 	return PIN_level_Detection(GPIOB, GPIO_PIN_14, HIGH);
 }
 
+
+void IRQ_LOOW_DOWN(void)
+{
+    if(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == SET)                   //如果是高电平，就马上拉低
+    {
+        IRQ_LOW_DOWN;
+        IRQ_100ms = 100;
+    }
+    else
+    {
+        while(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == RESET);         //如果是低电平，就一直等待，直到变成高电平
+        for(uint8_t i=0; i<50; i++)                                     //维持高电平一小段时间
+        {
+            __NOP();
+        }
+        IRQ_LOW_DOWN;                                                   //然后再拉低
+        IRQ_100ms = 100;                                                
+    }    
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -139,33 +158,66 @@ uint8_t index=0;
 bool handshake_is_ok = 0;
 void handshake_process(void)
 {	 
+    Std_WriteDataFrameStr   Std_WriteDataFrame;
+    uint32_t timeout = 10000000;
 	switch(index)
 	{
 		case 0:
-			ReadFrameTransmit(0x10) ;            
-			IRQ_LOW_DOWN;
-            delay_1ms(1);
-			IRQ_100ms = 100;
-            if(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == RESET)
+			ReadFrameTransmit(0x10) ; 
+            if(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == SET)                   //如果是高电平，就马上拉低
             {
-                break;
+                IRQ_LOW_DOWN;
+                IRQ_100ms = 100;
             }
-            else
+			else
             {
-                delay_1ms(5);
-                index ++;	
+                while(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == RESET);         //如果是低电平，就一直等待，直到变成高电平
+                for(uint8_t i=0; i<50; i++)                                     //维持高电平一小段时间
+                {
+                    __NOP();
+                }
+                IRQ_LOW_DOWN;                                                   //然后再拉低
+                IRQ_100ms = 100;                                                
             }
+            delay_1ms(110);
+            index ++;
+         
 		case 1:
-            ReadFrameTransmit(0x15);           
-            WriteFrameTransmit();//主机发来0x85，去处理0x85的
-            if(handshake_is_ok == 1)
-            {
-                index ++;
-            }
-            else
-                break;
-
-		case 2:
+/*            
+//            timeout = 1000000;                                                  //接近10ms
+//            do
+//            {
+//                WriteFrameTransmit();//主机发来0x85，去处理0x85的
+//                timeout --;
+//            }
+//            while((handshake_is_ok == 0)&&(timeout > 0));
+//            if(handshake_is_ok)                                                 //退出这个循环只有两种情况，一个是向主机发了0x15，handshake_is_ok，还有就是超时
+//            {
+//                delay_1ms(100);                                                 //
+//                index ++;                                                      
+//            }
+//            else
+//            {
+//                index --;
+//            }                
+//            break;
+*/
+        if(Update_tI2cSlave.RecBuff[0] == 0x85)//!!没有校验！！！！！！！
+        {
+            ReadFrameTransmit(0x15);            
+            IRQ_RELEASE;
+            delay_1ms(10);
+            IRQ_LOW_DOWN;
+            IRQ_100ms = 100;
+            index ++;
+        }
+        else
+        {
+            index --;
+            break;
+        }
+            
+		case 2:            
 			break;
 		default:
 			break;

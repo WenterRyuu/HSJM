@@ -29,10 +29,16 @@ int main(void)
 //	Read_TCON_Register();
 	
     
-//	delay_1ms(5000);
+	delay_1ms(5000);//@20240104,开机就绪准备时间
 	ReadCmdIdStrInit();
 	handshake();//握手
-//	BEEP_ON;
+    
+    delay_1ms(500);
+    Timer5_Generate_2s_Interrupt();
+	delay_1ms(1000);
+	Timer6_Generate_2s_Interrupt();//有两个需求，都要间隔2秒触发一次中断，为了不冲突，这两个定时器间隔1秒开启
+    
+
     while(1) 
 	{
 		WriteFrameTransmit();//主机向显示屏发，显示屏应该做的响应
