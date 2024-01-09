@@ -7,7 +7,7 @@
 #include "i2c_App.h"
 #include "MAX96752.h"
 #include "Update.h"
-   
+
 
 uint64_t *pBL_State = (uint64_t)UPDATE_FLAG_ADDRESS;
 uint64_t *pApp_Once = (uint64_t)APP2BOOT_FLAG_ADDRESS;
@@ -56,17 +56,18 @@ int main(void)
 	{
 		//SCB->AIRCR = (0x5FA << SCB_AIRCR_VECTKEY_Pos) | SCB_AIRCR_SYSRESETREQ_Msk;
 		//-------------------------------------------------------------------------------------∏¥Œª->≥ı ºªØ
-		
-		rcu_periph_clock_enable(RCU_GPIOA);
+        
+		systick_config();
+		//rcu_periph_clock_enable(RCU_GPIOA);
 		rcu_periph_clock_enable(RCU_GPIOB);
-		rcu_periph_clock_enable(RCU_I2C0);
+		//rcu_periph_clock_enable(RCU_I2C0);
 		rcu_periph_clock_enable(RCU_I2C1);
 		rcu_periph_clock_enable(RCU_TIMER1);
 		//iic
 		//McuI2cInitialization();
         I2C_Gpio_Config();
-        I2C_Master_Config();
-        MAX96752_REG_Config();
+//        I2C_Master_Config();
+//        MAX96752_REG_Config();
         I2C_Slave_Config();
 		//IRQ
 		gpio_mode_set(GPIOB, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_14);

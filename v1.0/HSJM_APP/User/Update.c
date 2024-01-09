@@ -108,7 +108,7 @@ void Updating(void)
 	}
 	while(*pBL_State != (uint64_t)READY);
 	
-//不用了，	delay_1ms(200);
+
 	if(*pBL_State == (uint64_t)READY)
 	{
 		//跳转
@@ -127,7 +127,6 @@ void Updating(void)
 		adc_deinit(ADC0);
 		spi_i2s_deinit(SPI0);
 		McuRcuDeinit();
-		//Systick?
         
         
 		JumpAddress = *(__IO uint32_t*)(BOOT_START_ADDRESS + 4);

@@ -146,9 +146,9 @@ void MAX96752_REG_Config(void)
 	uint8_t data_tobe_write = 0;	
 	
 	//-----------------------------------------------------------------------------
-//	data_tobe_write = 0xD8;
-//	I2c1_MasterWriteMulBytes(MAX96752_ADDRESS8, 0x0001, &data_tobe_write, 2);
-//	delay_1ms(1);
+	data_tobe_write = 0x32;
+	I2c1_MasterWriteMulBytes(MAX96752_ADDRESS8, 0x0001, &data_tobe_write, 2);
+	delay_1ms(1);
 	data_tobe_write = 0x03;
 	I2c1_MasterWriteMulBytes(MAX96752_ADDRESS8, 0x0218, &data_tobe_write, 2);
 	delay_1ms(1);

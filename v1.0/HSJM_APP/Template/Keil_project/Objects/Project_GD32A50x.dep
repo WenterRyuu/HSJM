@@ -54,12 +54,12 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
-F (..\main.c)(0x65967508)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/main.o -MD)
+F (..\main.c)(0x6597D563)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/main.o -MD)
 I (..\..\User\Define.h)(0x659501B1)
 I (..\..\Template\systick.h)(0x64A5528E)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
@@ -113,10 +113,10 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 F (..\systick.c)(0x64A5528E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/systick.o -MD)
 I (..\..\Firmware\CMSIS\GD\GD32A50x\Include\gd32a50x.h)(0x64A5528C)
@@ -208,12 +208,12 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
-F (..\..\User\Update.c)(0x658EA590)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/update.o -MD)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
+F (..\..\User\Update.c)(0x659B5942)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/update.o -MD)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\Define.h)(0x659501B1)
 I (..\..\Template\systick.h)(0x64A5528E)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
@@ -267,7 +267,7 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
@@ -323,15 +323,15 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
-F (..\..\User\Src\Control.c)(0x658EA591)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/control.o -MD)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+F (..\..\User\Src\Control.c)(0x6597D54C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/control.o -MD)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\User\Define.h)(0x659501B1)
 I (..\..\Template\systick.h)(0x64A5528E)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
@@ -387,9 +387,9 @@ I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
-F (..\..\User\Src\External_detection.c)(0x65967C89)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/external_detection.o -MD)
+F (..\..\User\Src\External_detection.c)(0x6597C103)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/external_detection.o -MD)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Define.h)(0x659501B1)
 I (..\..\Template\systick.h)(0x64A5528E)
@@ -443,10 +443,10 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
 F (..\..\User\Src\Initialization.c)(0x6594FFF8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/initialization.o -MD)
@@ -503,10 +503,10 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 F (..\..\User\Src\MAX96752.c)(0x6595091C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/max96752.o -MD)
 I (..\..\User\Inc\MAX96752.h)(0x6554A538)
@@ -561,10 +561,10 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 I (..\..\Template\gd32a50x_it.h)(0x654B4542)
 F (..\..\User\Src\NTC.c)(0x658E95E4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/ntc.o -MD)
@@ -656,10 +656,10 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 F (..\..\User\Src\Tcon.c)(0x6554A411)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/tcon.o -MD)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
@@ -715,10 +715,10 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 F (..\..\User\Src\MPQ3367.c)(0x6548A55D)()
 F (..\..\User\Define.h)(0x659501B1)()
@@ -777,10 +777,10 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 F (..\..\Lib\Src\adc_App.c)(0x65548471)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/adc_app.o -MD)
 I (..\..\Lib\Inc\adc_App.h)(0x65377544)
@@ -836,10 +836,10 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 F (..\..\Lib\Src\dma_App.c)(0x6538CE8E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/dma_app.o -MD)
 I (..\..\Lib\Inc\dma_App.h)(0x6538CE8E)
@@ -897,12 +897,12 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
-F (..\..\Lib\Src\rcu_App.c)(0x65717D0D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/rcu_app.o -MD)
+F (..\..\Lib\Src\rcu_App.c)(0x659B555D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/rcu_app.o -MD)
 I (..\..\Lib\Inc\rcu_App.h)(0x65717D0D)
 I (..\..\User\Define.h)(0x659501B1)
 I (..\..\Template\systick.h)(0x64A5528E)
@@ -956,10 +956,10 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 F (..\..\Lib\Src\spi_App.c)(0x653CFE90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/spi_app.o -MD)
 I (..\..\Lib\Inc\spi_App.h)(0x653B1D6E)
@@ -1015,12 +1015,12 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
-F (..\..\Lib\Src\timer_App.c)(0x659658CE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/timer_app.o -MD)
+F (..\..\Lib\Src\timer_App.c)(0x6597D3E3)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/timer_app.o -MD)
 I (..\..\Lib\Inc\timer_App.h)(0x659652A1)
 I (..\..\User\Define.h)(0x659501B1)
 I (..\..\Template\systick.h)(0x64A5528E)
@@ -1074,10 +1074,10 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 F (..\..\Lib\Src\ReadDataFrame.c)(0x6594C1F6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/readdataframe.o -MD)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
@@ -1134,12 +1134,12 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
-F (..\..\Lib\Src\WriteDataFrame.c)(0x6596736F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/writedataframe.o -MD)
+F (..\..\Lib\Src\WriteDataFrame.c)(0x6597580B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/writedataframe.o -MD)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x654AF335)
 I (..\..\Firmware\CMSIS\GD\GD32A50x\Include\gd32a50x.h)(0x64A5528C)
 I (..\..\Firmware\CMSIS\core_cm33.h)(0x64A5528C)
@@ -1194,9 +1194,9 @@ I (..\..\User\Inc\NTC.h)(0x658A7FAB)
 I (..\..\User\Inc\MPQ3367.h)(0x6547A89D)
 I (..\..\User\Inc\External_detection.h)(0x6594FFF8)
 I (..\..\User\Inc\Tcon.h)(0x65548527)
-I (..\..\User\Inc\Control.h)(0x655316F2)
+I (..\..\User\Inc\Control.h)(0x6597D1CE)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65829782)
-I (..\..\User\Update.h)(0x656D6A21)
+I (..\..\User\Update.h)(0x659B54C3)
 I (..\..\User\fmc_App.h)(0x6563FCAC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
 F (..\..\Firmware\CMSIS\GD\GD32A50x\Source\system_gd32a50x.c)(0x654AE160)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/system_gd32a50x.o -MD)

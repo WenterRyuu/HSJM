@@ -162,6 +162,7 @@ void handshake_process(void)
     uint32_t timeout = 10000000;
 	switch(index)
 	{
+       
 		case 0:
 			ReadFrameTransmit(0x10) ; 
             if(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == SET)                   //如果是高电平，就马上拉低
@@ -181,8 +182,9 @@ void handshake_process(void)
             }
             delay_1ms(110);
             index ++;
-         
+          
 		case 1:
+#if defined ok            
 /*            
 //            timeout = 1000000;                                                  //接近10ms
 //            do
@@ -202,23 +204,25 @@ void handshake_process(void)
 //            }                
 //            break;
 */
-        if(Update_tI2cSlave.RecBuff[0] == 0x85)//!!没有校验！！！！！！！
-        {
-            ReadFrameTransmit(0x15);            
-            IRQ_RELEASE;
-            delay_1ms(10);
-            IRQ_LOW_DOWN;
-            IRQ_100ms = 100;
-            index ++;
-        }
-        else
-        {
-            index --;
-            break;
-        }
-            
-		case 2:            
+#endif 
+            if(Update_tI2cSlave.RecBuff[0] == 0x85)//!!没有校验！！！！！！！
+            {
+                ReadFrameTransmit(0x15);            
+                IRQ_RELEASE;
+                delay_1ms(10);
+                IRQ_LOW_DOWN;
+                IRQ_100ms = 100;
+                index ++;
+            }
+            else
+            {
+                index --;
+                break;
+            }
+          
+        case 2:            
 			break;
+
 		default:
 			break;
 	}

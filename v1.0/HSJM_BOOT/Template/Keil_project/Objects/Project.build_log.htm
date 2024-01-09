@@ -21,14 +21,31 @@ Target DLL:      Segger\JL2CM3.dll V2.99.40.0
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\Users\sunlord\Desktop\1210\1113NJ_1212\UPDATE\Update\Template\Keil_project\Project.uvprojx
+E:\OneDrive\Going-On\20230925 - BOE_ChengDu\HSJM\v1.0\HSJM_BOOT\Template\Keil_project\Project.uvprojx
 Project File Date:  01/03/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'GD32A50x'
+../main.c(12): warning: incompatible integer to pointer conversion initializing 'uint64_t *' (aka 'unsigned long long *') with an expression of type 'uint64_t' (aka 'unsigned long long') [-Wint-conversion]
+uint64_t *pBL_State = (uint64_t)UPDATE_FLAG_ADDRESS;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../main.c(13): warning: incompatible integer to pointer conversion initializing 'uint64_t *' (aka 'unsigned long long *') with an expression of type 'uint64_t' (aka 'unsigned long long') [-Wint-conversion]
+uint64_t *pApp_Once = (uint64_t)APP2BOOT_FLAG_ADDRESS;
+          ^           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../main.c(95): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+                if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.RequestBootloaderAccess, sizeof(Std_Receive_Arr.RequestBootloaderAccess)) == true)
+                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../Template/Update.h(89): note: passing argument to parameter 'arr2' here
+bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
+                                           ^
+3 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=13028 RO-data=548 RW-data=332 ZI-data=2228  
+FromELF: creating hex file...
 After Build - User command #1: fromelf.exe --bin --bincombined --bincombined_padding=1,0xff --output ../../outfile.bin  .\Objects\Project.axf
-".\Objects\Project.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\Project.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

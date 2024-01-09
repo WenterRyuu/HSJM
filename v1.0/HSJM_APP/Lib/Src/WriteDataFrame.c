@@ -412,13 +412,13 @@ uint8_t WriteFrameTransmit(void)
                 break;
             case 0x85:
                 TimeStampFun(&Std_WriteDataFrame);
-//                if(!handshake_is_ok)
-//                {
+                if(!handshake_is_ok)
+                {
                     ReadFrameTransmit(0x15) ;
                     IRQ_LOW_DOWN;
                     IRQ_100ms = 100;         
                     handshake_is_ok = 1;
-//                }
+                }
                 break;
             case 0x86:
                 OpenCloseLcdFun(&Std_WriteDataFrame);

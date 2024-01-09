@@ -70,6 +70,8 @@ void McuRcuDeinit(void)
     rcu_periph_clock_disable(RCU_DMAMUX);
     rcu_periph_clock_disable(RCU_SPI0);
     rcu_periph_clock_disable(RCU_SPI1);
+    
+    rcu_periph_clock_disable(RCU_SYSCFG);
 }
 
 
