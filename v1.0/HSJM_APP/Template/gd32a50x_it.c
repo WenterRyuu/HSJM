@@ -115,6 +115,7 @@ void SysTick_Handler(void)
 uint16_t IRQ_100ms = 0;
 extern uint16_t LOCK_10S;
 _Counter_1ms Counter_1ms;
+uint16_t ii = 1000;
 /*------------------------------------------------------------------------
 *Function name		 :TIMER5_DAC_IRQHandler
 *Function description:1ms进入一次
@@ -128,7 +129,7 @@ void TIMER1_IRQHandler(void)
         timer_interrupt_flag_clear(TIMER1, TIMER_INT_UP);
 
 		
-		//【状态机】//////////////////////////////////////////////////////////////////////////////////////////////////
+		//【状态机】/////////////////////////////////////////////////////////////
 		//[上电时序]-------------------------------------------------------------
 		if(Power.PowerOn_Counter > 0)				
 			Power.PowerOn_Counter --;
@@ -142,7 +143,7 @@ void TIMER1_IRQHandler(void)
 			IO_Detection.Detection_Counter --;
 	
 		
-		//【需要周期判执行的功能】//////////////////////////////////////////////////////////////////////////////////////		
+		//【需要周期判执行的功能】////////////////////////////////////////////////
 		//[监测温度的间隔时间]----------------------------------------------------
         if(Counter_1ms.NTC > 0)	
 		{
@@ -168,13 +169,13 @@ void TIMER1_IRQHandler(void)
 		else
 			IRQ_RELEASE;
 		
-		//【通知主机来读的常规中断100ms】//////////////////////////////////////////////////////////////////////////////
+		//【通知主机来读的常规中断100ms】/////////////////////////////////////////
 		if(IRQ_100ms > 0)
 		{
 			IRQ_100ms --;
 		}
 		else
-			IRQ_RELEASE;	
+			IRQ_RELEASE;
     }
 }
 
@@ -209,13 +210,20 @@ void TIMER5_DAC_IRQHandler(void)
 *Ipunt				 :None
 *OutPut				 :None
 *-------------------------------------------------------------------------*/
+uint8_t i = 0;
 void TIMER6_IRQHandler(void)
 {
     if(SET == timer_interrupt_flag_get(TIMER6, TIMER_INT_UP)) 
 	{
         /* clear update interrupt bit */
-        timer_interrupt_flag_clear(TIMER6, TIMER_INT_UP);
-		
+        timer_interrupt_flag_clear(TIMER6, TIMER_INT_UP);	
+
+        if(i == 0)
+        {
+            nvic_irq_enable(TIMER5_DAC_IRQn, 0, 0);                             //进了这个中断，就说明过了1秒，正好开启Timer5
+            i = 1;
+        }
+        
 		ReadFrameTransmit(0x13);//【心跳包】显示屏信息查询指令
 		IRQ_LOW_DOWN;
 		Counter_1ms.IRQ_0X13 = 100;

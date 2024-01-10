@@ -56,7 +56,6 @@ void Notice_master_to_read(uint8_t *source)
 }
 void Update_Process(void)
 {
-
 	switch(BootloaderStatus)
 	{
 		case RequestBootloaderAccess:
@@ -98,8 +97,8 @@ uint64_t *pBL_State = (uint64_t *)UPDATE_FLAG_ADDRESS;
 uint64_t *pApp_Once = (uint64_t *)APP2BOOT_FLAG_ADDRESS;
 void Updating(void)
 {	
-	rcu_periph_clock_disable(RCU_TIMER5);//升级过程中不允许读心跳包和查询背光值，防止心跳包和背光值的数据覆盖了升级指令的内容，一旦进入一次，主机就不需要读心跳包
-	rcu_periph_clock_disable(RCU_TIMER6);
+    nvic_irq_disable(TIMER6_IRQn);
+    nvic_irq_disable(TIMER5_DAC_IRQn);
 	Notice_master_to_read(Std_Replay_Arr.RequestBootloaderAccess);
 	BootloaderStatus = InputAccessKey1;
 	do
@@ -136,11 +135,14 @@ void Updating(void)
 	}
 }
 
-
+extern uint16_t ii;
 void cx(void)
 {
 	if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.QueryBootloaderStatus, sizeof(Std_Receive_Arr.QueryBootloaderStatus)) == true)
-	{
+	{                
+        nvic_irq_disable(TIMER6_IRQn);
+        nvic_irq_disable(TIMER5_DAC_IRQn);
+        BootLoader_State = READY;
 		//主机检查状态
 		switch(BootLoader_State)//是什么状态返回什么数组，跳转到对应的步骤
 		{

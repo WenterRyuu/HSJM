@@ -79,7 +79,7 @@ void Timer5_Generate_2s_Interrupt(void)
 	nvic_irq_disable(TIMER5_DAC_IRQn);
 }
 
-void Timer6_Generate_2s_Interrupt(void)
+void Timer6_Generate_1s_Interrupt(void)
 {
     timer_parameter_struct timer_initpara;
 
@@ -92,8 +92,8 @@ void Timer6_Generate_2s_Interrupt(void)
 	//系统主时钟100MHz,10000(9999+1)分频是10000（10K）Hz,timer5每（1/10K）秒，即每0.0001秒（0.1ms）开始加一
     timer_initpara.alignedmode       = TIMER_COUNTER_EDGE;
     timer_initpara.counterdirection  = TIMER_COUNTER_UP;
-    timer_initpara.period            = 19999;//9999;
-	//此处设置20000（19999+1）那么就是经过（0.1ms*20K =2秒）让数清零再加一
+    timer_initpara.period            = 9999;//9999;
+	//此处设置10000（19999+1）那么就是经过（0.1ms*10K =1秒）让数清零再加一
     timer_initpara.clockdivision     = TIMER_CKDIV_DIV1;
     timer_init(TIMER6, &timer_initpara);
 
@@ -176,7 +176,7 @@ void McuTimerInitialization(void)
 	Timer1_Generate_1ms_Interrupt();
 	Timer5_Generate_2s_Interrupt();
 	delay_1ms(1000);
-	Timer6_Generate_2s_Interrupt();//有两个需求，都要间隔2秒触发一次中断，为了不冲突，这两个定时器间隔1秒开启
+	Timer6_Generate_1s_Interrupt();//有两个需求，都要间隔2秒触发一次中断，为了不冲突，这两个定时器间隔1秒开启
 	Timer19_Generate_PWM_config();
 }	
 

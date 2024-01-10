@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Mon Jan  8 10:09:08 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Wed Jan 10 17:18:41 2024
 <BR><P>
 <H3>Maximum Stack Usage =        424 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -708,7 +708,7 @@ Global Symbols
 <P><STRONG><a name="[8d]"></a>McuTimerInitialization</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, timer_app.o(.text.McuTimerInitialization))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = McuTimerInitialization &rArr; Timer19_Generate_PWM_config &rArr; timer_deinit &rArr; rcu_periph_reset_enable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_2s_Interrupt
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_1s_Interrupt
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer5_Generate_2s_Interrupt
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Generate_1ms_Interrupt
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer19_Generate_PWM_config
@@ -875,11 +875,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_gd32a50x.o(RESET)
 </UL>
-<P><STRONG><a name="[3d]"></a>TIMER6_IRQHandler</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, gd32a50x_it.o(.text.TIMER6_IRQHandler))
+<P><STRONG><a name="[3d]"></a>TIMER6_IRQHandler</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, gd32a50x_it.o(.text.TIMER6_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = TIMER6_IRQHandler &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_flag_get
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_flag_clear
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_enable
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadFrameTransmit
 </UL>
@@ -916,9 +917,9 @@ Global Symbols
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_enable
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_enable
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_enable
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_clock_enable
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;McuTimerInitialization
 </UL>
@@ -930,21 +931,21 @@ Global Symbols
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_enable
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_enable
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;McuTimerInitialization
 </UL>
 
-<P><STRONG><a name="[96]"></a>Timer6_Generate_2s_Interrupt</STRONG> (Thumb, 86 bytes, Stack size 32 bytes, timer_app.o(.text.Timer6_Generate_2s_Interrupt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Timer6_Generate_2s_Interrupt &rArr; timer_deinit &rArr; rcu_periph_reset_enable
+<P><STRONG><a name="[96]"></a>Timer6_Generate_1s_Interrupt</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, timer_app.o(.text.Timer6_Generate_1s_Interrupt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Timer6_Generate_1s_Interrupt &rArr; timer_deinit &rArr; rcu_periph_reset_enable
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_struct_para_init
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_enable
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_enable
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;McuTimerInitialization
 </UL>
@@ -992,13 +993,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Updating
 </UL>
 
-<P><STRONG><a name="[c0]"></a>Updating</STRONG> (Thumb, 314 bytes, Stack size 16 bytes, update.o(.text.Updating))
+<P><STRONG><a name="[c0]"></a>Updating</STRONG> (Thumb, 310 bytes, Stack size 16 bytes, update.o(.text.Updating))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = Updating &rArr; Update_Process &rArr; fmc_uint64_program &rArr; fmc_erase_pages &rArr; fmc_page_erase &rArr; fmc_bank1_ready_wait &rArr; fmc_bank1_state_get
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_i2s_deinit
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_clock_disable
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_deinit
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_deinit
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_deinit
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_deinit
@@ -1029,8 +1030,8 @@ Global Symbols
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChecksumCheck
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BackLightSwitchCmdFun
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BackLightModeConfigureFun
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Brightness
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadFrameTransmit
@@ -1167,10 +1168,11 @@ Global Symbols
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cx
 </UL>
 
-<P><STRONG><a name="[e5]"></a>cx</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, update.o(.text.cx))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = cx &rArr; compareArrays
+<P><STRONG><a name="[e5]"></a>cx</STRONG> (Thumb, 154 bytes, Stack size 8 bytes, update.o(.text.cx))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = cx &rArr; nvic_irq_disable &rArr; __NVIC_DisableIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compareArrays
+<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compareArrays
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1473,7 +1475,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c1_MasterWriteMulBytes
 </UL>
 
-<P><STRONG><a name="[4c]"></a>main</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, main.o(.text.main))
+<P><STRONG><a name="[4c]"></a>main</STRONG> (Thumb, 246 bytes, Stack size 16 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 424<LI>Call Chain = main &rArr; WriteFrameTransmit &rArr; process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readTemper
@@ -1500,9 +1502,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_DisableIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_2s_Interrupt
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_1s_Interrupt
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer5_Generate_2s_Interrupt
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cx
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteFrameTransmit
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Updating
 </UL>
 
 <P><STRONG><a name="[7a]"></a>nvic_irq_enable</STRONG> (Thumb, 298 bytes, Stack size 24 bytes, gd32a50x_misc.o(.text.nvic_irq_enable))
@@ -1513,6 +1517,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Generate_1ms_Interrupt
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Slave_Config
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER6_IRQHandler
 </UL>
 
 <P><STRONG><a name="[f7]"></a>nvic_priority_group_set</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, gd32a50x_misc.o(.text.nvic_priority_group_set))
@@ -1531,9 +1536,9 @@ Global Symbols
 <P><STRONG><a name="[cb]"></a>process_0x81</STRONG> (Thumb, 194 bytes, Stack size 32 bytes, control.o(.text.process_0x81))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_enable
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_input_bit_get
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_input_bit_get
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_1ms
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_enable
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadFrameTransmit
@@ -1575,7 +1580,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Process
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;McuRcuDeinit
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Updating
 </UL>
 
 <P><STRONG><a name="[92]"></a>rcu_periph_clock_enable</STRONG> (Thumb, 40 bytes, Stack size 4 bytes, gd32a50x_rcu.o(.text.rcu_periph_clock_enable))
@@ -1701,7 +1705,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_enable
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_2s_Interrupt
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_1s_Interrupt
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer5_Generate_2s_Interrupt
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Generate_1ms_Interrupt
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer19_Generate_PWM_config
@@ -1711,7 +1715,7 @@ Global Symbols
 <P><STRONG><a name="[b6]"></a>timer_enable</STRONG> (Thumb, 18 bytes, Stack size 4 bytes, gd32a50x_timer.o(.text.timer_enable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = timer_enable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_2s_Interrupt
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_1s_Interrupt
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer5_Generate_2s_Interrupt
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Generate_1ms_Interrupt
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer19_Generate_PWM_config
@@ -1720,7 +1724,7 @@ Global Symbols
 <P><STRONG><a name="[af]"></a>timer_init</STRONG> (Thumb, 288 bytes, Stack size 8 bytes, gd32a50x_timer.o(.text.timer_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = timer_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_2s_Interrupt
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_1s_Interrupt
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer5_Generate_2s_Interrupt
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Generate_1ms_Interrupt
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer19_Generate_PWM_config
@@ -1729,7 +1733,7 @@ Global Symbols
 <P><STRONG><a name="[b7]"></a>timer_interrupt_enable</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, gd32a50x_timer.o(.text.timer_interrupt_enable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = timer_interrupt_enable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_2s_Interrupt
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_1s_Interrupt
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer5_Generate_2s_Interrupt
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Generate_1ms_Interrupt
 </UL>
@@ -1759,7 +1763,7 @@ Global Symbols
 <P><STRONG><a name="[ae]"></a>timer_struct_para_init</STRONG> (Thumb, 38 bytes, Stack size 4 bytes, gd32a50x_timer.o(.text.timer_struct_para_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = timer_struct_para_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_2s_Interrupt
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer6_Generate_1s_Interrupt
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer5_Generate_2s_Interrupt
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Generate_1ms_Interrupt
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer19_Generate_PWM_config

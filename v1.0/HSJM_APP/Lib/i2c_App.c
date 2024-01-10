@@ -403,7 +403,7 @@ void I2C1_EV_IRQHandler(void)
             tI2cSlave.SendCount = 0x00 ;  //柴方峙賠巣
         }
         /* disable I2C_INDEX interrupt */		
-		//！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+		//！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
         /* clear STPDET interrupt flag */
         i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_STPDET);        
         if(Update_tI2cSlave.uFlag.Bits.DirState==RESET)

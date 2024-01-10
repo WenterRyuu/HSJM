@@ -55,11 +55,11 @@ int main(void)
 		
 		
 		//---------------------------
-		if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.RequestBootloaderAccess, sizeof(Std_Receive_Arr.RequestBootloaderAccess)) == true)
+        cx();        
+        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.RequestBootloaderAccess, sizeof(Std_Receive_Arr.RequestBootloaderAccess)) == true)
 		{
 			cx();                                                               //²éÑ¯bootloder×´Ì¬
 			Updating();
-
 		}
 
 		
