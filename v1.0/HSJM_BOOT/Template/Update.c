@@ -453,9 +453,13 @@ static ErrStatus SaveProc(void)
 	fmc_program(start_address, S19_Fire.Bin64_Data_Array);
 	
 	bool is_check_ok = fmc_program_check(start_address, S19_Fire.Bin64_Data_Array);
-	
-	start_address += 0x20;
-	return is_check_ok;
+	if(is_check_ok)
+	{
+		start_address += 0x20;
+		return SUCCESS;
+	}
+	else
+		return ERROR;	
 }
 
 //-------------------------------------------------------------------------------------------------------------------

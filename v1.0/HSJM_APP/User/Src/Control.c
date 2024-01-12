@@ -25,9 +25,7 @@ void process_0x81(void)
     
     if(flag == 0)
     {
-        nvic_irq_enable(TIMER5_DAC_IRQn, 0, 0);
-        delay_1ms(1000);
-        nvic_irq_enable(TIMER6_IRQn, 0, 0);  
+        nvic_irq_enable(TIMER6_IRQn, 0, 0);
         flag = 1;
     }
     

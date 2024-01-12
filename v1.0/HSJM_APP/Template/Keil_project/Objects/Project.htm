@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Wed Jan 10 17:18:41 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Fri Jan 12 14:13:14 2024
 <BR><P>
-<H3>Maximum Stack Usage =        424 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        416 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; WriteFrameTransmit &rArr; process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 <P>
@@ -875,7 +875,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_gd32a50x.o(RESET)
 </UL>
-<P><STRONG><a name="[3d]"></a>TIMER6_IRQHandler</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, gd32a50x_it.o(.text.TIMER6_IRQHandler))
+<P><STRONG><a name="[3d]"></a>TIMER6_IRQHandler</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, gd32a50x_it.o(.text.TIMER6_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = TIMER6_IRQHandler &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_flag_get
@@ -1014,7 +1014,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_gd32a50x.o(RESET)
 </UL>
 <P><STRONG><a name="[c5]"></a>WriteFrameTransmit</STRONG> (Thumb, 868 bytes, Stack size 304 bytes, writedataframe.o(.text.WriteFrameTransmit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = WriteFrameTransmit &rArr; process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
+<BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = WriteFrameTransmit &rArr; process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UpdateCmdFun
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchChipResetCmdFun
@@ -1475,8 +1475,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c1_MasterWriteMulBytes
 </UL>
 
-<P><STRONG><a name="[4c]"></a>main</STRONG> (Thumb, 246 bytes, Stack size 16 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 424<LI>Call Chain = main &rArr; WriteFrameTransmit &rArr; process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
+<P><STRONG><a name="[4c]"></a>main</STRONG> (Thumb, 256 bytes, Stack size 16 bytes, main.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 416<LI>Call Chain = main &rArr; WriteFrameTransmit &rArr; process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readTemper
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_vector_table_set
@@ -1494,6 +1494,7 @@ Global Symbols
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MAX96752_REG_Config
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Initialization
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Slave_Config
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_enable
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1516,6 +1517,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Generate_1ms_Interrupt
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Slave_Config
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER6_IRQHandler
 </UL>
@@ -1533,8 +1535,8 @@ Global Symbols
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cb]"></a>process_0x81</STRONG> (Thumb, 194 bytes, Stack size 32 bytes, control.o(.text.process_0x81))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
+<P><STRONG><a name="[cb]"></a>process_0x81</STRONG> (Thumb, 174 bytes, Stack size 24 bytes, control.o(.text.process_0x81))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = process_0x81 &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_input_bit_get
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_1ms

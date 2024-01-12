@@ -210,7 +210,8 @@ void TIMER5_DAC_IRQHandler(void)
 *Ipunt				 :None
 *OutPut				 :None
 *-------------------------------------------------------------------------*/
-uint8_t i = 0;
+uint8_t i5 = 0;
+uint8_t i6 = 0;
 void TIMER6_IRQHandler(void)
 {
     if(SET == timer_interrupt_flag_get(TIMER6, TIMER_INT_UP)) 
@@ -218,15 +219,19 @@ void TIMER6_IRQHandler(void)
         /* clear update interrupt bit */
         timer_interrupt_flag_clear(TIMER6, TIMER_INT_UP);	
 
-        if(i == 0)
+        if(i5 == 0)
         {
             nvic_irq_enable(TIMER5_DAC_IRQn, 0, 0);                             //进了这个中断，就说明过了1秒，正好开启Timer5
-            i = 1;
+            i5 = 1;
         }
         
-		ReadFrameTransmit(0x13);//【心跳包】显示屏信息查询指令
-		IRQ_LOW_DOWN;
-		Counter_1ms.IRQ_0X13 = 100;
-
+        i6 ++;
+        if(i6 == 2)
+        {
+            i6 = 0;
+            ReadFrameTransmit(0x13);//【心跳包】显示屏信息查询指令
+            IRQ_LOW_DOWN;
+            Counter_1ms.IRQ_0X13 = 100;
+        }
 	}
 }

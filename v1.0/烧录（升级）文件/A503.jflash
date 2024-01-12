@@ -3,8 +3,8 @@
 [GENERAL]
   aATEModuleSel[24] = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
   ConnectMode = 0
-  CurrentFile = ""
-  DataFileSAddr = 0x00000000
+  CurrentFile = "E:\OneDrive\Going-On\20230925 - BOE_ChengDu\HSJM\v1.0\烧录（升级）文件\bin_20240109，升级第一步的问题（先查询，后申请）\v2.03.bin"
+  DataFileSAddr = 0x08000000
   GUIMode = 0
   HostName = ""
   TargetIF = 1

@@ -29,15 +29,14 @@ int main(void)
 //	Read_TCON_Register();
 	
     
-	delay_1ms(5000);//@20240104,开机就绪准备时间
+	delay_1ms(5000);                                                            //@20240104,开机就绪准备时间
 	ReadCmdIdStrInit();
-	handshake();//握手
-    
+	handshake();                                                                //握手
+    nvic_irq_enable(TIMER6_IRQn, 0, 0);                                         //开启2秒心跳包定时中断
 
     while(1) 
 	{
-		WriteFrameTransmit();//主机向显示屏发，显示屏应该做的响应
-        
+		WriteFrameTransmit();                                                   //主机向显示屏发，显示屏应该做的响应      
 
         if(Counter_1ms.NTC == 0)
 		{
