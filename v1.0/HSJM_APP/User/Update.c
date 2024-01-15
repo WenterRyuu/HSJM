@@ -80,6 +80,7 @@ void Update_Process(void)
 				Notice_master_to_read(Std_Replay_Arr.InputAccessKey2);
 				BootloaderStatus = QueryBootloaderStatus;
 				BootLoader_State = READY;
+                
 				fmc_uint64_program(UPDATE_FLAG_ADDRESS, BootLoader_State);
 				fmc_uint64_program(APP2BOOT_FLAG_ADDRESS, 1);
 				rcu_periph_clock_enable(RCU_TIMER5);//READY以后允许读心跳包和查询背光值
@@ -91,6 +92,7 @@ void Update_Process(void)
 			break;
 		
 	}
+    cx();
 }
 
 uint64_t *pBL_State = (uint64_t *)UPDATE_FLAG_ADDRESS;
@@ -139,9 +141,9 @@ extern uint16_t ii;
 void cx(void)
 {
 	if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.QueryBootloaderStatus, sizeof(Std_Receive_Arr.QueryBootloaderStatus)) == true)
-	{                
+	{   
         nvic_irq_disable(TIMER6_IRQn);
-        nvic_irq_disable(TIMER5_DAC_IRQn);
+        nvic_irq_disable(TIMER5_DAC_IRQn);             
         BootLoader_State = READY;
 		//主机检查状态
 		switch(BootLoader_State)//是什么状态返回什么数组，跳转到对应的步骤

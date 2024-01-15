@@ -21,19 +21,19 @@ Section Cross References
     main.o(.text.main) refers to gd32a50x_rcu.o(.text.rcu_periph_clock_enable) for rcu_periph_clock_enable
     main.o(.text.main) refers to i2c_app.o(.text.I2C_Gpio_Config) for I2C_Gpio_Config
     main.o(.text.main) refers to i2c_app.o(.text.I2C_Slave_Config) for I2C_Slave_Config
+    main.o(.text.main) refers to update.o(.rodata.Std_Replay_Arr) for Std_Replay_Arr
+    main.o(.text.main) refers to update.o(.data.Update_tI2cSlave) for Update_tI2cSlave
+    main.o(.text.main) refers to gd32a50x_gpio.o(.text.gpio_bit_reset) for gpio_bit_reset
+    main.o(.text.main) refers to update.o(.bss.Counter_1ms) for Counter_1ms
     main.o(.text.main) refers to gd32a50x_gpio.o(.text.gpio_mode_set) for gpio_mode_set
     main.o(.text.main) refers to gd32a50x_gpio.o(.text.gpio_output_options_set) for gpio_output_options_set
     main.o(.text.main) refers to gd32a50x_gpio.o(.text.gpio_bit_set) for gpio_bit_set
     main.o(.text.main) refers to main.o(.text.Timer1_Generate_1ms_Interrupt) for Timer1_Generate_1ms_Interrupt
     main.o(.text.main) refers to update.o(.bss.BootloaderStatus) for BootloaderStatus
     main.o(.text.main) refers to update.o(.text.Updating) for Updating
-    main.o(.text.main) refers to update.o(.data.Update_tI2cSlave) for Update_tI2cSlave
     main.o(.text.main) refers to update.o(.rodata.Std_Receive_Arr) for Std_Receive_Arr
     main.o(.text.main) refers to update.o(.text.compareArrays) for compareArrays
     main.o(.text.main) refers to fmc_app.o(.text.fmc_erase_pages) for fmc_erase_pages
-    main.o(.text.main) refers to update.o(.rodata.Std_Replay_Arr) for Std_Replay_Arr
-    main.o(.text.main) refers to gd32a50x_gpio.o(.text.gpio_bit_reset) for gpio_bit_reset
-    main.o(.text.main) refers to update.o(.bss.Counter_1ms) for Counter_1ms
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     systick.o(.text.systick_config) refers to system_gd32a50x.o(.data.SystemCoreClock) for SystemCoreClock
     systick.o(.text.systick_config) refers to systick.o(.text.SysTick_Config) for SysTick_Config
@@ -2886,31 +2886,31 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08002958   Section        0  gd32a50x_i2c.o(.text.i2c_master_clock_config)
     [Anonymous Symbol]                       0x08002998   Section        0  gd32a50x_i2c.o(.text.i2c_timing_config)
     [Anonymous Symbol]                       0x080029f4   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x08002b70   Section        0  gd32a50x_misc.o(.text.nvic_irq_enable)
-    [Anonymous Symbol]                       0x08002c9c   Section        0  gd32a50x_misc.o(.text.nvic_priority_group_set)
-    [Anonymous Symbol]                       0x08002cb8   Section        0  gd32a50x_misc.o(.text.nvic_vector_table_set)
-    [Anonymous Symbol]                       0x08002ce0   Section        0  gd32a50x_rcu.o(.text.rcu_deinit)
-    [Anonymous Symbol]                       0x08002d78   Section        0  gd32a50x_rcu.o(.text.rcu_flag_get)
-    [Anonymous Symbol]                       0x08002db8   Section        0  gd32a50x_rcu.o(.text.rcu_osci_stab_wait)
-    [Anonymous Symbol]                       0x08002f94   Section        0  gd32a50x_rcu.o(.text.rcu_periph_clock_disable)
-    [Anonymous Symbol]                       0x08002fbc   Section        0  gd32a50x_rcu.o(.text.rcu_periph_clock_enable)
-    [Anonymous Symbol]                       0x08002fe4   Section        0  gd32a50x_rcu.o(.text.rcu_periph_reset_disable)
-    [Anonymous Symbol]                       0x0800300c   Section        0  gd32a50x_rcu.o(.text.rcu_periph_reset_enable)
-    system_clock_100m_pll_irc8m              0x08003035   Thumb Code   278  system_gd32a50x.o(.text.system_clock_100m_pll_irc8m)
-    [Anonymous Symbol]                       0x08003034   Section        0  system_gd32a50x.o(.text.system_clock_100m_pll_irc8m)
-    system_clock_config                      0x0800314d   Thumb Code     8  system_gd32a50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x0800314c   Section        0  system_gd32a50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x08003154   Section        0  systick.o(.text.systick_config)
-    [Anonymous Symbol]                       0x08003188   Section        0  gd32a50x_timer.o(.text.timer_deinit)
-    [Anonymous Symbol]                       0x08003280   Section        0  gd32a50x_timer.o(.text.timer_enable)
-    [Anonymous Symbol]                       0x08003294   Section        0  gd32a50x_timer.o(.text.timer_init)
-    [Anonymous Symbol]                       0x080033b4   Section        0  gd32a50x_timer.o(.text.timer_interrupt_enable)
-    [Anonymous Symbol]                       0x080033c8   Section        0  gd32a50x_timer.o(.text.timer_interrupt_flag_clear)
-    [Anonymous Symbol]                       0x080033dc   Section        0  gd32a50x_timer.o(.text.timer_interrupt_flag_get)
-    [Anonymous Symbol]                       0x08003418   Section        0  gd32a50x_timer.o(.text.timer_struct_para_init)
-    i.__scatterload_copy                     0x0800343e   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800344c   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800344e   Section       14  handlers.o(i.__scatterload_zeroinit)
+    [Anonymous Symbol]                       0x08002bac   Section        0  gd32a50x_misc.o(.text.nvic_irq_enable)
+    [Anonymous Symbol]                       0x08002cd8   Section        0  gd32a50x_misc.o(.text.nvic_priority_group_set)
+    [Anonymous Symbol]                       0x08002cf4   Section        0  gd32a50x_misc.o(.text.nvic_vector_table_set)
+    [Anonymous Symbol]                       0x08002d1c   Section        0  gd32a50x_rcu.o(.text.rcu_deinit)
+    [Anonymous Symbol]                       0x08002db4   Section        0  gd32a50x_rcu.o(.text.rcu_flag_get)
+    [Anonymous Symbol]                       0x08002df4   Section        0  gd32a50x_rcu.o(.text.rcu_osci_stab_wait)
+    [Anonymous Symbol]                       0x08002fd0   Section        0  gd32a50x_rcu.o(.text.rcu_periph_clock_disable)
+    [Anonymous Symbol]                       0x08002ff8   Section        0  gd32a50x_rcu.o(.text.rcu_periph_clock_enable)
+    [Anonymous Symbol]                       0x08003020   Section        0  gd32a50x_rcu.o(.text.rcu_periph_reset_disable)
+    [Anonymous Symbol]                       0x08003048   Section        0  gd32a50x_rcu.o(.text.rcu_periph_reset_enable)
+    system_clock_100m_pll_irc8m              0x08003071   Thumb Code   278  system_gd32a50x.o(.text.system_clock_100m_pll_irc8m)
+    [Anonymous Symbol]                       0x08003070   Section        0  system_gd32a50x.o(.text.system_clock_100m_pll_irc8m)
+    system_clock_config                      0x08003189   Thumb Code     8  system_gd32a50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x08003188   Section        0  system_gd32a50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x08003190   Section        0  systick.o(.text.systick_config)
+    [Anonymous Symbol]                       0x080031c4   Section        0  gd32a50x_timer.o(.text.timer_deinit)
+    [Anonymous Symbol]                       0x080032bc   Section        0  gd32a50x_timer.o(.text.timer_enable)
+    [Anonymous Symbol]                       0x080032d0   Section        0  gd32a50x_timer.o(.text.timer_init)
+    [Anonymous Symbol]                       0x080033f0   Section        0  gd32a50x_timer.o(.text.timer_interrupt_enable)
+    [Anonymous Symbol]                       0x08003404   Section        0  gd32a50x_timer.o(.text.timer_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x08003418   Section        0  gd32a50x_timer.o(.text.timer_interrupt_flag_get)
+    [Anonymous Symbol]                       0x08003454   Section        0  gd32a50x_timer.o(.text.timer_struct_para_init)
+    i.__scatterload_copy                     0x0800347a   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08003488   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0800348a   Section       14  handlers.o(i.__scatterload_zeroinit)
     SaveProc.start_address                   0x20000000   Data           4  update.o(.data.SaveProc.start_address)
     [Anonymous Symbol]                       0x20000000   Section        0  update.o(.data.SaveProc.start_address)
     delay                                    0x200001f8   Data           4  systick.o(.bss.delay)
@@ -3068,32 +3068,32 @@ Image Symbol Table
     i2c_interrupt_flag_get                   0x080028f9   Thumb Code    94  gd32a50x_i2c.o(.text.i2c_interrupt_flag_get)
     i2c_master_clock_config                  0x08002959   Thumb Code    62  gd32a50x_i2c.o(.text.i2c_master_clock_config)
     i2c_timing_config                        0x08002999   Thumb Code    92  gd32a50x_i2c.o(.text.i2c_timing_config)
-    main                                     0x080029f5   Thumb Code   380  main.o(.text.main)
-    nvic_irq_enable                          0x08002b71   Thumb Code   298  gd32a50x_misc.o(.text.nvic_irq_enable)
-    nvic_priority_group_set                  0x08002c9d   Thumb Code    28  gd32a50x_misc.o(.text.nvic_priority_group_set)
-    nvic_vector_table_set                    0x08002cb9   Thumb Code    40  gd32a50x_misc.o(.text.nvic_vector_table_set)
-    rcu_deinit                               0x08002ce1   Thumb Code   152  gd32a50x_rcu.o(.text.rcu_deinit)
-    rcu_flag_get                             0x08002d79   Thumb Code    62  gd32a50x_rcu.o(.text.rcu_flag_get)
-    rcu_osci_stab_wait                       0x08002db9   Thumb Code   476  gd32a50x_rcu.o(.text.rcu_osci_stab_wait)
-    rcu_periph_clock_disable                 0x08002f95   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_clock_disable)
-    rcu_periph_clock_enable                  0x08002fbd   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_clock_enable)
-    rcu_periph_reset_disable                 0x08002fe5   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_reset_disable)
-    rcu_periph_reset_enable                  0x0800300d   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_reset_enable)
-    systick_config                           0x08003155   Thumb Code    50  systick.o(.text.systick_config)
-    timer_deinit                             0x08003189   Thumb Code   246  gd32a50x_timer.o(.text.timer_deinit)
-    timer_enable                             0x08003281   Thumb Code    18  gd32a50x_timer.o(.text.timer_enable)
-    timer_init                               0x08003295   Thumb Code   288  gd32a50x_timer.o(.text.timer_init)
-    timer_interrupt_enable                   0x080033b5   Thumb Code    20  gd32a50x_timer.o(.text.timer_interrupt_enable)
-    timer_interrupt_flag_clear               0x080033c9   Thumb Code    20  gd32a50x_timer.o(.text.timer_interrupt_flag_clear)
-    timer_interrupt_flag_get                 0x080033dd   Thumb Code    58  gd32a50x_timer.o(.text.timer_interrupt_flag_get)
-    timer_struct_para_init                   0x08003419   Thumb Code    38  gd32a50x_timer.o(.text.timer_struct_para_init)
-    __scatterload_copy                       0x0800343f   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800344d   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800344f   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Std_Receive_Arr                          0x0800345c   Data          69  update.o(.rodata.Std_Receive_Arr)
-    Std_Replay_Arr                           0x080034a1   Data          98  update.o(.rodata.Std_Replay_Arr)
-    Region$$Table$$Base                      0x08003504   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08003524   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x080029f5   Thumb Code   440  main.o(.text.main)
+    nvic_irq_enable                          0x08002bad   Thumb Code   298  gd32a50x_misc.o(.text.nvic_irq_enable)
+    nvic_priority_group_set                  0x08002cd9   Thumb Code    28  gd32a50x_misc.o(.text.nvic_priority_group_set)
+    nvic_vector_table_set                    0x08002cf5   Thumb Code    40  gd32a50x_misc.o(.text.nvic_vector_table_set)
+    rcu_deinit                               0x08002d1d   Thumb Code   152  gd32a50x_rcu.o(.text.rcu_deinit)
+    rcu_flag_get                             0x08002db5   Thumb Code    62  gd32a50x_rcu.o(.text.rcu_flag_get)
+    rcu_osci_stab_wait                       0x08002df5   Thumb Code   476  gd32a50x_rcu.o(.text.rcu_osci_stab_wait)
+    rcu_periph_clock_disable                 0x08002fd1   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_clock_disable)
+    rcu_periph_clock_enable                  0x08002ff9   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_clock_enable)
+    rcu_periph_reset_disable                 0x08003021   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_reset_disable)
+    rcu_periph_reset_enable                  0x08003049   Thumb Code    40  gd32a50x_rcu.o(.text.rcu_periph_reset_enable)
+    systick_config                           0x08003191   Thumb Code    50  systick.o(.text.systick_config)
+    timer_deinit                             0x080031c5   Thumb Code   246  gd32a50x_timer.o(.text.timer_deinit)
+    timer_enable                             0x080032bd   Thumb Code    18  gd32a50x_timer.o(.text.timer_enable)
+    timer_init                               0x080032d1   Thumb Code   288  gd32a50x_timer.o(.text.timer_init)
+    timer_interrupt_enable                   0x080033f1   Thumb Code    20  gd32a50x_timer.o(.text.timer_interrupt_enable)
+    timer_interrupt_flag_clear               0x08003405   Thumb Code    20  gd32a50x_timer.o(.text.timer_interrupt_flag_clear)
+    timer_interrupt_flag_get                 0x08003419   Thumb Code    58  gd32a50x_timer.o(.text.timer_interrupt_flag_get)
+    timer_struct_para_init                   0x08003455   Thumb Code    38  gd32a50x_timer.o(.text.timer_struct_para_init)
+    __scatterload_copy                       0x0800347b   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08003489   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0800348b   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Std_Receive_Arr                          0x08003498   Data          69  update.o(.rodata.Std_Receive_Arr)
+    Std_Replay_Arr                           0x080034dd   Data          98  update.o(.rodata.Std_Replay_Arr)
+    Region$$Table$$Base                      0x08003540   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08003560   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000004   Data           4  system_gd32a50x.o(.data.SystemCoreClock)
     Update_tI2cSlave                         0x20000008   Data         314  update.o(.data.Update_tI2cSlave)
     pApp_Once                                0x20000144   Data           4  main.o(.data.pApp_Once)
@@ -3114,9 +3114,9 @@ Memory Map of the image
 
   Image Entry point : 0x0800015d
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003678, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x00003548])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000036b0, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x00003580])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003524, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003560, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3229,44 +3229,44 @@ Memory Map of the image
     0x08002958   0x08002958   0x0000003e   Code   RO          912    .text.i2c_master_clock_config  gd32a50x_i2c.o
     0x08002996   0x08002996   0x00000002   PAD
     0x08002998   0x08002998   0x0000005c   Code   RO          904    .text.i2c_timing_config  gd32a50x_i2c.o
-    0x080029f4   0x080029f4   0x0000017c   Code   RO            4    .text.main          main.o
-    0x08002b70   0x08002b70   0x0000012a   Code   RO         1114    .text.nvic_irq_enable  gd32a50x_misc.o
-    0x08002c9a   0x08002c9a   0x00000002   PAD
-    0x08002c9c   0x08002c9c   0x0000001c   Code   RO         1112    .text.nvic_priority_group_set  gd32a50x_misc.o
-    0x08002cb8   0x08002cb8   0x00000028   Code   RO         1124    .text.nvic_vector_table_set  gd32a50x_misc.o
-    0x08002ce0   0x08002ce0   0x00000098   Code   RO         1186    .text.rcu_deinit    gd32a50x_rcu.o
-    0x08002d78   0x08002d78   0x0000003e   Code   RO         1238    .text.rcu_flag_get  gd32a50x_rcu.o
-    0x08002db6   0x08002db6   0x00000002   PAD
-    0x08002db8   0x08002db8   0x000001dc   Code   RO         1188    .text.rcu_osci_stab_wait  gd32a50x_rcu.o
-    0x08002f94   0x08002f94   0x00000028   Code   RO         1192    .text.rcu_periph_clock_disable  gd32a50x_rcu.o
-    0x08002fbc   0x08002fbc   0x00000028   Code   RO         1190    .text.rcu_periph_clock_enable  gd32a50x_rcu.o
-    0x08002fe4   0x08002fe4   0x00000028   Code   RO         1196    .text.rcu_periph_reset_disable  gd32a50x_rcu.o
-    0x0800300c   0x0800300c   0x00000028   Code   RO         1194    .text.rcu_periph_reset_enable  gd32a50x_rcu.o
-    0x08003034   0x08003034   0x00000116   Code   RO          158    .text.system_clock_100m_pll_irc8m  system_gd32a50x.o
-    0x0800314a   0x0800314a   0x00000002   PAD
-    0x0800314c   0x0800314c   0x00000008   Code   RO          154    .text.system_clock_config  system_gd32a50x.o
-    0x08003154   0x08003154   0x00000032   Code   RO           16    .text.systick_config  systick.o
+    0x080029f4   0x080029f4   0x000001b8   Code   RO            4    .text.main          main.o
+    0x08002bac   0x08002bac   0x0000012a   Code   RO         1114    .text.nvic_irq_enable  gd32a50x_misc.o
+    0x08002cd6   0x08002cd6   0x00000002   PAD
+    0x08002cd8   0x08002cd8   0x0000001c   Code   RO         1112    .text.nvic_priority_group_set  gd32a50x_misc.o
+    0x08002cf4   0x08002cf4   0x00000028   Code   RO         1124    .text.nvic_vector_table_set  gd32a50x_misc.o
+    0x08002d1c   0x08002d1c   0x00000098   Code   RO         1186    .text.rcu_deinit    gd32a50x_rcu.o
+    0x08002db4   0x08002db4   0x0000003e   Code   RO         1238    .text.rcu_flag_get  gd32a50x_rcu.o
+    0x08002df2   0x08002df2   0x00000002   PAD
+    0x08002df4   0x08002df4   0x000001dc   Code   RO         1188    .text.rcu_osci_stab_wait  gd32a50x_rcu.o
+    0x08002fd0   0x08002fd0   0x00000028   Code   RO         1192    .text.rcu_periph_clock_disable  gd32a50x_rcu.o
+    0x08002ff8   0x08002ff8   0x00000028   Code   RO         1190    .text.rcu_periph_clock_enable  gd32a50x_rcu.o
+    0x08003020   0x08003020   0x00000028   Code   RO         1196    .text.rcu_periph_reset_disable  gd32a50x_rcu.o
+    0x08003048   0x08003048   0x00000028   Code   RO         1194    .text.rcu_periph_reset_enable  gd32a50x_rcu.o
+    0x08003070   0x08003070   0x00000116   Code   RO          158    .text.system_clock_100m_pll_irc8m  system_gd32a50x.o
     0x08003186   0x08003186   0x00000002   PAD
-    0x08003188   0x08003188   0x000000f6   Code   RO         1460    .text.timer_deinit  gd32a50x_timer.o
-    0x0800327e   0x0800327e   0x00000002   PAD
-    0x08003280   0x08003280   0x00000012   Code   RO         1466    .text.timer_enable  gd32a50x_timer.o
-    0x08003292   0x08003292   0x00000002   PAD
-    0x08003294   0x08003294   0x00000120   Code   RO         1464    .text.timer_init    gd32a50x_timer.o
-    0x080033b4   0x080033b4   0x00000014   Code   RO         1628    .text.timer_interrupt_enable  gd32a50x_timer.o
-    0x080033c8   0x080033c8   0x00000014   Code   RO         1634    .text.timer_interrupt_flag_clear  gd32a50x_timer.o
-    0x080033dc   0x080033dc   0x0000003a   Code   RO         1632    .text.timer_interrupt_flag_get  gd32a50x_timer.o
-    0x08003416   0x08003416   0x00000002   PAD
-    0x08003418   0x08003418   0x00000026   Code   RO         1462    .text.timer_struct_para_init  gd32a50x_timer.o
-    0x0800343e   0x0800343e   0x0000000e   Code   RO         1930    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800344c   0x0800344c   0x00000002   Code   RO         1931    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800344e   0x0800344e   0x0000000e   Code   RO         1932    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800345c   0x0800345c   0x00000045   Data   RO           92    .rodata.Std_Receive_Arr  update.o
-    0x080034a1   0x080034a1   0x00000062   Data   RO           93    .rodata.Std_Replay_Arr  update.o
-    0x08003503   0x08003503   0x00000001   PAD
-    0x08003504   0x08003504   0x00000020   Data   RO         1929    Region$$Table       anon$$obj.o
+    0x08003188   0x08003188   0x00000008   Code   RO          154    .text.system_clock_config  system_gd32a50x.o
+    0x08003190   0x08003190   0x00000032   Code   RO           16    .text.systick_config  systick.o
+    0x080031c2   0x080031c2   0x00000002   PAD
+    0x080031c4   0x080031c4   0x000000f6   Code   RO         1460    .text.timer_deinit  gd32a50x_timer.o
+    0x080032ba   0x080032ba   0x00000002   PAD
+    0x080032bc   0x080032bc   0x00000012   Code   RO         1466    .text.timer_enable  gd32a50x_timer.o
+    0x080032ce   0x080032ce   0x00000002   PAD
+    0x080032d0   0x080032d0   0x00000120   Code   RO         1464    .text.timer_init    gd32a50x_timer.o
+    0x080033f0   0x080033f0   0x00000014   Code   RO         1628    .text.timer_interrupt_enable  gd32a50x_timer.o
+    0x08003404   0x08003404   0x00000014   Code   RO         1634    .text.timer_interrupt_flag_clear  gd32a50x_timer.o
+    0x08003418   0x08003418   0x0000003a   Code   RO         1632    .text.timer_interrupt_flag_get  gd32a50x_timer.o
+    0x08003452   0x08003452   0x00000002   PAD
+    0x08003454   0x08003454   0x00000026   Code   RO         1462    .text.timer_struct_para_init  gd32a50x_timer.o
+    0x0800347a   0x0800347a   0x0000000e   Code   RO         1930    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08003488   0x08003488   0x00000002   Code   RO         1931    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0800348a   0x0800348a   0x0000000e   Code   RO         1932    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08003498   0x08003498   0x00000045   Data   RO           92    .rodata.Std_Receive_Arr  update.o
+    0x080034dd   0x080034dd   0x00000062   Data   RO           93    .rodata.Std_Replay_Arr  update.o
+    0x0800353f   0x0800353f   0x00000001   PAD
+    0x08003540   0x08003540   0x00000020   Data   RO         1929    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003528, Size: 0x00000a00, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000020])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003560, Size: 0x00000a00, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000020])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3305,14 +3305,14 @@ Image component sizes
        850          0          0          0          0      12197   gd32a50x_rcu.o
        688          0          0          0          0      22303   gd32a50x_timer.o
       2006          0          0          0          0       4975   i2c_app.o
-       474          0          0          8          0       4554   main.o
+       534          0          0          8          0       4566   main.o
         80         18        348          0       2048        948   startup_gd32a50x.o
        616          0          0          4          0       2970   system_gd32a50x.o
        230          0          0          0          4       4643   systick.o
       4182         42        167        318        167       7047   update.o
 
     ----------------------------------------------------------------------
-     12838         60        548        332       2228      99328   Object Totals
+     12898         60        548        332       2228      99340   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         86          0          1          2          9          0   (incl. Padding)
 
@@ -3354,15 +3354,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     13056         76        548        332       2228      99564   Grand Totals
-     13056         76        548         32       2228      99564   ELF Image Totals (compressed)
-     13056         76        548         32          0          0   ROM Totals
+     13116         76        548        332       2228      99576   Grand Totals
+     13116         76        548         32       2228      99576   ELF Image Totals (compressed)
+     13116         76        548         32          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                13604 (  13.29kB)
+    Total RO  Size (Code + RO Data)                13664 (  13.34kB)
     Total RW  Size (RW Data + ZI Data)              2560 (   2.50kB)
-    Total ROM Size (Code + RO Data + RW Data)      13636 (  13.32kB)
+    Total ROM Size (Code + RO Data + RW Data)      13696 (  13.38kB)
 
 ==============================================================================
 

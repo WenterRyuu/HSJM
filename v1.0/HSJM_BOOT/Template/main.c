@@ -69,6 +69,12 @@ int main(void)
 //        I2C_Master_Config();
 //        MAX96752_REG_Config();
         I2C_Slave_Config();
+        
+        memcpy(Update_tI2cSlave.Send_Buff, Std_Replay_Arr.InputAccessKey2, sizeof(Std_Replay_Arr.InputAccessKey2));
+        Update_tI2cSlave.SendSize = 7;
+        IRQ_LOW_DOWN;//拉低中断通知主机来读
+        Counter_1ms.IRQ_Update = 100;
+        
 		//IRQ
 		gpio_mode_set(GPIOB, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_14);
 		gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_14);		//PB14,给主机SOC的中断信号

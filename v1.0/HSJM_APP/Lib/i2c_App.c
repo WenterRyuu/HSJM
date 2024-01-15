@@ -373,7 +373,7 @@ void I2C1_EV_IRQHandler(void)
 				i2c_data_transmit(I2C_INDEX,0xff);        
 			}	
 		}
-		if(tI2cSlave.SendCount < tI2cSlave.SendSize)
+		else if(tI2cSlave.SendCount < tI2cSlave.SendSize)
         {
             /* if reception data register is not empty, I2C_INDEX will read a data from I2C_RDATA */
             i2c_data_transmit(I2C_INDEX,tI2cSlave.Send_Buff[tI2cSlave.SendCount]) ;
