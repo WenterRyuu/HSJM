@@ -27,68 +27,8 @@ Project File Date:  01/12/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'GD32A50x'
-../../User/Update.c(51): warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned int)' [-Wimplicit-function-declaration]
-    memcpy(Update_tI2cSlave.Send_Buff, source, sizeof(Std_Receive_Arr.RequestBootloaderAccess));
-    ^
-../../User/Update.c(51): note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
-../../User/Update.c(62): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-                        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.RequestBootloaderAccess, sizeof(Std_Receive_Arr.RequestBootloaderAccess)) == true)
-                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../../User/Update.h(91): note: passing argument to parameter 'arr2' here
-bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
-                                           ^
-../../User/Update.c(66): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-                                Notice_master_to_read(Std_Replay_Arr.RequestBootloaderAccess);
-                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../../User/Update.c(49): note: passing argument to parameter 'source' here
-void Notice_master_to_read(uint8_t *source) 
-                                    ^
-../../User/Update.c(71): warning: passing 'uint8_t const[9]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-                        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.InputAccessKey1, sizeof(Std_Receive_Arr.InputAccessKey2)) == true)
-                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../../User/Update.h(91): note: passing argument to parameter 'arr2' here
-bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
-                                           ^
-../../User/Update.c(73): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-                                Notice_master_to_read(Std_Replay_Arr.InputAccessKey1);
-                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../../User/Update.c(49): note: passing argument to parameter 'source' here
-void Notice_master_to_read(uint8_t *source) 
-                                    ^
-../../User/Update.c(78): warning: passing 'uint8_t const[9]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-                        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.InputAccessKey2, sizeof(Std_Receive_Arr.InputAccessKey2)) == true)
-                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../../User/Update.h(91): note: passing argument to parameter 'arr2' here
-bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
-                                           ^
-../../User/Update.c(80): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-                                Notice_master_to_read(Std_Replay_Arr.InputAccessKey2);
-                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../../User/Update.c(49): note: passing argument to parameter 'source' here
-void Notice_master_to_read(uint8_t *source) 
-                                    ^
-../../User/Update.c(104): warning: passing 'uint8_t const[7]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-        Notice_master_to_read(Std_Replay_Arr.RequestBootloaderAccess);
-                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../../User/Update.c(49): note: passing argument to parameter 'source' here
-void Notice_master_to_read(uint8_t *source) 
-                                    ^
-../../User/Update.c(143): warning: passing 'uint8_t const[11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-        if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.QueryBootloaderStatus, sizeof(Std_Receive_Arr.QueryBootloaderStatus)) == true)
-                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../../User/Update.h(91): note: passing argument to parameter 'arr2' here
-bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size);
-                                           ^
-../../User/Update.c(224): warning: implicitly declaring library function 'memset' with type 'void *(void *, int, unsigned int)' [-Wimplicit-function-declaration]
-        memset(S19_Fire.Bin_Data_Array, 0xFF, sizeof(S19_Fire.Bin_Data_Array));
-        ^
-../../User/Update.c(224): note: include the header <string.h> or explicitly provide a declaration for 'memset'
-10 warnings generated.
-compiling Update.c...
-linking...
-Program Size: Code=27360 RO-data=1156 RW-data=16 ZI-data=4032  
 After Build - User command #1: fromelf.exe --bin --bincombined --bincombined_padding=1,0xff --output ../../outfile.bin  .\Objects\Project.axf
-".\Objects\Project.axf" - 0 Error(s), 10 Warning(s).
+".\Objects\Project.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -110,7 +50,7 @@ Package Vendor: GigaDevice
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

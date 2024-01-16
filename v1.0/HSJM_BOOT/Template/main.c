@@ -43,6 +43,7 @@ void Timer1_Generate_1ms_Interrupt(void)
 
 int main(void)
 {
+    nvic_vector_table_set(NVIC_VECTTAB_FLASH, 0x0000);
 	memset(&S19_Fire, 0, sizeof(S19_Fire));	
 	if(*pApp_Once != (uint64_t)READY)//上电之后直接从boot跳到app，就像没经过bootloader
 	{

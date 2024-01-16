@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Mon Jan 15 16:57:44 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Tue Jan 16 11:33:54 2024
 <BR><P>
 <H3>Maximum Stack Usage =        244 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -487,8 +487,8 @@ Global Symbols
 <P><STRONG><a name="[4d]"></a>SystemInit</STRONG> (Thumb, 330 bytes, Stack size 8 bytes, system_gd32a50x.o(.text.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SystemInit &rArr; system_clock_config &rArr; system_clock_100m_pll_irc8m
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_vector_table_set
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_clock_config
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_clock_config
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_vector_table_set
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_gd32a50x.o(.text)
 </UL>
@@ -799,11 +799,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Slave_Config
 </UL>
 
-<P><STRONG><a name="[4c]"></a>main</STRONG> (Thumb, 440 bytes, Stack size 32 bytes, main.o(.text.main))
+<P><STRONG><a name="[4c]"></a>main</STRONG> (Thumb, 448 bytes, Stack size 32 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 244<LI>Call Chain = main &rArr; Updating &rArr; Update_Process &rArr; SaveProc &rArr; fmc_program &rArr; fmc_doubleword_program &rArr; fmc_bank1_ready_wait &rArr; fmc_bank1_state_get
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_config
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_clock_enable
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_vector_table_set
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_output_options_set
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_mode_set
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
@@ -837,6 +838,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = nvic_vector_table_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[85]"></a>rcu_deinit</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, gd32a50x_rcu.o(.text.rcu_deinit))
