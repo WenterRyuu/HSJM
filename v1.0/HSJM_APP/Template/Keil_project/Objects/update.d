@@ -1,8 +1,8 @@
-./objects/update.o: ..\..\User\Update.c ..\..\User\Update.h \
+./objects/update.o: ..\..\User\Src\Update.c ..\..\User\Inc\Update.h \
   ..\..\User\Define.h ..\..\Template\systick.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
-  ..\..\Lib\Inc\gpio_App.h ..\..\User\Define.h \
+  ..\..\Lib\Inc\gpio_App.h \
   ..\..\Firmware\GD32A50x_standard_peripheral\Include\gd32a50x_gpio.h \
   ..\..\Firmware\CMSIS\GD\GD32A50x\Include\gd32a50x.h \
   ..\..\Firmware\CMSIS\core_cm33.h ..\..\Firmware\CMSIS\cmsis_version.h \
@@ -35,13 +35,13 @@
   ..\..\Firmware\GD32A50x_standard_peripheral\Include\gd32a50x_wwdgt.h \
   ..\..\Firmware\GD32A50x_standard_peripheral\Include\gd32a50x_rtc.h \
   ..\..\Lib\Inc\rcu_App.h ..\..\Lib\Inc\timer_App.h \
-  ..\..\Lib\Inc\adc_App.h ..\..\Lib\Inc\spi_App.h ..\..\Lib\i2c_App.h \
-  ..\..\User\Inc\Initialization.h ..\..\User\Inc\Power.h \
-  ..\..\User\Inc\MAX96752.h ..\..\Template\gd32a50x_it.h \
-  ..\..\User\Inc\Backlight.h \
+  ..\..\Lib\Inc\adc_App.h ..\..\Lib\Inc\spi_App.h \
+  ..\..\Lib\Inc\i2c_App.h ..\..\User\Inc\Initialization.h \
+  ..\..\User\Inc\Power.h ..\..\User\Inc\MAX96752.h \
+  ..\..\Template\gd32a50x_it.h ..\..\User\Inc\Backlight.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h ..\..\User\Inc\NTC.h \
   ..\..\User\Inc\MPQ3367.h ..\..\User\Inc\External_detection.h \
   ..\..\User\Inc\Tcon.h ..\..\User\Inc\Control.h \
   ..\..\Lib\Inc\ReadDataFrame.h ..\..\Lib\Inc\WriteDataFrame.h \
-  ..\..\User\fmc_App.h
+  ..\..\User\Inc\fmc_App.h

@@ -45,13 +45,6 @@ typedef struct{
 }_Std_Replay_Arr;//标准回复数组
 extern const _Std_Replay_Arr Std_Replay_Arr;
 
-//..
-//typedef struct{
-//	uint16_t Timeout_in_Updating;
-//	uint16_t Waiting_in_Updating;
-//	uint8_t IRQ_Update;
-//}_Counter_1ms;
-//extern _Counter_1ms Counter_1ms;
 
 typedef struct{
 	uint8_t Rec_Valid_Array[50];
@@ -78,7 +71,7 @@ typedef enum {
     QueryBootloaderStatus,   // 查询Bootloader状态
     EraseAppArea,            // 擦除APP区域
     StartProgramming,        // 开始编程
-	ReceiveS19,
+	ReceiveS19,              // 接收S19文件
 	Verify_Flash_Checksum,
 	BL_Reset,
 	End

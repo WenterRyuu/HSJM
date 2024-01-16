@@ -398,21 +398,21 @@
               <FileType>1</FileType>
               <FilePath>..\systick.c</FilePath>
             </File>
-            <File>
-              <FileName>fmc_App.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\fmc_App.c</FilePath>
-            </File>
-            <File>
-              <FileName>Update.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\Update.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>User</GroupName>
           <Files>
+            <File>
+              <FileName>fmc_App.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\Src\fmc_App.c</FilePath>
+            </File>
+            <File>
+              <FileName>Update.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\Src\Update.c</FilePath>
+            </File>
             <File>
               <FileName>Backlight.c</FileName>
               <FileType>1</FileType>
@@ -527,7 +527,7 @@
             <File>
               <FileName>i2c_App.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Lib\i2c_App.c</FilePath>
+              <FilePath>..\..\Lib\Src\i2c_App.c</FilePath>
             </File>
             <File>
               <FileName>adc_App.c</FileName>

@@ -115,7 +115,7 @@ void SysTick_Handler(void)
 uint16_t IRQ_100ms = 0;
 extern uint16_t LOCK_10S;
 _Counter_1ms Counter_1ms;
-uint16_t ii = 1000;
+
 /*------------------------------------------------------------------------
 *Function name		 :TIMER5_DAC_IRQHandler
 *Function description:1ms进入一次

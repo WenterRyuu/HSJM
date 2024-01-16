@@ -154,11 +154,6 @@ uint8_t readTemper(uint16_t adc_filter,int16_t *Temp)
 
 
 
-
-
-
-
-
 /////////////////////////////////////////////////////////////////////////
 
 uint32_t timeout_counter = 0;

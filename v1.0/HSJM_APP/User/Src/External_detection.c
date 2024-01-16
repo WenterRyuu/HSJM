@@ -1,5 +1,23 @@
-#include "External_detection.h"
+/*******************************************************************************
+ * Project	:车载屏幕MCU开发_BOE成都
+ * MCU	  	:GD32A503KCU3
+ * Data		:2023/10/23
+ * Files	:Backlight.c
+ * Library	:V1.1.0, firmware for GD32A50x
+ * Function	:外设状态检测
+ * Author	:Liu Wei
+ * Phone	:13349168457
+ ******************************************************************************/
+ #include "External_detection.h"
 
+//【Output】[1]SUCCESS：成功检测到了LOCK信号[2]ERROR:没有检测到LOCK信号
+//【Demo】if(LOCK_Detection == SUCCESS)
+#define LOCK_Detection                  (return PIN_level_Detection(GPIOA, GPIO_PIN_0, HIGH))
+#define Backlight_level_Error_Detection (return PIN_level_Detection(GPIOA, GPIO_PIN_3, LOW))
+#define LCD_level_error_Detection       (return PIN_level_Detection(GPIOE, GPIO_PIN_13, LOW))
+#define Source_ic_Error_Detection       (return PIN_level_Detection(GPIOB, GPIO_PIN_13, LOW))
+#define Update_level_Detection          (return PIN_level_Detection(GPIOA, GPIO_PIN_8, HIGH))
+#define IRQ_HIGH_level_Detection        (return PIN_level_Detection(GPIOB, GPIO_PIN_14, HIGH))
 
 
 
@@ -65,70 +83,6 @@ ErrStatus PIN_level_Detection(uint32_t gpio_periph, uint32_t pin, Voltage_level_
 }
 
 
-/*------------------------------------------------------------------------
-*Function name		 :LOCK_Detection
-*Function description:LOCK信号
-*Ipunt				 :none
-*OutPut				 :[1]SUCCESS：成功检测到了LOCK信号[2]ERROR:没有检测到LOCK信号
-*-------------------------------------------------------------------------*/
-ErrStatus LOCK_Detection(void)
-{	
-	return 	PIN_level_Detection(GPIOA, GPIO_PIN_0, HIGH);
-}
-/*------------------------------------------------------------------------
-*Function name		 :Backlight_level_Error_Detection
-*Function description:背光电压错误指示	
-*Ipunt				 :none
-*OutPut				 :[1]SUCCESS：成功检测到了[2]ERROR:没有检测到
-*-------------------------------------------------------------------------*/
-ErrStatus Backlight_level_Error_Detection(void)
-{
-	return PIN_level_Detection(GPIOA, GPIO_PIN_3, LOW);
-}
-/*------------------------------------------------------------------------
-*Function name		 :LCD_level_error_Detection
-*Function description:LCD电压驱动IC的错误指示	
-*Ipunt				 :none
-*OutPut				 :[1]SUCCESS：成功检测到了[2]ERROR:没有检测到
-*-------------------------------------------------------------------------*/
-ErrStatus LCD_level_error_Detection(void)
-{
-	return PIN_level_Detection(GPIOE, GPIO_PIN_13, LOW);
-}
-
-/*------------------------------------------------------------------------
-*Function name		 :Source_ic_Error_Detection
-*Function description:Source Driver 错误指示	
-*Ipunt				 :none
-*OutPut				 :[1]SUCCESS：成功检测到了[2]ERROR:没有检测到
-*-------------------------------------------------------------------------*/
-ErrStatus Source_ic_Error_Detection(void)
-{
-	return PIN_level_Detection(GPIOB, GPIO_PIN_13, LOW);
-}
-
-/*------------------------------------------------------------------------
-*Function name		 :Update_level_Detection
-*Function description:升级MCU固件的指示
-*Ipunt				 :none
-*OutPut				 :[1]SUCCESS：成功检测到了[2]ERROR:没有检测到
-*-------------------------------------------------------------------------*/
-ErrStatus Update_level_Detection(void)
-{
-	return PIN_level_Detection(GPIOA, GPIO_PIN_8, HIGH);
-}
-
-/*------------------------------------------------------------------------
-*Function name		 :Update_level_Detection
-*Function description:升级MCU固件的指示
-*Ipunt				 :none
-*OutPut				 :[1]SUCCESS：成功检测到了[2]ERROR:没有检测到
-*-------------------------------------------------------------------------*/
-ErrStatus IRQ_HIGH_level_Detection(void)
-{
-	return PIN_level_Detection(GPIOB, GPIO_PIN_14, HIGH);
-}
-
 
 void IRQ_LOOW_DOWN(void)
 {
@@ -148,127 +102,5 @@ void IRQ_LOOW_DOWN(void)
         IRQ_100ms = 100;                                                
     }    
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "string.h"
-uint8_t index=0;
-bool handshake_is_ok = 0;
-void handshake_process(void)
-{	 
-    Std_WriteDataFrameStr   Std_WriteDataFrame;
-    uint32_t timeout = 10000000;
-	switch(index)
-	{
-       
-		case 0:
-			ReadFrameTransmit(0x10) ; 
-            if(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == SET)                   //如果是高电平，就马上拉低
-            {
-                IRQ_LOW_DOWN;
-                IRQ_100ms = 100;
-            }
-			else
-            {
-                while(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == RESET);         //如果是低电平，就一直等待，直到变成高电平
-                for(uint8_t i=0; i<50; i++)                                     //维持高电平一小段时间
-                {
-                    __NOP();
-                }
-                IRQ_LOW_DOWN;                                                   //然后再拉低
-                IRQ_100ms = 100;                                                
-            }
-            delay_1ms(110);
-            index ++;
-          
-		case 1:
-#if defined ok            
-/*            
-//            timeout = 1000000;                                                  //接近10ms
-//            do
-//            {
-//                WriteFrameTransmit();//主机发来0x85，去处理0x85的
-//                timeout --;
-//            }
-//            while((handshake_is_ok == 0)&&(timeout > 0));
-//            if(handshake_is_ok)                                                 //退出这个循环只有两种情况，一个是向主机发了0x15，handshake_is_ok，还有就是超时
-//            {
-//                delay_1ms(100);                                                 //
-//                index ++;                                                      
-//            }
-//            else
-//            {
-//                index --;
-//            }                
-//            break;
-*/
-#endif 
-            if(Update_tI2cSlave.RecBuff[0] == 0x85)//!!没有校验！！！！！！！
-            {
-                ReadFrameTransmit(0x15);            
-                IRQ_RELEASE;
-                delay_1ms(10);
-                IRQ_LOW_DOWN;
-                IRQ_100ms = 100;
-                index ++;
-            }
-            else
-            {
-                index --;
-                break;
-            }
-          
-        case 2:            
-			break;
 
-		default:
-			break;
-	}
-	
-}
-
-ErrStatus handshake(void)
-{
-	do
-	{
-		handshake_process();
-	}
-	while(index != 2);
-	return SUCCESS;
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-void cmd_process()
-{
-	WriteFrameTransmit();
-	switch(MasterTransmitData[0])
-	{
-		case 0x10:
-			break;
-		case 0x11:
-			break;
-		case 0x12:
-			break;
-		case 0x13:
-			break;
-		case 0x14:
-			ReadFrameTransmit(0x14) ;
-			WriteFrameTransmit();
-			IRQ_LOW_DOWN;
-			IRQ_100ms = 100;
-			while(tI2cSlave.uFlag.Bits.SendSucess != 1);
-			tI2cSlave.uFlag.Bits.SendSucess = 0;
-			IRQ_RELEASE;
-			break;
-		case 0x15:
-			break;
-		case 0x16:
-			break;
-		case 0x17:
-			break;
-	}
-
-}

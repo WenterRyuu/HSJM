@@ -1,4 +1,14 @@
-#include "Update.h"
+/*******************************************************************************
+ * Project	:车载屏幕MCU开发_BOE成都
+ * MCU	  	:GD32A503KCU3
+ * Data		:2023/10/23
+ * Files	:Backlight.c
+ * Library	:V1.1.0, firmware for GD32A50x
+ * Function	:升级相关的函数，流程控制
+ * Author	:Liu Wei
+ * Phone	:13349168457
+ ******************************************************************************/
+ #include "Update.h"
 
 
 
@@ -27,25 +37,20 @@ const _Std_Replay_Arr Std_Replay_Arr = {
 	.Waiting_for_Reset = {0x5A, 0x06, 0x0B, 0x06, 0xB0, 0x02, 0x01, 0x05, 0x00, 0x00, 0x29},
 }; 
 
-
+uint64_t *pBL_State = (uint64_t *)UPDATE_FLAG_ADDRESS;
+uint64_t *pApp_Once = (uint64_t *)APP2BOOT_FLAG_ADDRESS;
 tI2c_Type Update_tI2cSlave;	
 uint64_t BootLoader_State = IDLE;
 _BootloaderStatus BootloaderStatus = RequestBootloaderAccess;
 pFunction Jump_To_Bootloader;
 uint32_t JumpAddress = 0;
 
-
-
-
-//-----------------------------------------------------------------------------------------------------------------------------------------------
-//void Notice_master_to_read(uint8_t *arr)
-//{
-//	memcpy(Update_tI2cSlave.Send_Buff, arr, sizeof(&arr));
-//	Update_tI2cSlave.SendSize = 7;
-//	IRQ_LOW_DOWN;//拉低中断通知主机来读
-//	Counter_1ms.IRQ_Update = 100;
-//}
-
+/*------------------------------------------------------------------------------
+*Function name		 :Notice_master_to_read
+*Function description:通知主机来读取IIC上的数据（数组指针）
+*Ipunt				 :【1】要发送的数组的指针
+*OutPut				 :none
+*-----------------------------------------------------------------------------*/
 void Notice_master_to_read(uint8_t *source) 
 {
     memcpy(Update_tI2cSlave.Send_Buff, source, sizeof(Std_Receive_Arr.RequestBootloaderAccess));
@@ -54,6 +59,13 @@ void Notice_master_to_read(uint8_t *source)
 	Counter_1ms.IRQ_Update = 100;	
 	
 }
+
+/*------------------------------------------------------------------------------
+*Function name		 :Update_Process
+*Function description:升级过程处理状态机
+*Ipunt				 :none
+*OutPut				 :none
+*-----------------------------------------------------------------------------*/
 void Update_Process(void)
 {
 	switch(BootloaderStatus)
@@ -95,8 +107,12 @@ void Update_Process(void)
     cx();
 }
 
-uint64_t *pBL_State = (uint64_t *)UPDATE_FLAG_ADDRESS;
-uint64_t *pApp_Once = (uint64_t *)APP2BOOT_FLAG_ADDRESS;
+/*------------------------------------------------------------------------------
+*Function name		 :Updating
+*Function description:升级流程
+*Ipunt				 :none
+*OutPut				 :none
+*-----------------------------------------------------------------------------*/
 void Updating(void)
 {	
     nvic_irq_disable(TIMER6_IRQn);
@@ -137,14 +153,19 @@ void Updating(void)
 	}
 }
 
-extern uint16_t ii;
+/*------------------------------------------------------------------------------
+*Function name		 :Update_Process
+*Function description:主机来查询BootLoader状态，显示屏向主机发送当前的状态信息
+*Ipunt				 :none
+*OutPut				 :none
+*-----------------------------------------------------------------------------*/
 void cx(void)
 {
 	if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.QueryBootloaderStatus, sizeof(Std_Receive_Arr.QueryBootloaderStatus)) == true)
 	{   
         nvic_irq_disable(TIMER6_IRQn);
         nvic_irq_disable(TIMER5_DAC_IRQn);             
-        BootLoader_State = READY;
+        //BootLoader_State = READY;                                             //在发送KEY2之后是READY状态，那在发KEY2之前，比如第一次查询的时候，查到的应该是什么
 		//主机检查状态
 		switch(BootLoader_State)//是什么状态返回什么数组，跳转到对应的步骤
 		{
@@ -202,22 +223,32 @@ void cx(void)
 	}
 }
 
-//比较两个数组是否完全相同
+
+/*------------------------------------------------------------------------------
+*Function name		 :compareArrays
+*Function description:比较两个数组（arr1[]和arr2[]）的前(size)个元素是否完全相同
+*Ipunt				 :none
+*OutPut				 :【false】在任何位置找到了不同的元素
+                      【true】所有元素都相同
+*-----------------------------------------------------------------------------*/
 bool compareArrays(uint8_t arr1[], uint8_t arr2[], uint8_t size) 
 {
     for (int i = 0; i < size; i++) 
 	{
         if (arr1[i] != arr2[i]) 
 		{
-            return false; // 如果在任何位置找到不同的元素，返回false
+            return false;
         }
     }
-    return true; // 所有元素都相同，返回true
+    return true;
 }
 
-/*
-向Flash写数据
-*/
+/*------------------------------------------------------------------------------
+*Function name		 :SaveProc
+*Function description:把数据存到APP区里面，并且检查
+*Ipunt				 :none
+*OutPut				 :none
+*-----------------------------------------------------------------------------*/
 static ErrStatus SaveProc(void)
 {
 	//BIN文件初始化全为0XFF
@@ -245,10 +276,15 @@ static ErrStatus SaveProc(void)
 
 _S19Fire S19_Fire;
 
-/* 
-函数功能：从RecBuff数组中寻找最后一个不是0的元素的位置，然后将从RecBuff[0]到该位置的所有元素复制到Rec_Valid_Array数组中 
-调用示例：get_Rec_Valid_Array(Update_tI2cSlave.RecBuff);
-*/
+
+/*------------------------------------------------------------------------------
+*Function name		 :get_Rec_Valid_Array
+*Function description:从RecBuff数组中寻找最后一个不是0的元素的位置，
+                      然后将从RecBuff[0]到该位置的所有元素复制到Rec_Valid_Array数组中 
+*Ipunt				 :Update_tI2cSlave.RecBuff[]
+*OutPut				 :none
+*Demo                :get_Rec_Valid_Array(Update_tI2cSlave.RecBuff);
+*-----------------------------------------------------------------------------*/
 void get_Rec_Valid_Array(uint8_t arr[]) 
 {
     // 初始化EndIndex
@@ -269,10 +305,15 @@ void get_Rec_Valid_Array(uint8_t arr[])
     }
 }
 
-/* 
-函数功能：从S19_Fire.Rec_Valid_Array数组中寻找最后一个不是0的元素的位置，然后将从第8个到倒数第2个之间的所有元素复制到S19_Fire.Bin_Data_Array数组中 
-调用示例：get_Rec_Valid_Array(S19_Fire.Rec_Valid_Array);
-*/
+
+/*------------------------------------------------------------------------------
+*Function name		 :get_Bin_Data_Array
+*Function description:从S19_Fire.Rec_Valid_Array数组中寻找最后一个不是0的元素的位置，
+                      然后将从第8个到倒数第2个之间的所有元素复制到S19_Fire.Bin_Data_Array数组中 
+*Ipunt				 :Update_tI2cSlave.RecBuff[]
+*OutPut				 :none
+*Demo                :get_Rec_Valid_Array(S19_Fire.Rec_Valid_Array);
+*-----------------------------------------------------------------------------*/
 void get_Bin_Data_Array(uint8_t arr[]) 
 {
     // 初始化EndIndex
@@ -288,16 +329,21 @@ void get_Bin_Data_Array(uint8_t arr[])
 		S19_Fire.Bin_Data_Array[i] = arr[i+7];
 	}
 }
-/* 
-函数功能：计算Rec_Valid_Array数组中指定范围内元素的总和（从第8个元素到倒数第2个元素）并更新到AllDataSum变量 
-调用示例：Calculate_Sum_of_Data(Rec_Valid_Array, &AllDataSum);
-*/
+
+/*------------------------------------------------------------------------------
+*Function name		 :Calculate_Sum_of_Data
+*Function description:计算Rec_Valid_Array数组中指定范围内元素的总和
+                      （从第8个元素到倒数第2个元素）并更新到AllDataSum变量 
+*Ipunt				 :Rec_Valid_Array, 累加的和的指针
+*OutPut				 :none
+*Demo                :Calculate_Sum_of_Data(Rec_Valid_Array, &AllDataSum);
+*-----------------------------------------------------------------------------*/
 void Calculate_Sum_of_Data(uint8_t arr[], uint64_t *sum) 
 {
     //*sum = 0; // 初始化总和
     S19_Fire.EndIndex = 49;
     // 找到Rec_Valid_Array中的最后一个非零元素
-    while (S19_Fire.EndIndex >= 0 && arr[S19_Fire.EndIndex] == 0) 
+    while(S19_Fire.EndIndex >= 0 && arr[S19_Fire.EndIndex] == 0) 
 	{
         --S19_Fire.EndIndex;
     }
@@ -311,10 +357,13 @@ void Calculate_Sum_of_Data(uint8_t arr[], uint64_t *sum)
 }
 
 
-/* 
-函数功能：把 Rec_Valid_Array 数组里面，从第3个元素到倒数第2个元素之间的所有元素（包括首尾）相加，把结果存储到 LineSum 里面。
-调用示例：Calculate_Sum_of_Line(Rec_Valid_Array, &LineSum);
-*/
+/*------------------------------------------------------------------------------
+*Function name		 :Calculate_Sum_of_Line
+*Function description:把 Rec_Valid_Array 数组里面，从第3个元素到倒数第2个元素之间的
+                      所有元素（包括首尾）相加，把结果存储到 LineSum 里面。
+*Ipunt				 :
+*OutPut				 :none
+*-----------------------------------------------------------------------------*/
 void Calculate_Sum_of_Line(uint8_t arr[], uint32_t *sum, uint8_t *sum_lsb) 
 {
     S19_Fire.EndIndex = 49;
@@ -332,9 +381,3 @@ void Calculate_Sum_of_Line(uint8_t arr[], uint32_t *sum, uint8_t *sum_lsb)
     *sum_lsb = ~(*sum & 0xFF);//行校验的数据
 }
 
-
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------

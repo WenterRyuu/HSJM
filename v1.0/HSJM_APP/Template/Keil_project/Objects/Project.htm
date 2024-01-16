@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Mon Jan 15 16:55:18 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Tue Jan 16 15:40:02 2024
 <BR><P>
 <H3>Maximum Stack Usage =        416 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -793,8 +793,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadFrameChecksumBuff
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteFrameTransmit
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER6_IRQHandler
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER5_DAC_IRQHandler
@@ -1169,7 +1169,7 @@ Global Symbols
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cx
 </UL>
 
-<P><STRONG><a name="[c0]"></a>cx</STRONG> (Thumb, 154 bytes, Stack size 8 bytes, update.o(.text.cx))
+<P><STRONG><a name="[c0]"></a>cx</STRONG> (Thumb, 146 bytes, Stack size 8 bytes, update.o(.text.cx))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = cx &rArr; nvic_irq_disable &rArr; __NVIC_DisableIRQ
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
@@ -1185,8 +1185,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_NTC_config
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;McuTimerInitialization
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MAX96752_REG_Config
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Initialization
@@ -1284,8 +1284,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gpio_Config
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PowerOn_Order
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Notice_master_to_read
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cx
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteFrameTransmit
@@ -1301,8 +1301,8 @@ Global Symbols
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C1_EV_IRQHandler
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C0_EV_IRQHandler
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PowerOn_Order
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER1_IRQHandler
 </UL>
 
@@ -1319,8 +1319,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = gpio_input_bit_get
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PowerOn_Order
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_0x81
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadCmdIdStrInit
 </UL>
 
@@ -1344,7 +1344,7 @@ Global Symbols
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_BUS_Reset
 </UL>
 
-<P><STRONG><a name="[f3]"></a>handshake</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, external_detection.o(.text.handshake))
+<P><STRONG><a name="[f3]"></a>handshake</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, control.o(.text.handshake))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = handshake &rArr; handshake_process &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handshake_process
@@ -1352,7 +1352,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f4]"></a>handshake_process</STRONG> (Thumb, 328 bytes, Stack size 40 bytes, external_detection.o(.text.handshake_process))
+<P><STRONG><a name="[f4]"></a>handshake_process</STRONG> (Thumb, 328 bytes, Stack size 40 bytes, control.o(.text.handshake_process))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = handshake_process &rArr; ReadFrameTransmit &rArr; ReadFrameChecksumBuff
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_input_bit_get

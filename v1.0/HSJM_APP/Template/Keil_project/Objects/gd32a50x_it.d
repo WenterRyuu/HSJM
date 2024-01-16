@@ -36,7 +36,7 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   ..\..\Lib\Inc\gpio_App.h ..\..\Lib\Inc\rcu_App.h \
   ..\..\Lib\Inc\timer_App.h ..\..\Lib\Inc\adc_App.h \
-  ..\..\Lib\Inc\spi_App.h ..\..\Lib\i2c_App.h \
+  ..\..\Lib\Inc\spi_App.h ..\..\Lib\Inc\i2c_App.h \
   ..\..\User\Inc\Initialization.h ..\..\User\Inc\Power.h \
   ..\..\User\Inc\MAX96752.h ..\..\Template\gd32a50x_it.h \
   ..\..\User\Inc\Backlight.h \
@@ -45,4 +45,4 @@
   ..\..\User\Inc\MPQ3367.h ..\..\User\Inc\External_detection.h \
   ..\..\User\Inc\Tcon.h ..\..\User\Inc\Control.h \
   ..\..\Lib\Inc\ReadDataFrame.h ..\..\Lib\Inc\WriteDataFrame.h \
-  ..\..\User\Update.h ..\..\User\Define.h ..\..\User\fmc_App.h
+  ..\..\User\Inc\Update.h ..\..\User\Inc\fmc_App.h

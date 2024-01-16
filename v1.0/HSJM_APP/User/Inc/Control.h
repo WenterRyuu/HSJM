@@ -6,12 +6,6 @@
 
 #include "Define.h"
 
-typedef struct{
-	uint16_t Counter;
-	uint8_t	irq_Counter;
-}_heartbeat;
-extern _heartbeat Heartbeat;
-
 
 typedef struct{
 	bool finish;
@@ -19,7 +13,11 @@ typedef struct{
 extern _ScreenLitAfterStartup ScreenLitAfterStartup;
 
 
-void Startup_Lock_Check(void);
+extern void ReadFrameTransmit(uint8_t cmd_id) ;
 
 void process_0x81(void);
+void handshake_process(void);
+ErrStatus handshake(void);
+
+extern	uint8_t index;
 #endif
