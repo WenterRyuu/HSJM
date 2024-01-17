@@ -89,7 +89,7 @@ void Update_Process(void)
 		case InputAccessKey2:
 			if(compareArrays(Update_tI2cSlave.RecBuff, Std_Receive_Arr.InputAccessKey2, sizeof(Std_Receive_Arr.InputAccessKey2)) == true)
 			{
-				Notice_master_to_read(Std_Replay_Arr.InputAccessKey2);
+				Notice_master_to_read(Std_Replay_Arr.InputAccessKey2);                
 				BootloaderStatus = QueryBootloaderStatus;
 				BootLoader_State = READY;
                 
@@ -125,32 +125,30 @@ void Updating(void)
 	}
 	while(*pBL_State != (uint64_t)READY);
 	
+    while(IRQ_HIGH_level_Detection() == ERROR);
 
-	if(*pBL_State == (uint64_t)READY)
-	{
-		//Ìø×ª
-		rcu_deinit();                                               
-		gpio_deinit(GPIOA);
-		gpio_deinit(GPIOB);
-		gpio_deinit(GPIOC);
-		gpio_deinit(GPIOD);
-		gpio_deinit(GPIOE);
-		timer_deinit(TIMER1);
-		timer_deinit(TIMER5);
-		timer_deinit(TIMER6);
-		timer_deinit(TIMER19);
-		i2c_deinit(I2C0);
-		i2c_deinit(I2C1);
-		adc_deinit(ADC0);
-		spi_i2s_deinit(SPI0);
-		McuRcuDeinit();
-        
-        
-		JumpAddress = *(__IO uint32_t*)(BOOT_START_ADDRESS + 4);
-		Jump_To_Bootloader = (pFunction)JumpAddress;
-		__set_MSP(*(__IO uint32_t*) BOOT_START_ADDRESS);
-		Jump_To_Bootloader();		
-	}
+    //Ìø×ª
+    rcu_deinit();                                               
+    gpio_deinit(GPIOA);
+    gpio_deinit(GPIOB);
+    gpio_deinit(GPIOC);
+    gpio_deinit(GPIOD);
+    gpio_deinit(GPIOE);
+    timer_deinit(TIMER1);
+    timer_deinit(TIMER5);
+    timer_deinit(TIMER6);
+    timer_deinit(TIMER19);
+    i2c_deinit(I2C0);
+    i2c_deinit(I2C1);
+    adc_deinit(ADC0);
+    spi_i2s_deinit(SPI0);
+    McuRcuDeinit();    
+    
+    JumpAddress = *(__IO uint32_t*)(BOOT_START_ADDRESS + 4);
+    Jump_To_Bootloader = (pFunction)JumpAddress;
+    __set_MSP(*(__IO uint32_t*) BOOT_START_ADDRESS);
+    Jump_To_Bootloader();		
+
 }
 
 /*------------------------------------------------------------------------------

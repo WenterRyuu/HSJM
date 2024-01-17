@@ -52,7 +52,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -111,7 +111,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -206,13 +206,13 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x65A0DC9A)
 I (..\..\User\Inc\Update.h)(0x65A631C0)
-F (..\..\User\Src\Update.c)(0x65A63150)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/update.o -MD)
+F (..\..\User\Src\Update.c)(0x65A73002)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/update.o -MD)
 I (..\..\User\Inc\Update.h)(0x65A631C0)
 I (..\..\User\Define.h)(0x65A0DC9A)
 I (..\..\Template\systick.h)(0x65A0DC9A)
@@ -265,7 +265,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -321,7 +321,7 @@ I (..\..\User\Inc\MAX96752.h)(0x65A0DC9A)
 I (..\..\Template\gd32a50x_it.h)(0x65A0DC9A)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -383,14 +383,14 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x65A0DC9A)
 I (..\..\User\Inc\Update.h)(0x65A631C0)
 I (..\..\User\Inc\fmc_App.h)(0x65A0DC9A)
-F (..\..\User\Src\External_detection.c)(0x65A62133)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/external_detection.o -MD)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+F (..\..\User\Src\External_detection.c)(0x65A72FEC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/external_detection.o -MD)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Define.h)(0x65A0DC9A)
 I (..\..\Template\systick.h)(0x65A0DC9A)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
@@ -500,7 +500,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -558,7 +558,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -566,7 +566,7 @@ I (..\..\Lib\Inc\WriteDataFrame.h)(0x65A0DC9A)
 I (..\..\User\Inc\Update.h)(0x65A631C0)
 I (..\..\User\Inc\fmc_App.h)(0x65A0DC9A)
 I (..\..\Template\gd32a50x_it.h)(0x65A0DC9A)
-F (..\..\User\Src\NTC.c)(0x65A0DC9A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/ntc.o -MD)
+F (..\..\User\Src\NTC.c)(0x65A63C01)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/ntc.o -MD)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\Firmware\CMSIS\GD\GD32A50x\Include\gd32a50x.h)(0x65A0DC9A)
 I (..\..\Firmware\CMSIS\core_cm33.h)(0x65A0DC9A)
@@ -653,7 +653,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -713,7 +713,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x65A0DC9A)
@@ -722,7 +722,7 @@ I (..\..\User\Inc\fmc_App.h)(0x65A0DC9A)
 F (..\..\User\Src\MPQ3367.c)(0x65A0DC9A)()
 F (..\..\User\Define.h)(0x65A0DC9A)()
 F (..\..\User\readme.txt)(0x65A0DC9A)()
-F (..\..\Lib\Src\i2c_App.c)(0x65A4DA81)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/i2c_app.o -MD)
+F (..\..\Lib\Src\i2c_App.c)(0x65A73A38)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../Utilities -I ../../Template -I ../../Firmware/GD32A50x_standard_peripheral/Include -I ../../Firmware/CMSIS -I ../../Firmware/CMSIS/GD/GD32A50x/Include -I ../../Lib -I ../../Lib/Src -I ../../Lib/Inc -I ../../User -I ../../User/Src -I ../../User/Inc-I./RTE/_GD32A50x-IC:/Users/sunlord/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32A50X-o ./objects/i2c_app.o -MD)
 I (..\..\Lib\Inc\i2c_App.h)(0x65A63220)
 I (..\..\User\Define.h)(0x65A0DC9A)
 I (..\..\Template\systick.h)(0x65A0DC9A)
@@ -774,7 +774,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -833,7 +833,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -894,7 +894,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -953,7 +953,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -1012,7 +1012,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -1071,7 +1071,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)
@@ -1131,7 +1131,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\WriteDataFrame.h)(0x65A0DC9A)
@@ -1191,7 +1191,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
 I (..\..\User\Inc\NTC.h)(0x65A0DC9A)
 I (..\..\User\Inc\MPQ3367.h)(0x65A0DC9A)
-I (..\..\User\Inc\External_detection.h)(0x65A62133)
+I (..\..\User\Inc\External_detection.h)(0x65A72FEC)
 I (..\..\User\Inc\Tcon.h)(0x65A0DC9A)
 I (..\..\User\Inc\Control.h)(0x65A61902)
 I (..\..\Lib\Inc\ReadDataFrame.h)(0x65A0DC9A)

@@ -12,14 +12,17 @@
 
 //【Output】[1]SUCCESS：成功检测到了LOCK信号[2]ERROR:没有检测到LOCK信号
 //【Demo】if(LOCK_Detection == SUCCESS)
-#define LOCK_Detection                  (return PIN_level_Detection(GPIOA, GPIO_PIN_0, HIGH))
-#define Backlight_level_Error_Detection (return PIN_level_Detection(GPIOA, GPIO_PIN_3, LOW))
-#define LCD_level_error_Detection       (return PIN_level_Detection(GPIOE, GPIO_PIN_13, LOW))
-#define Source_ic_Error_Detection       (return PIN_level_Detection(GPIOB, GPIO_PIN_13, LOW))
-#define Update_level_Detection          (return PIN_level_Detection(GPIOA, GPIO_PIN_8, HIGH))
-#define IRQ_HIGH_level_Detection        (return PIN_level_Detection(GPIOB, GPIO_PIN_14, HIGH))
+//#define LOCK_Detection                  (return PIN_level_Detection(GPIOA, GPIO_PIN_0, HIGH))
+//#define Backlight_level_Error_Detection (return PIN_level_Detection(GPIOA, GPIO_PIN_3, LOW))
+//#define LCD_level_error_Detection       (return PIN_level_Detection(GPIOE, GPIO_PIN_13, LOW))
+//#define Source_ic_Error_Detection       (return PIN_level_Detection(GPIOB, GPIO_PIN_13, LOW))
+//#define Update_level_Detection          (return PIN_level_Detection(GPIOA, GPIO_PIN_8, HIGH))
+//#define IRQ_HIGH_level_Detection        (PIN_level_Detection(GPIOB, GPIO_PIN_14, HIGH))
 
-
+ErrStatus IRQ_HIGH_level_Detection(void)
+{
+    return PIN_level_Detection(GPIOB, GPIO_PIN_14, HIGH);
+}
 
 _IO_Detection IO_Detection;
 uint8_t Detection_Counter = 0;

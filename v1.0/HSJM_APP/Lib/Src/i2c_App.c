@@ -103,196 +103,19 @@ void I2C_GPIO_Reset(void)
 }
 
 
-////////////////////////////////////////////ÒÔÉÏÊÇI2CÏà¹ØÉèÖÃº¯Êý/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////ÒÔÏÂÊÇI2CÖÐ¶Ïº¯Êý/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////ÒÔÉÏÊÇI2CÏà¹ØÉèÖÃº¯Êý///////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////ÒÔÏÂÊÇI2CÖÐ¶Ïº¯Êý/////////////////////////////////
 
 void I2C0_EV_IRQHandler(void)
 {
-    if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_ADDSEND)) 
-    {
-        tI2cSlave.uFlag.Bits.DirState=i2c_flag_get(I2C_INDEX,I2C_FLAG_TR);
-        if(tI2cSlave.uFlag.Bits.DirState==RESET)
-        {
-            tI2cSlave.RecCount=0;
-        }
-        else
-        {
-            /* clear I2C_TDATA register */
-            I2C_STAT(I2C_INDEX) |= I2C_STAT_TBE;
-            tI2cSlave.SendCount=0;
-        }            
-        /* clear the ADDSEND bit */
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_ADDSEND);
-		//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-        Update_tI2cSlave.uFlag.Bits.DirState=i2c_flag_get(I2C_INDEX,I2C_FLAG_TR);
-        if(Update_tI2cSlave.uFlag.Bits.DirState==RESET)
-        {
-            Update_tI2cSlave.RecCount=0;
-        }
-        else
-        {
-            /* clear I2C_TDATA register */
-            I2C_STAT(I2C_INDEX) |= I2C_STAT_TBE;
-            Update_tI2cSlave.SendCount=0;
-        }            
-        /* clear the ADDSEND bit */
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_ADDSEND);		
-    } 
-	
-    else if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_RBNE)) //½ÓÊÕ
-    {
-        gpio_bit_set(I2C_PORT, GPIO_PIN_14) ;
-		
-		Update_tI2cSlave.RecBuff[Update_tI2cSlave.RecCount]= i2c_data_receive(I2C_INDEX) ;
-        if(Update_tI2cSlave.RecCount < I2C_SLAVE_REC_MAX_SIZE)
-        {		
-            if(Update_tI2cSlave.RecBuff[0] != 0x5A)
-            {
-                Update_tI2cSlave.SendSize = 0x00 ;
-            }
-            ++Update_tI2cSlave.RecCount ; 		
-        }		
-        if(tI2cSlave.RecCount < I2C_SLAVE_REC_MAX_SIZE)
-        {
-            tI2cSlave.RecBuff[tI2cSlave.RecCount]= i2c_data_receive(I2C_INDEX) ;
-            if(tI2cSlave.RecBuff[0] != 0xfe)
-            {
-                tI2cSlave.SendSize = 0x00 ;
-            }
-            ++tI2cSlave.RecCount ;       
-        }
-        else
-        {
-            i2c_data_receive(I2C_INDEX);        
-        }
-		//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-    }
-    else if((i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_TI))) //·¢ËÍ
-    {
-		if(Update_tI2cSlave.Send_Buff[0] == 0x5A)
-		{
-			if(Update_tI2cSlave.SendCount < Update_tI2cSlave.SendSize)
-			{
-				/* if reception data register is not empty, I2C_INDEX will read a data from I2C_RDATA */
-				i2c_data_transmit(I2C_INDEX,Update_tI2cSlave.Send_Buff[Update_tI2cSlave.SendCount]) ;
-				Update_tI2cSlave.SendCount++ ;
-			}
-			else
-			{
-				i2c_data_transmit(I2C_INDEX,0xff);        
-			}	
-		}
-		if(tI2cSlave.SendCount < tI2cSlave.SendSize)
-        {
-            /* if reception data register is not empty, I2C_INDEX will read a data from I2C_RDATA */
-            i2c_data_transmit(I2C_INDEX,tI2cSlave.Send_Buff[tI2cSlave.SendCount]) ;
-            tI2cSlave.SendCount++ ;
-        }
-        else
-        {
-            i2c_data_transmit(I2C_INDEX,0xff);        
-        }
-    }
-    else if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_STPDET)) 
-    {
-        /* clear STPDET interrupt flag */
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_STPDET);        
-        if(tI2cSlave.uFlag.Bits.DirState==RESET)
-        {
-            tI2cSlave.uFlag.Bits.RecSuccess = SUCCESS ; 
-//            tBuiltIn.tI2c = tI2cSlave ;
-//            tI2cSlave.RecCount = 0x00 ;   //¼ÆÊýÖµÇå0  ´ÓÍ·¿ªÊ¼½ÓÊÕÊý¾Ý
-        }
-        else
-        {
-            tI2cSlave.uFlag.Bits.SendSucess = SUCCESS; 
-      //      tBuiltIn.tI2c = tI2cSlave ;
-            
-            tI2cSlave.SendSize = 0x00 ;   //±ÜÃâÃ»ÓÐ½ÓÊÕµ½ÃüÁîÖØÐÂ·¢Êý¾Ý
-            tI2cSlave.SendCount = 0x00 ;  //¼ÆÊýÖµÇåÁã
-        }
-        /* disable I2C_INDEX interrupt */		
-		//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-        /* clear STPDET interrupt flag */
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_STPDET);        
-        if(Update_tI2cSlave.uFlag.Bits.DirState==RESET)
-        {
-            Update_tI2cSlave.uFlag.Bits.RecSuccess = SUCCESS ; 
-//            tBuiltIn.tI2c = tI2cSlave ;
-//            tI2cSlave.RecCount = 0x00 ;   //¼ÆÊýÖµÇå0  ´ÓÍ·¿ªÊ¼½ÓÊÕÊý¾Ý
-        }
-        else
-        {
-            Update_tI2cSlave.uFlag.Bits.SendSucess = SUCCESS; 
-      //      tBuiltIn.tI2c = tI2cSlave ;
-            
-            Update_tI2cSlave.SendSize = 0x00 ;   //±ÜÃâÃ»ÓÐ½ÓÊÕµ½ÃüÁîÖØÐÂ·¢Êý¾Ý
-            Update_tI2cSlave.SendCount = 0x00 ;  //¼ÆÊýÖµÇåÁã
-        }
-        /* disable I2C_INDEX interrupt */		
-    }
-    else if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_NACK)) 
-    {
-        /* clear STPDET interrupt flag */
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_NACK);
-//        tI2cSlave.uFlag.Bits.SendSucess = SUCCESS;            
-    }    
 }
 
 
 void I2C0_ER_IRQHandler(void)
 {
-    /* bus error */
-    if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_BERR)) {
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_BERR);
-    }
-
-    /* arbitration lost */
-    if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_LOSTARB)) {
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_LOSTARB);
-    }
-
-    /* over-run or under-run when SCL stretch is disabled */
-    if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_OUERR)) {
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_OUERR);
-    }
-
-    /* PEC error */
-    if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_PECERR)) {
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_PECERR);
-    }
-
-    /* timeout error */
-    if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_TIMEOUT)) {
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_TIMEOUT);
-    }
-
-    /* SMBus alert */
-    if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_SMBALT)) {
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_SMBALT);
-    }
-    else if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_NACK)) 
-    {
-        /* clear STPDET interrupt flag */
-        i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_NACK);
-        tI2cSlave.uFlag.Bits.SendSucess = SUCCESS;            
-        Update_tI2cSlave.uFlag.Bits.SendSucess = SUCCESS;            
-    }
-
-    tI2cSlave.RecCount = 0x00 ;   //¼ÆÊýÖµÇå0  ´ÓÍ·¿ªÊ¼½ÓÊÕÊý¾Ý
-    tI2cSlave.uFlag.Bits.RecSuccess = ERROR ;  
-    tI2cSlave.SendSize = 0x00 ;   //±ÜÃâÃ»ÓÐ½ÓÊÕµ½ÃüÁîÖØÐÂ·¢Êý¾Ý
-    tI2cSlave.SendCount = 0x00 ;  //¼ÆÊýÖµÇåÁã
-    tI2cSlave.uFlag.Bits.SendSucess = ERROR;  
-	//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-	Update_tI2cSlave.RecCount = 0x00 ;   //¼ÆÊýÖµÇå0  ´ÓÍ·¿ªÊ¼½ÓÊÕÊý¾Ý
-    Update_tI2cSlave.uFlag.Bits.RecSuccess = ERROR ;     
-    Update_tI2cSlave.SendSize = 0x00 ;   //±ÜÃâÃ»ÓÐ½ÓÊÕµ½ÃüÁîÖØÐÂ·¢Êý¾Ý
-    Update_tI2cSlave.SendCount = 0x00 ;  //¼ÆÊýÖµÇåÁã
-    Update_tI2cSlave.uFlag.Bits.SendSucess = ERROR; 
 }
 
 
@@ -301,6 +124,7 @@ void I2C1_EV_IRQHandler(void)
 {
     if(i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_ADDSEND)) 
     {
+        IRQ_RELEASE;//µ±Ö÷»ú·¢ËÍ12C¶ÁµÄµØÖ·ÓëÏÔÊ¾ÆÁ´ÓµØÖ·Ò»ÖÂÊ±£¬ÏÔÊ¾ÆÁ½«IRQÀ­¸ß£¬²¢±£³Ö¸ß×´Ì¬µ½Ö÷»úI2C¶Á²Ù×÷½áÊøµÄÍ£Ö¹Î»
         tI2cSlave.uFlag.Bits.DirState=i2c_flag_get(I2C_INDEX,I2C_FLAG_TR);
         if(tI2cSlave.uFlag.Bits.DirState==RESET)
         {
@@ -314,7 +138,7 @@ void I2C1_EV_IRQHandler(void)
         }            
         /* clear the ADDSEND bit */
         i2c_interrupt_flag_clear(I2C_INDEX, I2C_INT_FLAG_ADDSEND);
-		//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+		//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
         Update_tI2cSlave.uFlag.Bits.DirState=i2c_flag_get(I2C_INDEX,I2C_FLAG_TR);
         if(Update_tI2cSlave.uFlag.Bits.DirState==RESET)
         {
@@ -356,7 +180,7 @@ void I2C1_EV_IRQHandler(void)
         {
             i2c_data_receive(I2C_INDEX);        
         }
-		//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+		//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
     }
     else if((i2c_interrupt_flag_get(I2C_INDEX, I2C_INT_FLAG_TI))) //·¢ËÍ
     {
@@ -475,7 +299,7 @@ void I2C1_ER_IRQHandler(void)
     tI2cSlave.SendSize = 0x00 ;   //±ÜÃâÃ»ÓÐ½ÓÊÕµ½ÃüÁîÖØÐÂ·¢Êý¾Ý
     tI2cSlave.SendCount = 0x00 ;  //¼ÆÊýÖµÇåÁã
     tI2cSlave.uFlag.Bits.SendSucess = ERROR;  
-	//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+	//¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
 	Update_tI2cSlave.RecCount = 0x00 ;   //¼ÆÊýÖµÇå0  ´ÓÍ·¿ªÊ¼½ÓÊÕÊý¾Ý
     Update_tI2cSlave.uFlag.Bits.RecSuccess = ERROR ;     
     Update_tI2cSlave.SendSize = 0x00 ;   //±ÜÃâÃ»ÓÐ½ÓÊÕµ½ÃüÁîÖØÐÂ·¢Êý¾Ý

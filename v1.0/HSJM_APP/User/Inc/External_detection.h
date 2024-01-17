@@ -23,5 +23,6 @@ extern _IO_Detection IO_Detection;
 //º¯ÊýÉùÃ÷=======================================================================
 ErrStatus PIN_level_Detection(uint32_t gpio_periph, uint32_t pin, Voltage_level_Detection need_to_be_detected_level);
 
+ErrStatus IRQ_HIGH_level_Detection(void);
 
 #endif
