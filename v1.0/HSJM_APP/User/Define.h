@@ -142,6 +142,9 @@ extern _Counter_1ms Counter_1ms;
 #define BACKUP_START_ADDRESS	(uint32_t)(0x08020800)
 #define UPDATE_FLAG_ADDRESS		(uint32_t)(0x0803C000)
 #define APP2BOOT_FLAG_ADDRESS	(uint32_t)(0x0803C400)
+#define PART_ID_ADDRESS_5       (uint32_t)(0x0803C800)
+#define PART_ID_ADDRESS_10      (uint32_t)(0x0803CC00)
+#define HW_VERSION_ADDRESS      (uint32_t)(0x0803D000)
 
 #define BOOT_PAGE_NUM 	20
 #define APP_PAGE_NUM	110

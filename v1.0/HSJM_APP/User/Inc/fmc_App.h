@@ -14,6 +14,7 @@ void fmc_erase_pages(uint32_t start_address, uint32_t page_num);//【擦除从（star
 void fmc_uint64_program(uint32_t address, uint64_t data);//【写一个双字（data）烧写到指定地址（addresss）】
 void fmc_program(uint32_t address, uint64_t arr[]);//【把bin数据（arr[]）烧写到指定地址（addresss）】
 ErrStatus fmc_program_check(uint32_t address, uint64_t arr[]);
+ErrStatus Fmc_program_check(uint32_t address, uint64_t arr[], uint8_t count);
 void TEST(void);
 
 

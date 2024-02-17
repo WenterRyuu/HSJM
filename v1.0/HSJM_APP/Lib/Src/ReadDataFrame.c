@@ -16,8 +16,7 @@ Std_ReadDataFrameStr Std_ReadDataFrame_ID15;
 Std_ReadDataFrameStr Std_ReadDataFrame_ID16;
 Std_ReadDataFrameStr Std_ReadDataFrame_ID17;
 Std_ReadDataFrameStr Std_ReadDataFrame_ID18;
-Std_ReadDataFrameStr Std_ReadDataFrame_ID1E;
-Std_ReadDataFrameStr Std_ReadDataFrame_ID1F;
+Std_ReadDataFrameStr Std_ReadDataFrame_ID21;
 
 //主机读取的数据的结构体定义,这些数据会在函数中轮询赋予对应ID的Std帧
 ReCmd_0x01_TP_TouchPoint_StdDataStr TP_TouchPoint_StdDataStr;
@@ -33,7 +32,7 @@ ReCmd_0x17_UpdateCmdStr UpdateCmdStr;
 ReCmd_0x18_RequestTimestampCmdStr RequestTimestampCmdStr;
 ReCmd_0x1E_KeyStatusCmdStr KeyStatusCmdStr;
 ReCmd_0x1F_LightSeneorValueStr LightSeneorValueStr;
-
+ReCmd_0x21_PartNumber PartNumber;
 
 
 
@@ -61,8 +60,6 @@ void ReadDataFrameInit()
     Std_ReadDataFrame_ID16 = Std_ReadDataFrameInitStr;
     Std_ReadDataFrame_ID17 = Std_ReadDataFrameInitStr;
     Std_ReadDataFrame_ID18 = Std_ReadDataFrameInitStr;
-    Std_ReadDataFrame_ID1E = Std_ReadDataFrameInitStr;
-    Std_ReadDataFrame_ID1F = Std_ReadDataFrameInitStr;
 
     Std_ReadDataFrame_ID01.ReadCmd_Id = 0x01;
     Ext_ReadDataFrame_ID02.ReadCmd_Id = 0x02;
@@ -75,8 +72,6 @@ void ReadDataFrameInit()
     Std_ReadDataFrame_ID16.ReadCmd_Id = 0x16;
     Std_ReadDataFrame_ID17.ReadCmd_Id = 0x17;
     Std_ReadDataFrame_ID18.ReadCmd_Id = 0x18;
-    Std_ReadDataFrame_ID1E.ReadCmd_Id = 0x1E;
-    Std_ReadDataFrame_ID1F.ReadCmd_Id = 0x1F;
 }
 
 
@@ -119,7 +114,7 @@ void ReadCmdIdStrInit()
     RequestLcdStatusCmdStr.FOGPowerSwitchStatus = 0x00;//【硬件没有FOG电路】0x00:FOG电源关闭  0x01:FOG电源开启
 
     /*READ_CMD_ID 0x14  产品ID*/
-    ProductIDStr.SupplierInformation = 0x01;//0x00：保留  0x01：按照供应商名称
+    ProductIDStr.SupplierInformation = 0x04;//0x00：保留  0x01：按照供应商名称
     ProductIDStr.LcdSize = 0x04;//0x00：保留  0x01：8 Inch  0x02：9 Inch  0x03：10.1 Inch  0x04：10.25 Inch  0x05：10.4 Inch  0x06： 12.3 Inch  0x07：12.6Inch  0x08:15.6Inch  0x09:16.2Inch  0x0A:27 Inch
     ProductIDStr.LcdDpi = 0x01;//0x00：保留  0x01: 1920*720  0x02：1280*720  0x03：1920*1080  0x04:1920*1200
     ProductIDStr.LVDSFormat = 0x01;//0x00：保留  0x01: VESA  0x02：JEIDA
@@ -187,6 +182,31 @@ void ReadCmdIdStrInit()
     /*READ_CMD_ID 0x1F  光线传感器值*/
     LightSeneorValueStr.LightSeneorValueLSB = 0x00;
     LightSeneorValueStr.LightSeneorValueMSB = 0x00;
+    
+    /*READ_CMD_ID 0x1F  零件号*/    
+//    PartNumber.Part_1st_digit = 0x32;//248102HH0A
+//    PartNumber.Part_2nd_digit = 0x34;
+//    PartNumber.Part_3rd_digit = 0x38;
+//    PartNumber.Part_4th_digit = 0x31;
+//    PartNumber.Part_5th_digit = 0x30;
+//    PartNumber.Part_6th_digit = 0x32;
+//    PartNumber.Part_7th_digit = 0x48;
+//    PartNumber.Part_8th_digit = 0x48;
+//    PartNumber.Part_9th_digit = 0x30;
+//    PartNumber.Part_10th_digit = 0x41;    
+    uint8_t *ptr;
+    ptr = PART_ID_ADDRESS_5;
+    PartNumber.Part_1st_digit = *ptr;ptr++;                                     //248102HH0A    
+    PartNumber.Part_2nd_digit = *ptr;ptr++;        
+    PartNumber.Part_3rd_digit = *ptr;ptr++;    
+    PartNumber.Part_4th_digit = *ptr;ptr++;    
+    PartNumber.Part_5th_digit = *ptr;
+    ptr = PART_ID_ADDRESS_10;    
+    PartNumber.Part_6th_digit = *ptr;ptr++;    
+    PartNumber.Part_7th_digit = *ptr;ptr++;    
+    PartNumber.Part_8th_digit = *ptr;ptr++;    
+    PartNumber.Part_9th_digit = *ptr;ptr++;    
+    PartNumber.Part_10th_digit = *ptr;  
 }
 
 /*计算校验和*/
@@ -388,39 +408,35 @@ void ReadFrameWriteData()
     Std_ReadDataFrame_ID18.ExtLength = 0x00;
     Std_ReadDataFrame_ID18.checksum = ReadFrameChecksumCount(&Std_ReadDataFrame_ID18);
 
-    /*0x1E datawrite*/
-    Std_ReadDataFrame_ID1E.ReadData[0] = KeyStatusCmdStr.KeyStatus1;
-    Std_ReadDataFrame_ID1E.ReadData[1] = KeyStatusCmdStr.KeyStatus2;
-    Std_ReadDataFrame_ID1E.ReadData[2] = KeyStatusCmdStr.KeyStatus3;
-    Std_ReadDataFrame_ID1E.ReadData[3] = KeyStatusCmdStr.KeyStatus4;
-    Std_ReadDataFrame_ID1E.ReadData[4] = KeyStatusCmdStr.KeyStatus5;
-    Std_ReadDataFrame_ID1E.ReadData[5] = 0x00;
-    Std_ReadDataFrame_ID1E.ReadData[6] = 0x00;
-    Std_ReadDataFrame_ID1E.ReadData[7] = 0x00;
-    Std_ReadDataFrame_ID1E.ReadData[8] = 0x00;
-    Std_ReadDataFrame_ID1E.ReadData[9] = 0x00;
-    Std_ReadDataFrame_ID1E.ReadData[10] = 0x00;
-    Std_ReadDataFrame_ID1E.ReadData[11] = 0x00;
-    Std_ReadDataFrame_ID1E.ReadData[12] = 0x00;
-    Std_ReadDataFrame_ID1E.ExtLength = 0x00;
-    Std_ReadDataFrame_ID1E.checksum = ReadFrameChecksumCount(&Std_ReadDataFrame_ID1E);
-
-    /*0x1F datawrite*/
-    Std_ReadDataFrame_ID1F.ReadData[0] = LightSeneorValueStr.LightSeneorValueLSB;
-    Std_ReadDataFrame_ID1F.ReadData[1] = LightSeneorValueStr.LightSeneorValueMSB;
-    Std_ReadDataFrame_ID1F.ReadData[2] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[3] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[4] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[5] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[6] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[7] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[8] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[9] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[10] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[11] = 0x00;
-    Std_ReadDataFrame_ID1F.ReadData[12] = 0x00;
-    Std_ReadDataFrame_ID1F.ExtLength = 0x00;
-    Std_ReadDataFrame_ID1F.checksum = ReadFrameChecksumCount(&Std_ReadDataFrame_ID1F);
+    /*0x21 datawrite*/
+    uint8_t *ptr;
+    ptr = PART_ID_ADDRESS_5;
+    PartNumber.Part_1st_digit = *ptr;ptr++;                                     //248102HH0A    
+    PartNumber.Part_2nd_digit = *ptr;ptr++;        
+    PartNumber.Part_3rd_digit = *ptr;ptr++;    
+    PartNumber.Part_4th_digit = *ptr;ptr++;    
+    PartNumber.Part_5th_digit = *ptr;
+    ptr = PART_ID_ADDRESS_10;    
+    PartNumber.Part_6th_digit = *ptr;ptr++;    
+    PartNumber.Part_7th_digit = *ptr;ptr++;    
+    PartNumber.Part_8th_digit = *ptr;ptr++;    
+    PartNumber.Part_9th_digit = *ptr;ptr++;    
+    PartNumber.Part_10th_digit = *ptr;    
+    Std_ReadDataFrame_ID21.ReadData[0] = PartNumber.Part_1st_digit;
+    Std_ReadDataFrame_ID21.ReadData[1] = PartNumber.Part_2nd_digit;
+    Std_ReadDataFrame_ID21.ReadData[2] = PartNumber.Part_3rd_digit;
+    Std_ReadDataFrame_ID21.ReadData[3] = PartNumber.Part_4th_digit;
+    Std_ReadDataFrame_ID21.ReadData[4] = PartNumber.Part_5th_digit;
+    Std_ReadDataFrame_ID21.ReadData[5] = PartNumber.Part_6th_digit;
+    Std_ReadDataFrame_ID21.ReadData[6] = PartNumber.Part_7th_digit;
+    Std_ReadDataFrame_ID21.ReadData[7] = PartNumber.Part_8th_digit;
+    Std_ReadDataFrame_ID21.ReadData[8] = PartNumber.Part_9th_digit;
+    Std_ReadDataFrame_ID21.ReadData[9] = PartNumber.Part_10th_digit;
+    Std_ReadDataFrame_ID21.ReadData[10] = 0x00;
+    Std_ReadDataFrame_ID21.ReadData[11] = 0x00;
+    Std_ReadDataFrame_ID21.ReadData[12] = 0x00;
+    Std_ReadDataFrame_ID21.ExtLength = 0x00;
+    Std_ReadDataFrame_ID21.checksum = ReadFrameChecksumCount(&Std_ReadDataFrame_ID21);
     
 }
 
@@ -567,15 +583,23 @@ void ReadFrameTransmit(uint8_t cmd_id)
             tI2cSlave.Send_Buff[15] = ReadFrameChecksumBuff(&tI2cSlave.Send_Buff[0],15) ;
             tI2cSlave.SendSize = 16 ;		
             break;
-
-        case 0x1E://按键状态指令  主机不需要返回指令（按键功能预留）
-            //Std_ReadDataFrame_ID1E
-            break;
-
-        case 0x1F://光线传感器值  主机不需要返回指令（有光线传感器功能才需使用）
-            //Std_ReadDataFrame_ID1F
-            break;
-
+        
+        case 0x21:
+            tI2cSlave.Send_Buff[0] = cmd_id ;
+            tI2cSlave.Send_Buff[1] = PartNumber.Part_1st_digit;	
+            tI2cSlave.Send_Buff[2] = PartNumber.Part_2nd_digit;
+            tI2cSlave.Send_Buff[3] = PartNumber.Part_3rd_digit;
+            tI2cSlave.Send_Buff[4] = PartNumber.Part_4th_digit;
+            tI2cSlave.Send_Buff[5] = PartNumber.Part_5th_digit;		
+            tI2cSlave.Send_Buff[6] = PartNumber.Part_6th_digit;
+            tI2cSlave.Send_Buff[7] = PartNumber.Part_7th_digit;
+            tI2cSlave.Send_Buff[8] = PartNumber.Part_8th_digit;
+            tI2cSlave.Send_Buff[9] = PartNumber.Part_9th_digit;
+            tI2cSlave.Send_Buff[10] = PartNumber.Part_10th_digit;
+            memset(&tI2cSlave.Send_Buff[11],0x00,3) ;
+            tI2cSlave.Send_Buff[14] = 0 ; //无扩展帧
+            tI2cSlave.Send_Buff[15] = ReadFrameChecksumBuff(&tI2cSlave.Send_Buff[0],15) ;
+            tI2cSlave.SendSize = 16 ;		
         default:
             break;
     }

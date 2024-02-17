@@ -16,14 +16,34 @@
 
 _ScreenLitAfterStartup ScreenLitAfterStartup;
 
+void IRQ_LOOW_DOWN(void)
+{
+    if(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == SET)                   //如果是高电平，就马上拉低
+    {
+        IRQ_LOW_DOWN;
+        IRQ_100ms = 100;
+    }
+    else
+    {
+        while(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == RESET);         //如果是低电平，就一直等待，直到变成高电平
+        for(uint8_t i=0; i<50; i++)                                     //维持高电平一小段时间
+        {
+            __NOP();
+        }
+        IRQ_LOW_DOWN;                                                   //然后再拉低
+        IRQ_100ms = 100;                                                
+    }
+}
+
+
 
 uint8_t flag = 0;
 void process_0x81(void)
 {
 	uint8_t index = 0;
-	uint8_t id[4] = {0x13,0x14,0x15,0x16}; 
+	uint8_t id[5] = {0x13,0x14,0x15,0x16,0x21}; 
     
-	for(index=0; index<4; index++)
+	for(index=0; index<5; index++)
 	{
         while(gpio_input_bit_get(GPIOB, GPIO_PIN_14) == RESET);
         ReadFrameTransmit(id[index]);
@@ -92,7 +112,7 @@ void handshake_process(void)
 //            break;
 */
 #endif 
-            if(Update_tI2cSlave.RecBuff[0] == 0x85)//!!没有校验！！！！！！！
+            if(Update_tI2cSlave.RecBuff[0] == 0x85)
             {
                 ReadFrameTransmit(0x15);            
                 IRQ_RELEASE;

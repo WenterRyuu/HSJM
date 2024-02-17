@@ -1,0 +1,76 @@
+T1224 000:007.865   SEGGER J-Link V7.88k Log File
+T1224 000:008.123   DLL Compiled: Jul  5 2023 14:55:12
+T1224 000:008.129   Logging started @ 2024-01-16 03:33
+T1224 000:008.133 - 8.136ms
+T1224 000:008.152 JLINK_SetWarnOutHandler(...)
+T1224 000:008.160 - 0.010ms
+T1224 000:008.166 JLINK_OpenEx(...)
+T1224 000:012.290   Firmware: J-Link V9 compiled Dec 13 2022 11:14:50
+T1224 000:013.225   Firmware: J-Link V9 compiled Dec 13 2022 11:14:50
+T1224 000:013.363   Decompressing FW timestamp took 107 us
+T1224 000:023.547   Hardware: V9.70
+T1224 000:023.571   S/N: 69730346
+T1224 000:023.584   OEM: SEGGER
+T1224 000:023.589   Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash
+T1224 000:025.045   Bootloader: (Could not read)
+T1224 000:026.640   TELNET listener socket opened on port 19021
+T1224 000:026.788   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T1224 000:027.717   WEBSRV Webserver running on local port 19080
+T1224 000:027.871   Looking for J-Link GUI Server exe at: C:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
+T1224 000:027.966   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink\JLinkGUIServer.exe
+T1224 000:027.998   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink\JLinkGUIServer.exe
+T1224 000:056.380   J-Link GUI Server info: "J-Link GUI server V7.88k "
+T1224 000:060.179 - 52.032ms returns "O.K."
+T1224 000:060.220 JLINK_GetEmuCaps()
+T1224 000:060.226 - 0.009ms returns 0xB9FF7BBF
+T1224 000:060.235 JLINK_TIF_GetAvailable(...)
+T1224 000:060.608 - 0.378ms
+T1224 000:060.618 JLINK_SetErrorOutHandler(...)
+T1224 000:060.623 - 0.008ms
+T1224 000:060.653 JLINK_ExecCommand("ProjectFile = "E:\OneDrive\Going-On\20230925 - BOE_ChengDu\HSJM\v1.0\HSJM_BOOT\Template\Keil_project\JLinkSettings.ini"", ...). 
+T1224 000:076.806   Ref file found at: C:\Keil_v5\ARM\Segger\JLinkDevices.ref
+T1224 000:077.037   REF file references invalid XML file: C:\Program Files\SEGGER\JLink\JLinkDevices.xml
+T1224 000:077.325 - 16.677ms returns 0x00
+T1224 000:080.924 JLINK_ExecCommand("Device = GD32A503KC", ...). 
+T1224 000:081.011   Flash bank @ 0x08000000: SFL: Parsing sectorization info from ELF file
+T1224 000:081.018     FlashDevice.SectorInfo[0]: .SectorSize = 0x00000400, .SectorStartAddr = 0x00000000
+T1224 000:082.881   Device "GD32A503KC" selected.
+T1224 000:083.450 - 2.510ms returns 0x00
+T1224 000:083.463 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T1224 000:083.469 - 0.003ms returns 0x01
+T1224 000:083.475 JLINK_GetHardwareVersion()
+T1224 000:083.480 - 0.006ms returns 97000
+T1224 000:083.492 JLINK_GetDLLVersion()
+T1224 000:083.496 - 0.005ms returns 78811
+T1224 000:083.501 JLINK_GetOEMString(...)
+T1224 000:083.506 JLINK_GetFirmwareString(...)
+T1224 000:083.510 - 0.006ms
+T1224 000:088.387 JLINK_GetDLLVersion()
+T1224 000:088.403 - 0.017ms returns 78811
+T1224 000:088.408 JLINK_GetCompileDateTime()
+T1224 000:088.412 - 0.005ms
+T1224 000:089.820 JLINK_GetFirmwareString(...)
+T1224 000:089.832 - 0.014ms
+T1224 000:091.268 JLINK_GetHardwareVersion()
+T1224 000:091.280 - 0.013ms returns 97000
+T1224 000:092.705 JLINK_GetSN()
+T1224 000:092.717 - 0.013ms returns 69730346
+T1224 000:094.078 JLINK_GetOEMString(...)
+T1224 000:096.757 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T1224 000:098.276 - 1.523ms returns 0x00
+T1224 000:098.285 JLINK_HasError()
+T1224 000:098.300 JLINK_SetSpeed(5000)
+T1224 000:098.690 - 0.392ms
+T1224 000:098.696 JLINK_GetId()
+T1224 000:101.578   ConfigTargetSettings() start
+T1224 000:101.596    J-Link Script File: Executing ConfigTargetSettings()
+T1224 000:103.223   ConfigTargetSettings() end - Took 24us
+T1224 000:213.936   Failed to attach to CPU. Trying connect under reset.
+T1224 000:831.666   ConfigTargetSettings() start
+T1224 000:831.691    J-Link Script File: Executing ConfigTargetSettings()
+T1224 000:833.272   ConfigTargetSettings() end - Took 10us
+T1224 000:941.609 - 842.934ms returns 0x00000000
+T1224 002:611.196 JLINK_Close()
+T1224 002:615.001 - 3.822ms
+T1224 002:615.021   
+T1224 002:615.025   Closed

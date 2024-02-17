@@ -24,6 +24,10 @@ WrCmd_0x85_TimeStamp    TimeStamp;
 WrCmd_0x86_OpenCloseLcd OpenCloseLcd;
 WrCmd_0x87_BackLightSwitchCmd   BackLightSwitchCmd;
 WrCmd_0xF0_UpdateCmd    UpdateCmd;
+WrCmd_0x90_PartNumberWriteCmd PartNumberWriteCmd1_5;
+WrCmd_0x91_PartNumberWriteCmd PartNumberWriteCmd6_10;
+WrCmd_0x92_HWversionWriteCmd HWversionWriteCmd;
+
 WrCmd_0xF1_ExtUpdateCmd ExtUpdateCmd_F1;
 WrCmd_0xF2_ExtUpdateCmd ExtUpdateCmd_F2;
 WrCmd_0xF3_ExtUpdateCmd ExtUpdateCmd_F3;
@@ -105,13 +109,14 @@ void WriteCmdIdStrInit()
 uint8_t ChecksumCheck(uint8_t * CheckArr)
 {
     uint8_t i =0;
-    uint8_t CheckSumCount = 0;
+    uint16_t CheckSumCount = 0;
     for(i = 0; i < 11; i++)
     {
         CheckSumCount += *(CheckArr + i);
     }
 
-    if(CheckSumCount == *(CheckArr + i))
+    CheckSumCount = CheckSumCount&0xFF;                                         //只保留低8位
+    if((uint8_t)CheckSumCount == (uint8_t)(*(CheckArr + i)))
     {
         return 0;
     }
@@ -155,9 +160,6 @@ void ExtWriteFrameDataWrite(Ext_WriteDataFrameStr *DataFrameStr, uint8_t *Receiv
 void LcdInformationCheckFun(Std_WriteDataFrameStr *DataFrameStr)
 {
     LcdInformationCheck.LcdCheckCmd =  DataFrameStr->WriteData[0];
-
-    //还需要显示屏返回CMD_ID:0x13,0x14,0x15,0x16
-    //return 0x0;
 }
 
 
@@ -168,8 +170,7 @@ void SetFrameTimeoutValueFun(Std_WriteDataFrameStr *DataFrameStr)
 }
 
 void BackLightModeConfigureFun(Std_WriteDataFrameStr *DataFrameStr)
-{
-	
+{	
     BackLightModeConfigure.BackLightValue = DataFrameStr->WriteData[0];
 	BackLightModeConfigure.Reserved = DataFrameStr->WriteData[1];
     BackLightModeConfigure.BackLightSwitch = DataFrameStr->WriteData[2];	
@@ -186,7 +187,6 @@ void TimeStampFun(Std_WriteDataFrameStr *DataFrameStr)
     TimeStamp.TimeStamp2 = DataFrameStr->WriteData[1];
     TimeStamp.TimeStamp3 = DataFrameStr->WriteData[2];
     TimeStamp.TimeStamp4 = DataFrameStr->WriteData[3];
-
 }
 
 void OpenCloseLcdFun(Std_WriteDataFrameStr *DataFrameStr)
@@ -197,6 +197,50 @@ void OpenCloseLcdFun(Std_WriteDataFrameStr *DataFrameStr)
 void BackLightSwitchCmdFun(Std_WriteDataFrameStr *DataFrameStr)
 {
     BackLightSwitchCmd.BackLightSwitchGrade = DataFrameStr->WriteData[0];
+}
+
+void PartNumberWriteCmd1_5Fun(Std_WriteDataFrameStr *DataFrameStr)
+{
+    PartNumberWriteCmd1_5.Part_1st_digit = DataFrameStr->WriteData[0];
+    PartNumberWriteCmd1_5.Part_2nd_digit = DataFrameStr->WriteData[1];
+    PartNumberWriteCmd1_5.Part_3rd_digit = DataFrameStr->WriteData[2];
+    PartNumberWriteCmd1_5.Part_4th_digit = DataFrameStr->WriteData[3];
+    PartNumberWriteCmd1_5.Part_5th_digit = DataFrameStr->WriteData[4];
+    PartNumber.Part_1st_digit = PartNumberWriteCmd1_5.Part_1st_digit;
+    PartNumber.Part_2nd_digit = PartNumberWriteCmd1_5.Part_2nd_digit;
+    PartNumber.Part_3rd_digit = PartNumberWriteCmd1_5.Part_3rd_digit;
+    PartNumber.Part_4th_digit = PartNumberWriteCmd1_5.Part_4th_digit;
+    PartNumber.Part_5th_digit = PartNumberWriteCmd1_5.Part_5th_digit;
+}
+
+void PartNumberWriteCmd6_10Fun(Std_WriteDataFrameStr *DataFrameStr)
+{
+    PartNumberWriteCmd6_10.Part_6th_digit = DataFrameStr->WriteData[0];
+    PartNumberWriteCmd6_10.Part_7th_digit = DataFrameStr->WriteData[1];
+    PartNumberWriteCmd6_10.Part_8th_digit = DataFrameStr->WriteData[2];
+    PartNumberWriteCmd6_10.Part_9th_digit = DataFrameStr->WriteData[3];
+    PartNumberWriteCmd6_10.Part_10th_digit = DataFrameStr->WriteData[4];
+    PartNumber.Part_6th_digit = PartNumberWriteCmd6_10.Part_6th_digit;
+    PartNumber.Part_7th_digit = PartNumberWriteCmd6_10.Part_7th_digit;
+    PartNumber.Part_8th_digit = PartNumberWriteCmd6_10.Part_8th_digit;
+    PartNumber.Part_9th_digit = PartNumberWriteCmd6_10.Part_9th_digit;
+    PartNumber.Part_10th_digit = PartNumberWriteCmd6_10.Part_10th_digit;
+}
+
+void HWversionWriteCmdFun(Std_WriteDataFrameStr *DataFrameStr)
+{
+    HWversionWriteCmd.HWversion_before_dot = DataFrameStr->WriteData[0];
+    HWversionWriteCmd.HWversion_after_dot = DataFrameStr->WriteData[1];
+    HWversionWriteCmd.HWversion_Revision = DataFrameStr->WriteData[2];
+    HWversionWriteCmd.HWversion_Year = DataFrameStr->WriteData[3];
+    HWversionWriteCmd.HWversion_Month = DataFrameStr->WriteData[4];
+    HWversionWriteCmd.HWversion_Day = DataFrameStr->WriteData[5];    
+    VersionStr.HWversion = HWversionWriteCmd.HWversion_before_dot;
+    VersionStr.HWVersionDot = HWversionWriteCmd.HWversion_after_dot;
+    VersionStr.HWVersion = HWversionWriteCmd.HWversion_Revision;
+    VersionStr.HWYear = HWversionWriteCmd.HWversion_Year;
+    VersionStr.HWMonth = HWversionWriteCmd.HWversion_Month;
+    VersionStr.HWDay = HWversionWriteCmd.HWversion_Day;
 }
 
 void UpdateCmdFun(Std_WriteDataFrameStr *DataFrameStr)
@@ -329,10 +373,63 @@ void ExtUpdateCmd3Fun(Ext_WriteDataFrameStr *DataFrameStr)
     }
 }
 
+ErrStatus Part_Number_Write(void)
+{
+    uint64_t merged_data[2] = {0};    
+    merged_data[0] |=   (uint64_t)PartNumber.Part_1st_digit |                   //合并数据
+                        ((uint64_t)PartNumber.Part_2nd_digit<<8) |
+                        ((uint64_t)PartNumber.Part_3rd_digit<<16) |
+                        ((uint64_t)PartNumber.Part_4th_digit<<24) |
+                        ((uint64_t)PartNumber.Part_5th_digit<<32) |
+                        ((uint64_t)0xFFFFFF<<40) ;    
+    merged_data[1] |=   (uint64_t)PartNumber.Part_6th_digit |
+                        ((uint64_t)PartNumber.Part_7th_digit<<8) |
+                        ((uint64_t)PartNumber.Part_8th_digit<<16) |   
+                        ((uint64_t)PartNumber.Part_9th_digit<<24) |
+                        ((uint64_t)PartNumber.Part_10th_digit<<32) |
+                        ((uint64_t)0xFFFFFF<<40) ;
+    fmc_erase_pages(0x0803C800, 2);                                             //擦除
+    fmc_unlock();                                                               //写入
+    fmc_doubleword_program(0x0803C800, merged_data[0]);     
+    fmc_doubleword_program(0x0803CC00, merged_data[1]);
+    fmc_flags_clear();  
+    fmc_lock();
+//    bool is_check_ok = Fmc_program_check(PART_ID_ADDRESS, merged_data, 2);    //检查
+//    if(is_check_ok)
+//    {
+//        return SUCCESS;
+//    }
+//    else
+//        return ERROR;    
+    return SUCCESS;
+}
+
+ErrStatus HW_VERSION_Write(void)
+{  
+    uint64_t * ptrd;
+	ptrd = (uint64_t *)HW_VERSION_ADDRESS;
+    uint64_t result =   (uint64_t)VersionStr.HWversion | 
+                        ((uint64_t)VersionStr.HWVersionDot<<8) |
+                        ((uint64_t)VersionStr.HWVersion<<16) |
+                        ((uint64_t)VersionStr.HWYear<<24) |
+                        ((uint64_t)VersionStr.HWMonth<<32) |
+                        ((uint64_t)VersionStr.HWDay<<40) |
+                        ((uint64_t)0xFF<<48) |
+                        ((uint64_t)0xFF<<56);   
+    fmc_uint64_program(HW_VERSION_ADDRESS, result);
+//    if((*ptrd) != result) 
+//    {
+//        return ERROR;
+//    } 
+//    else 
+//        return SUCCESS;
+    return SUCCESS;
+}
 //主机向显示屏发送数据
 extern bool handshake_is_ok;
 uint8_t WriteFrameTransmit(void)
 {
+//    printf("ko\n");
     Std_WriteDataFrameStr   Std_WriteDataFrame;
     Ext_WriteDataFrameStr   Ext_WriteDataFrame;
     uint8_t i = 0;
@@ -350,6 +447,9 @@ uint8_t WriteFrameTransmit(void)
         (MasterTransmitData[0] == 0x85)||
         (MasterTransmitData[0] == 0x86)||
         (MasterTransmitData[0] == 0x87)||
+        (MasterTransmitData[0] == 0x90)||                                       //零件号前5位
+        (MasterTransmitData[0] == 0x91)||                                       //零件号后5位
+        (MasterTransmitData[0] == 0x92)||                                       //硬件版本号
         (MasterTransmitData[0] == 0xF0)) 
         && (ExtUpdateCmd_F1.ExtF1ActiveFlag == 0x00)
         && (ExtUpdateCmd_F2.ExtF2ActiveFlag == 0x00)
@@ -369,19 +469,20 @@ uint8_t WriteFrameTransmit(void)
                 StdWriteFrameDataWrite(&Std_WriteDataFrame,&MasterTransmitData);
             }
         }
-        else if((MasterTransmitData[0] == 0xF1) && (ExtUpdateCmd_F1.ExtF1ActiveFlag == 0x01))
-        {
-
-            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F1.VaildDataArrLenght);
-        }
-        else if((MasterTransmitData[0] == 0xF2) && (ExtUpdateCmd_F2.ExtF2ActiveFlag == 0x01))
-        {
-            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F2.VaildDataArrLenght);
-        }
-        else if((MasterTransmitData[0] == 0xF3) && (ExtUpdateCmd_F3.ExtF3ActiveFlag == 0x01))
-        {
-            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F3.VaildDataArrLenght);
-        }
+/*
+//        else if((MasterTransmitData[0] == 0xF1) && (ExtUpdateCmd_F1.ExtF1ActiveFlag == 0x01))
+//        {
+//            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F1.VaildDataArrLenght);
+//        }
+//        else if((MasterTransmitData[0] == 0xF2) && (ExtUpdateCmd_F2.ExtF2ActiveFlag == 0x01))
+//        {
+//            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F2.VaildDataArrLenght);
+//        }
+//        else if((MasterTransmitData[0] == 0xF3) && (ExtUpdateCmd_F3.ExtF3ActiveFlag == 0x01))
+//        {
+//            ExtWriteFrameDataWrite(&Ext_WriteDataFrame,&MasterTransmitData,ExtUpdateCmd_F3.VaildDataArrLenght);
+//        }
+*/
         else
         {
             //此处应该清空MasterTransmitData
@@ -422,22 +523,47 @@ uint8_t WriteFrameTransmit(void)
                 break;
             case 0x86:
                 OpenCloseLcdFun(&Std_WriteDataFrame);
+                PowerOff_Sequence();            
                 break;
             case 0x87:
                 BackLightSwitchCmdFun(&Std_WriteDataFrame);
                 break;
-            case 0xF0:
-                UpdateCmdFun(&Std_WriteDataFrame);
+            case 0x90:
+                PartNumberWriteCmd1_5Fun(&Std_WriteDataFrame);      
+                uint64_t PartNumber1_5 = 0;
+                PartNumber1_5 |=    (uint64_t)PartNumber.Part_1st_digit |                   //合并数据
+                                    ((uint64_t)PartNumber.Part_2nd_digit<<8) |
+                                    ((uint64_t)PartNumber.Part_3rd_digit<<16) |
+                                    ((uint64_t)PartNumber.Part_4th_digit<<24) |
+                                    ((uint64_t)PartNumber.Part_5th_digit<<32) |
+                                    ((uint64_t)0xFFFFFF<<40) ;                    
+                fmc_erase_pages(0x0803C800, 1);                                             //擦除
+                fmc_unlock();                                                               //写入
+                fmc_doubleword_program(0x0803C800, PartNumber1_5);     
+                fmc_flags_clear();  
+                fmc_lock();
                 break;
-            case 0xF1:
-                ExtUpdateCmd1Fun(&Ext_WriteDataFrame);
+            case 0x91:
+                PartNumberWriteCmd6_10Fun(&Std_WriteDataFrame);
+//                int timeout_6_10 = 0;
+//                while(!Part_Number_Write() || (timeout_6_10++)>1000);
+                uint64_t PartNumber6_10 = 0;
+                PartNumber6_10 |=    (uint64_t)PartNumber.Part_6th_digit |
+                                    ((uint64_t)PartNumber.Part_7th_digit<<8) |
+                                    ((uint64_t)PartNumber.Part_8th_digit<<16) |   
+                                    ((uint64_t)PartNumber.Part_9th_digit<<24) |
+                                    ((uint64_t)PartNumber.Part_10th_digit<<32) |
+                                    ((uint64_t)0xFFFFFF<<40) ;
+                fmc_erase_pages(0x0803CC00, 1);                                             //擦除
+                fmc_unlock();                                                               //写入
+                fmc_doubleword_program(0x0803CC00, PartNumber6_10);     
+                fmc_flags_clear();  
+                fmc_lock();  
                 break;
-            case 0xF2:
-                ExtUpdateCmd2Fun(&Ext_WriteDataFrame);
-                break;
-            case 0xF3:
-                ExtUpdateCmd3Fun(&Ext_WriteDataFrame);
-                break;
+            case 0x92:
+                HWversionWriteCmdFun(&Std_WriteDataFrame);
+                int timeout_HWVERSION_Wirte = 0;
+                while(!HW_VERSION_Write() || (timeout_HWVERSION_Wirte++)>1000);              
             default:
                 break;
         }

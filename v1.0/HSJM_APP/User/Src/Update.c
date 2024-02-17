@@ -55,9 +55,8 @@ void Notice_master_to_read(uint8_t *source)
 {
     memcpy(Update_tI2cSlave.Send_Buff, source, sizeof(Std_Receive_Arr.RequestBootloaderAccess));
 	Update_tI2cSlave.SendSize = 7;
-	IRQ_LOW_DOWN;//拉低中断通知主机来读
-	Counter_1ms.IRQ_Update = 100;	
-	
+	IRQ_LOOW_DOWN();//拉低中断通知主机来读
+	Counter_1ms.IRQ_Update = 100;		
 }
 
 /*------------------------------------------------------------------------------
@@ -170,7 +169,7 @@ void cx(void)
 			case READY:
 				memcpy(Update_tI2cSlave.Send_Buff, Std_Replay_Arr.Check_Ready, sizeof(Std_Replay_Arr.Check_Ready));
 				Update_tI2cSlave.SendSize = 11;
-				IRQ_LOW_DOWN;//拉低中断通知主机来读
+				IRQ_LOOW_DOWN();//拉低中断通知主机来读
 				Counter_1ms.IRQ_Update = 100;
 				//BootloaderStatus = EraseAppArea;
 				break;
@@ -178,28 +177,28 @@ void cx(void)
 //			case BLANK:
 //				memcpy(Update_tI2cSlave.Send_Buff, Std_Replay_Arr.Check_Blank, sizeof(Std_Replay_Arr.Check_Blank));
 //				Update_tI2cSlave.SendSize = 11;
-//				IRQ_LOW_DOWN;//拉低中断通知主机来读
+//				IRQ_LOOW_DOWN();//拉低中断通知主机来读
 //				Counter_1ms.IRQ_Update = 100;
 //				BootloaderStatus = StartProgramming;
 //				break;
 //			case PROGRAMMING://这个和下面的 PROGRAMMING_CHECK 状态，主机查询到的都是对应同一个回复
 //				memcpy(Update_tI2cSlave.Send_Buff, Std_Replay_Arr.Check_Programming, sizeof(Std_Replay_Arr.Check_Programming));
 //				Update_tI2cSlave.SendSize = 11;
-//				IRQ_LOW_DOWN;//拉低中断通知主机来读
+//				IRQ_LOOW_DOWN();//拉低中断通知主机来读
 //				Counter_1ms.IRQ_Update = 100;
 //				BootloaderStatus = ReceiveS19;
 //				break;
 //			case PROGRAMMING_CHECK:
 //				memcpy(Update_tI2cSlave.Send_Buff, Std_Replay_Arr.Check_Programming, sizeof(Std_Replay_Arr.Check_Programming));
 //				Update_tI2cSlave.SendSize = 11;
-//				IRQ_LOW_DOWN;//拉低中断通知主机来读
+//				IRQ_LOOW_DOWN();//拉低中断通知主机来读
 //				Counter_1ms.IRQ_Update = 100;
 //				BootloaderStatus = Verify_Flash_Checksum;
 //				break;
 //			case PROGRAMMING_COMPLETED:
 //				memcpy(Update_tI2cSlave.Send_Buff, Std_Replay_Arr.Programming_Completed, sizeof(Std_Replay_Arr.Programming_Completed));
 //				Update_tI2cSlave.SendSize = 11;
-//				IRQ_LOW_DOWN;//拉低中断通知主机来读
+//				IRQ_LOOW_DOWN();//拉低中断通知主机来读
 //				Counter_1ms.IRQ_Update = 100;
 //				BootloaderStatus = BL_Reset;
 //				break;
@@ -210,7 +209,7 @@ void cx(void)
 //				//返回给主机状态
 //				memcpy(Update_tI2cSlave.Send_Buff, Std_Replay_Arr.Waiting_for_Reset, sizeof(Std_Replay_Arr.Waiting_for_Reset));
 //				Update_tI2cSlave.SendSize = 11;
-//				IRQ_LOW_DOWN;//拉低中断通知主机来读
+//				IRQ_LOOW_DOWN();//拉低中断通知主机来读
 //				Counter_1ms.IRQ_Update = 100;
 //				BootloaderStatus = End;							
 //				break;	

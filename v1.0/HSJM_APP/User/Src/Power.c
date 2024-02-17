@@ -114,7 +114,7 @@ void PowerOff_Order(void)
 			
 		case STBYB_ACTION:
 			STBYB_SET_LOW;
-			Power.PowerOff_Counter = 120;
+			Power.PowerOff_Counter = 130;                                       //min=120
 			PowerOff_IO_State = Waiting_for_RESET_ACTION;
 		
 		case Waiting_for_RESET_ACTION:
@@ -135,8 +135,7 @@ void PowerOff_Order(void)
 		case END:
 			break;
 		
-		default:
-			
+		default:			
 			break;
 	}
 	

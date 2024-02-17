@@ -166,6 +166,19 @@ typedef struct
     uint8_t LightSeneorValueMSB;
 } ReCmd_0x1F_LightSeneorValueStr;//光线传感器值
 
+typedef struct
+{
+    uint8_t Part_1st_digit;//'0'~'9',零件号第1位
+    uint8_t Part_2nd_digit;
+    uint8_t Part_3rd_digit;    
+    uint8_t Part_4th_digit; 
+    uint8_t Part_5th_digit; 
+    uint8_t Part_6th_digit; 
+    uint8_t Part_7th_digit; 
+    uint8_t Part_8th_digit; 
+    uint8_t Part_9th_digit; 
+    uint8_t Part_10th_digit;
+} ReCmd_0x21_PartNumber;//光线传感器值
 
 //每个ID的读取帧定义
 extern Std_ReadDataFrameStr Std_ReadDataFrame_ID01;//暂时没触摸的功能,故不实现
@@ -178,8 +191,6 @@ extern Std_ReadDataFrameStr Std_ReadDataFrame_ID14;
 extern Std_ReadDataFrameStr Std_ReadDataFrame_ID15;
 extern Std_ReadDataFrameStr Std_ReadDataFrame_ID16;
 extern Std_ReadDataFrameStr Std_ReadDataFrame_ID17;
-extern Std_ReadDataFrameStr Std_ReadDataFrame_ID1E;
-extern Std_ReadDataFrameStr Std_ReadDataFrame_ID1F;
 
 //主机读取的数据的结构体定义,这些数据会在函数中轮询赋予对应ID的Std帧
 extern ReCmd_0x01_TP_TouchPoint_StdDataStr TP_TouchPoint_StdDataStr;
@@ -195,6 +206,7 @@ extern ReCmd_0x17_UpdateCmdStr UpdateCmdStr;
 extern ReCmd_0x18_RequestTimestampCmdStr RequestTimestampCmdStr;
 extern ReCmd_0x1E_KeyStatusCmdStr KeyStatusCmdStr;
 extern ReCmd_0x1F_LightSeneorValueStr LightSeneorValueStr;
+extern ReCmd_0x21_PartNumber PartNumber;
 
 extern void ReadDataFrameInit();//初始化主机读取数据
 extern void ReadCmdIdStrInit();//初始化各个Id结构体变量

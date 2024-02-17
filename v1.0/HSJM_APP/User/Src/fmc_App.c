@@ -134,6 +134,23 @@ ErrStatus fmc_program_check(uint32_t address, uint64_t arr[])
 	return SUCCESS;
 }
 
+ErrStatus Fmc_program_check(uint32_t address, uint64_t arr[], uint8_t count)
+{
+	uint64_t * ptrd;
+	ptrd = (uint64_t *)address;
+	for(uint8_t i = 0; i < count; i++) 
+	{
+		if((*ptrd) != arr[i]) 
+		{
+			return ERROR;
+		} 
+		else 
+		{
+			ptrd++;
+		}
+	}
+	return SUCCESS;
+}
 //NO USED
 void TEST(void)
 {
@@ -141,3 +158,6 @@ void TEST(void)
 //	  get_Bin64_Data_Array(Bin_Data_Array, Bin64_Data_Array);
 //    fmc_program(0x0803C000, Bin64_Data_Array);
 }
+
+
+//----------------------------------------------@20240205

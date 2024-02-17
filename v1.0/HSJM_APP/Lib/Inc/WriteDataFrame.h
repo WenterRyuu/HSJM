@@ -86,6 +86,34 @@ typedef struct
 
 typedef struct
 {
+    uint8_t Part_1st_digit;
+    uint8_t Part_2nd_digit;
+    uint8_t Part_3rd_digit;
+    uint8_t Part_4th_digit;    
+    uint8_t Part_5th_digit;
+}WrCmd_0x90_PartNumberWriteCmd;
+
+typedef struct
+{
+    uint8_t Part_6th_digit;
+    uint8_t Part_7th_digit;
+    uint8_t Part_8th_digit;
+    uint8_t Part_9th_digit;    
+    uint8_t Part_10th_digit;
+}WrCmd_0x91_PartNumberWriteCmd;
+
+typedef struct
+{
+    uint8_t HWversion_before_dot;
+    uint8_t HWversion_after_dot;
+    uint8_t HWversion_Revision;
+    uint8_t HWversion_Year;    
+    uint8_t HWversion_Month;
+    uint8_t HWversion_Day;
+}WrCmd_0x92_HWversionWriteCmd;
+
+typedef struct
+{
 	uint8_t ExtF1ActiveFlag;
     uint8_t VaildDataArrLenght;
     uint8_t DiagnosisRequest;
@@ -154,5 +182,8 @@ extern void ExtUpdateCmd2Fun(Ext_WriteDataFrameStr *DataFrameStr);
 extern void ExtUpdateCmd3Fun(Ext_WriteDataFrameStr *DataFrameStr);
 extern uint8_t WriteFrameTransmit();
 extern uint8_t MasterTransmitData[MAX_DATA_LENGTH];
+
+extern ErrStatus Part_Number_Write(void);
+extern ErrStatus HW_VERSION_Write(void);
 
 #endif
